@@ -8,7 +8,7 @@
       {% include "partials/icon.njk" %}
       <{{ headingTag }} class="principle__title">{{ principle.title | amp | safe }}</{{ headingTag }}>
     </div>
-    <div class="principle__body prose">{{ principle.body | md | safe }}</div>
+    <div class="principle__body prose doodles">{{ principle.body | md | safe }}</div>
   </li>
   {%- endfor %}
 </ul>

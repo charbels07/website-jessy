@@ -16,7 +16,7 @@ permalink: /about-me/
       <img src="/assets/illustrations/reading.svg" width="480" height="500" alt="" decoding="async">
       {%- endif %}
     </div>
-    <div class="about-intro__text prose prose--lead">{{ about.intro | md | safe }}</div>
+    <div class="about-intro__text prose prose--lead doodles">{{ about.intro | md | safe }}</div>
   </div>
 </section>
 
@@ -30,7 +30,7 @@ permalink: /about-me/
         <img class="aside-art" src="/assets/illustrations/{{ section.art }}.svg" width="320" height="240" alt="" loading="lazy" decoding="async">
         {%- endif %}
       </div>
-      <div class="split__main">
+      <div class="split__main doodles">
         <div class="prose">{{ section.body | md | safe }}</div>
         {%- if loop.last and about.closing %}
         <div class="statement">

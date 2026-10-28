@@ -596,6 +596,41 @@ ul[role="list"] {
   color: var(--navy);
 }
 
+/* Faint hand-drawn doodles behind longer passages, so the page never feels plain.
+   The layer fades out at the top and bottom, and each block starts the pattern
+   at a different point. */
+.doodles {
+  position: relative;
+  isolation: isolate;
+}
+
+.doodles::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -2rem -1rem;
+  background: url("/assets/illustrations/doodles.svg") 0 0 / 42rem auto repeat;
+  -webkit-mask-image: linear-gradient(transparent, #000 3rem, #000 calc(100% - 3rem), transparent);
+  mask-image: linear-gradient(transparent, #000 3rem, #000 calc(100% - 3rem), transparent);
+  pointer-events: none;
+}
+
+.entry:nth-child(3n + 2) .doodles::before,
+.principle:nth-child(3n + 2) .doodles::before {
+  background-position: 21rem 11rem;
+}
+
+.entry:nth-child(3n) .doodles::before,
+.principle:nth-child(3n) .doodles::before {
+  background-position: 10rem 27rem;
+}
+
+@media (max-width: 40em) {
+  .doodles::before {
+    background-size: 27rem auto;
+  }
+}
+
 /* ---------- Hero ---------- */
 
 .hero {

@@ -177,4 +177,7 @@ For anyone editing the site later:
   are in `src/assets/illustrations/`; icons are in `src/_includes/partials/sprite.njk`.
   Each Area of Expertise (and its subsections), How I Work principle and For Parents
   question picks its icon in the CMS, and each About Me section can show a small
-  illustration beside its text. No stock photos or puzzle pieces.
+  illustration beside its text. Longer passages have a faint layer of hand-drawn
+  doodles behind them (`doodles.svg`: speech bubbles, letters, a kite, music notes and
+  so on), kept pale enough that the text stays fully readable. No stock photos or
+  puzzle pieces.

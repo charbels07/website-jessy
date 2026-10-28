@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 560" width="560" height="560" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Faint, hand-drawn doodles tiled behind long passages of text. Every doodle stays inside the tile so it repeats without seams. -->
+  <defs>
+    <filter id="hand" x="-2%" y="-2%" width="104%" height="104%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.045" numOctaves="2" seed="21"/>
+      <feDisplacementMap in="SourceGraphic" scale="2" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+  <g filter="url(#hand)">
+    <g stroke="#C97B5A" stroke-opacity=".27">
+      <!-- speech bubble -->
+      <g transform="translate(40 52) rotate(-8)">
+        <path d="M10 0h44a10 10 0 0 1 10 10v20a10 10 0 0 1-10 10H26L14 50V40h-4A10 10 0 0 1 0 30V10A10 10 0 0 1 10 0z"/>
+        <path d="M20 20h.1M32 20h.1M44 20h.1" stroke-width="4.5"/>
+      </g>
+      <!-- heart -->
+      <path d="M515 50c-4-8-16-3-11 6l11 9 11-9c5-9-7-14-11-6z"/>
+      <!-- sound waves -->
+      <path d="M460 245c6 6 6 16 0 22M472 238c10 10 10 26 0 36M484 231c14 14 14 36 0 50"/>
+      <!-- music notes -->
+      <path d="M386 428v-36l22-7v34"/>
+      <circle cx="380" cy="430" r="6"/>
+      <circle cx="402" cy="421" r="6"/>
+      <!-- sun -->
+      <circle cx="160" cy="500" r="11"/>
+      <path d="M178 500h7M173 513l5 5M160 518v7M147 513l-5 5M142 500h-7M147 487l-5-5M160 482v-7M173 487l5-5"/>
+      <!-- little house -->
+      <path d="M30 272v-20l16-13 16 13v20zM41 272v-10h10v10"/>
+    </g>
+    <g stroke="#5B7C99" stroke-opacity=".27">
+      <!-- star -->
+      <path d="M240 30l6 13 14 2-10 10 2 14-12-7-12 7 2-14-10-10 14-2z"/>
+      <!-- a b c -->
+      <circle cx="100" cy="230" r="9"/>
+      <path d="M109 221v18"/>
+      <path d="M124 205v34"/>
+      <circle cx="133" cy="230" r="9"/>
+      <path d="M168 224a10 10 0 1 0 0 13"/>
+      <!-- paper plane with a dotted trail -->
+      <path d="M200 350l60-24-18 52-12-18zM230 360l30-34"/>
+      <path d="M194 354c-20 8-36 4-46-12" stroke-dasharray="0.1 8"/>
+      <!-- smiley -->
+      <circle cx="505" cy="475" r="16"/>
+      <path d="M499 470h.1M511 470h.1" stroke-width="4"/>
+      <path d="M498 481q7 6 14 0"/>
+      <!-- cloud -->
+      <path d="M300 515c-10 0-12-12-3-15 1-10 14-12 19-5 5-8 20-7 23 3 9-1 13 9 7 17z"/>
+    </g>
+    <g stroke="#8A9878" stroke-opacity=".34">
+      <!-- kite -->
+      <path d="M410 40l18 24-18 32-18-32zM410 40v56M392 64h36"/>
+      <path d="M410 96c-5 10 6 16 0 26-4 8 4 14-1 20"/>
+      <path d="M403 112l7 3-7 3M417 112l-7 3 7 3"/>
+      <!-- loop-de-loop -->
+      <path d="M268 222c18 6 30-4 26-16-3-9-16-10-20-1-5 12 10 22 24 18 16-4 22-20 20-30"/>
+      <!-- sprout -->
+      <path d="M70 422v-28M70 402c-2-12-12-18-24-16 2 12 12 18 24 16zM70 394c2-12 12-18 24-16-2 12-12 18-24 16z"/>
+      <!-- sparkles -->
+      <path d="M470 158l3 7 7 3-7 3-3 7-3-7-7-3 7-3zM494 186l2 4 4 2-4 2-2 4-2-4-4-2 4-2z"/>
+      <!-- block with a letter -->
+      <rect x="505" y="345" width="28" height="28" rx="3"/>
+      <path d="M512 366l7-15 7 15M514 361h10"/>
+    </g>
+  </g>
+</svg>
