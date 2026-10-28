@@ -13,7 +13,7 @@ permalink: /
       <p class="hero__lede">{{ hero.text }}</p>
     </div>
     <div class="hero__art">
-      <img src="/assets/illustrations/hero.svg" width="640" height="520" alt="" fetchpriority="high">
+      <img src="{{ '/assets/illustrations/hero.svg' | versioned }}" width="640" height="520" alt="" fetchpriority="high">
     </div>
   </div>
 </section>
@@ -22,7 +22,7 @@ permalink: /
   <div class="container split">
     <div class="split__aside">
       <h2 class="section-title" id="home-about"><a href="{{ navigation | navUrl('about') }}">{{ navigation | navLabel("about") }}{% include "partials/arrow.njk" %}</a></h2>
-      <img class="aside-art" src="/assets/illustrations/growing.svg" width="320" height="240" alt="" loading="lazy" decoding="async">
+      <img class="aside-art" src="{{ '/assets/illustrations/growing.svg' | versioned }}" width="320" height="240" alt="" loading="lazy" decoding="async">
     </div>
     <div class="split__main prose prose--lead doodles">{{ about.intro | md | safe }}</div>
   </div>

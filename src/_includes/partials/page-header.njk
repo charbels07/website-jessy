@@ -4,6 +4,6 @@
     <h1 class="page-header__title">{{ pageLabel | amp | safe }}</h1>
   </div>
   {%- if headerArt %}
-  <img class="page-header__art" src="/assets/illustrations/{{ headerArt }}.svg" width="320" height="240" alt="" decoding="async">
+  <img class="page-header__art" src="{{ ('/assets/illustrations/' ~ headerArt ~ '.svg') | versioned }}" width="320" height="240" alt="" decoding="async">
   {%- endif %}
 </header>

@@ -1,3 +1,4 @@
+import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import { load as loadYaml } from "js-yaml";
@@ -17,6 +18,17 @@ const escapeHtml = (s) =>
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;");
+
+// Adds a short content hash to an asset URL ("/assets/x.svg?v=1a2b3c4d"), so browsers fetch
+// a changed illustration straight away instead of showing a cached copy.
+const versioned = (urlPath) => {
+  try {
+    const hash = crypto.createHash("md5").update(fs.readFileSync(path.join("src", urlPath))).digest("hex");
+    return `${urlPath}?v=${hash.slice(0, 8)}`;
+  } catch {
+    return urlPath;
+  }
+};
 
 // A placeholder such as "[Insert professional email address]" counts as "not supplied yet".
 const isPlaceholder = (value) => !value || /^\s*\[.*\]\s*$/.test(value);
@@ -46,6 +58,7 @@ export default function (eleventyConfig) {
   );
 
   eleventyConfig.addFilter("isPlaceholder", isPlaceholder);
+  eleventyConfig.addFilter("versioned", versioned);
   eleventyConfig.addFilter("telHref", (phone) => "tel:" + String(phone).replace(/[^\d+]/g, ""));
   eleventyConfig.addFilter("waHref", (phone) => "https://wa.me/" + String(phone).replace(/\D/g, ""));
   eleventyConfig.addFilter("navLabel", (nav, key) => nav.find((item) => item.key === key)?.label);
@@ -68,6 +81,7 @@ export default function (eleventyConfig) {
       .replace(/\s+/g, " ")
       .replace(/\s*([{}:;,>])\s*/g, "$1")
       .replace(/;}/g, "}")
+      .replace(/url\("(\/assets\/[^"]+)"\)/g, (_, url) => `url("${versioned(url)}")`)
       .replace(/url\("\//g, `url("${pathPrefix}`)
       .trim();
   });
