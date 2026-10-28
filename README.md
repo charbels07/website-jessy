@@ -94,10 +94,11 @@ The handoff's pre-launch checklist, and where each item stands:
   paragraphs and headings on the built pages.
 - [x] **Navigation labels and order match the handoff.** Also verified by
   `npm run check`.
-- [ ] **Email and phone/WhatsApp placeholders replaced once Jessy supplies them.**
-  Enter them in the CMS under *Contact details & settings*. Email, phone and
-  WhatsApp links switch on automatically. `npm run check:launch` fails while the
-  placeholders are still shown.
+- [x] **Email and phone/WhatsApp placeholders replaced once Jessy supplies them.**
+  Set to the details Jessy supplied (jessyelkhoury0@gmail.com, +961 71 758 175).
+  Email, phone and WhatsApp links are live. They can be changed in the CMS under
+  *Contact details & settings*. `npm run check:launch` fails if a placeholder
+  ever reappears.
 - [x] **No credentials, claims, services, testimonials or copy added.** See the
   note on interface text below.
 - [x] **Checked on mobile and desktop.** Layouts are tested from 320 to 1920 px wide,
@@ -112,8 +113,6 @@ The handoff's pre-launch checklist, and where each item stands:
 
 ### To confirm with Jessy
 
-- **Contact details:** professional email address, and phone/WhatsApp number with
-  country code.
 - **Arabic name in the logo:** shown as «جيسي الخوري». The handoff marks Arabic
   integration as optional. Please confirm the spelling, or clear the field in the
   CMS to use the English-only logo.

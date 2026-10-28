@@ -1,15 +1,13 @@
 # Site-wide settings and contact details (editable in the CMS under
 # "Contact details & settings").
 #
-# The email and phone values below are the placeholders from the approved
-# handoff. Replace them only once Jessy has supplied her final details —
-# the site turns them into working email / phone / WhatsApp links
-# automatically as soon as real values are entered.
+# The email and phone values are Jessy's final contact details; the site turns
+# them into working email / phone / WhatsApp links automatically.
 name: "Jessy El Khoury"
 name_arabic: "جيسي الخوري"
 role: "Pediatric Speech & Language Therapist"
-email: "[Insert professional email address]"
-phone: "[Insert professional phone number]"
+email: "jessyelkhoury0@gmail.com"
+phone: "+961 71 758 175"
 whatsapp: true
 description: "Helping children build meaningful skills through individualized support and everyday interactions with the people who know them best."
 # The site's public address, e.g. "https://www.example.com". Used for

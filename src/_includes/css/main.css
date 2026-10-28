@@ -1158,10 +1158,12 @@ ul[role="list"] {
   overflow-wrap: anywhere;
 }
 
+/* Sans with lining figures, so "0" and "o" stay distinct in the address and number. */
 .contact-list dd a {
   color: var(--navy);
-  font-family: var(--serif);
   font-size: var(--step-1);
+  font-weight: 500;
+  font-variant-numeric: lining-nums;
   text-decoration-color: var(--clay);
 }
 
