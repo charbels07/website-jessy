@@ -3,6 +3,10 @@ import path from "node:path";
 import { load as loadYaml } from "js-yaml";
 import markdownIt from "markdown-it";
 import Image, { generateHTML } from "@11ty/eleventy-img";
+import { HtmlBasePlugin } from "@11ty/eleventy";
+
+// Set when the site is served from a sub-folder, e.g. "/website-jessy/" on GitHub Pages.
+const pathPrefix = ("/" + (process.env.PATH_PREFIX || "") + "/").replace(/\/+/g, "/");
 
 // Approved copy is rendered as-is: no smart quotes, no auto-linking, no raw HTML.
 const md = markdownIt({ html: false, linkify: false, typographer: false });
@@ -18,6 +22,8 @@ const escapeHtml = (s) =>
 const isPlaceholder = (value) => !value || /^\s*\[.*\]\s*$/.test(value);
 
 export default function (eleventyConfig) {
+  // Prefixes root-relative links and image sources in the HTML with pathPrefix.
+  eleventyConfig.addPlugin(HtmlBasePlugin);
   eleventyConfig.addDataExtension("yml,yaml", (contents) => loadYaml(contents));
 
   eleventyConfig.addPassthroughCopy({
@@ -61,6 +67,7 @@ export default function (eleventyConfig) {
       .replace(/\s+/g, " ")
       .replace(/\s*([{}:;,>])\s*/g, "$1")
       .replace(/;}/g, "}")
+      .replace(/url\("\//g, `url("${pathPrefix}`)
       .trim();
   });
 
@@ -94,6 +101,7 @@ export default function (eleventyConfig) {
   });
 
   return {
+    pathPrefix,
     dir: { input: "src", output: "_site", includes: "_includes", data: "_data" },
     templateFormats: ["njk", "11ty.js"],
     htmlTemplateEngine: "njk",

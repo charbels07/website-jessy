@@ -46,6 +46,18 @@ The homepage reuses copy from the other pages (the About Me introduction, the fi
 Areas of Expertise titles, the How I Work principles, the For Parents questions and
 the Contact section), so each text exists in one place only.
 
+## Preview on GitHub Pages
+
+A preview of the site is published at
+<https://charbels07.github.io/website-jessy/> by the workflow in
+`.github/workflows/pages.yml`, on every push. The preview is marked `noindex`, so
+it stays out of search engines until the real domain is live. The CMS at `/admin/`
+can't sign in on the preview because it needs Netlify (below).
+
+One-time setup: in the repository, go to **Settings → Pages** and set **Source** to
+**GitHub Actions**. Then re-run the workflow from the **Actions** tab, or push any
+commit.
+
 ## Deploying (Netlify)
 
 `netlify.toml` already holds the build settings.

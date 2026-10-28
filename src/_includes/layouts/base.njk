@@ -9,6 +9,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ docTitle }}</title>
   <meta name="description" content="{{ settings.description }}">
+  {%- if build.preview %}
+  <meta name="robots" content="noindex, nofollow">
+  {%- endif %}
   {%- if build.url %}
   <link rel="canonical" href="{{ build.url }}{{ page.url }}">
   {%- endif %}
