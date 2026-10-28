@@ -6,7 +6,8 @@
 //   - the main navigation labels and order match the handoff
 //   - no numbering is shown before the Areas of Expertise titles
 //   - developer-only notes and non-approved terms do not appear
-//   - every page has exactly one <h1> and every image has alt text
+//   - no em dashes in the visible text (removed at the client's request)
+//   - every page has exactly one <h1> and every image has an alt attribute
 // With --launch it also fails while the contact placeholders are still in use.
 import fs from "node:fs";
 import path from "node:path";
@@ -117,8 +118,11 @@ for (const file of htmlFiles) {
   }
   const h1s = (html.match(/<h1\b/gi) || []).length;
   if (h1s !== 1) errors.push(`${rel}: has ${h1s} <h1> elements (expected 1)`);
+  if (text.includes("—")) errors.push(`${rel}: contains an em dash`);
+  // Decorative illustrations use alt="", photos need a description.
   for (const img of html.match(/<img\b[^>]*>/gi) || []) {
-    if (!/\balt="[^"]+"/.test(img)) errors.push(`${rel}: image without alt text: ${img.slice(0, 80)}…`);
+    const decorative = /\/assets\/illustrations\//.test(img);
+    if (!(decorative ? /\balt=""/ : /\balt="[^"]+"/).test(img)) errors.push(`${rel}: image without suitable alt text: ${img.slice(0, 80)}…`);
   }
   if (/\[Insert [^\]]+\]/.test(text)) placeholders = true;
 }
@@ -136,4 +140,4 @@ if (errors.length) {
 }
 const count = Object.values(approved.pages).flat().length;
 console.log(`✓ ${count} approved paragraphs and headings found verbatim across ${Object.keys(approved.pages).length} pages.`);
-console.log("✓ Navigation order, numbering, headings, image alt text and excluded content all check out.");
+console.log("✓ Navigation order, numbering, em dashes, headings, image alt text and excluded content all check out.");

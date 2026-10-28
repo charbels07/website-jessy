@@ -28,6 +28,7 @@ export default function (eleventyConfig) {
 
   eleventyConfig.addPassthroughCopy({
     "src/assets/fonts": "assets/fonts",
+    "src/assets/illustrations": "assets/illustrations",
     "src/assets/icons": "/",
     "src/assets/social": "assets/social",
     "src/assets/uploads": "assets/uploads",

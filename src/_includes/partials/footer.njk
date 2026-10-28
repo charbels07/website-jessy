@@ -3,9 +3,6 @@
     <div class="site-footer__brand">
       <p class="site-footer__name">
         <span class="brand__latin">{{ settings.name }}</span>
-        {%- if settings.name_arabic %}
-        <span class="brand__arabic" lang="ar" dir="rtl">{{ settings.name_arabic }}</span>
-        {%- endif %}
       </p>
       <p class="site-footer__role">{{ settings.role | amp | safe }}</p>
     </div>

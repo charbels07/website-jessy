@@ -10,8 +10,11 @@ permalink: /about-me/
 <section class="section section--first">
   <div class="container about-intro">
     <div class="about-intro__media">
-      {%- set scene = "together" %}{% set loadingMode = "eager" %}
-      {% include "partials/arch.njk" %}
+      {%- if about.portrait and about.portrait.image %}
+      <figure class="portrait-frame">{% portrait about.portrait, "(min-width: 56em) 24rem, 72vw", "eager" %}</figure>
+      {%- else %}
+      <img src="/assets/illustrations/reading.svg" width="480" height="500" alt="" decoding="async">
+      {%- endif %}
     </div>
     <div class="about-intro__text prose prose--lead">{{ about.intro | md | safe }}</div>
   </div>
@@ -27,7 +30,11 @@ permalink: /about-me/
       <div class="split__main">
         <div class="prose">{{ section.body | md | safe }}</div>
         {%- if loop.last and about.closing %}
-        <div class="statement">{{ about.closing | md | safe }}</div>
+        <div class="statement">
+          {%- set icon = "heart" %}{% set iconClass = "statement__icon" %}
+          {% include "partials/icon.njk" %}
+          {{ about.closing | md | safe }}
+        </div>
         {%- endif %}
       </div>
     </div>

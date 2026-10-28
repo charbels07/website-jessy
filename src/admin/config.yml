@@ -49,11 +49,6 @@ collections:
           - label: Name
             name: name
             widget: string
-          - label: Name in Arabic (shown beside the name in the logo)
-            name: name_arabic
-            widget: string
-            required: false
-            hint: Leave empty to show the logo in English only.
           - label: Professional title
             name: role
             widget: string
@@ -64,7 +59,7 @@ collections:
             name: url
             widget: string
             required: false
-            hint: e.g. https://www.example.com — can stay empty while the site is hosted on Netlify.
+            hint: e.g. https://www.example.com. Can stay empty while the site is hosted on Netlify.
 
   - name: pages
     label: Pages
@@ -97,7 +92,7 @@ collections:
             name: portrait
             widget: object
             collapsed: false
-            hint: Optional. When a photo is added it appears on the homepage and the About Me page; until then an illustration is shown.
+            hint: Optional. When a photo is added it replaces the illustration on the About Me page.
             fields:
               - { label: Photo, name: image, widget: image, required: false, choose_url: false }
               - { label: Photo description (for screen readers), name: alt, widget: string, required: false, hint: "e.g. Portrait of Jessy El Khoury" }
@@ -126,6 +121,7 @@ collections:
             hint: Each area has a card on the homepage that links to its section on the Areas of Expertise page.
             fields:
               - { label: Title, name: title, widget: string }
+              - { label: Icon, name: icon, widget: select, required: false, options: [blocks, clipboard, family, steps, school, together, kite, bubbles, sprout, books, wonder, laptop, signpost, heart] }
               - { label: Link name, name: id, widget: string, required: false, hint: "Short, lowercase, words joined by hyphens (used in links to this section). Avoid changing it once the site is live." }
               - { label: Introduction, name: intro, widget: markdown, buttons: [bold, italic, link, bulleted-list], editor_components: [] }
               - label: Subsections
@@ -147,6 +143,7 @@ collections:
             summary: "{{fields.title}}"
             fields:
               - { label: Title, name: title, widget: string }
+              - { label: Icon, name: icon, widget: select, required: false, options: [blocks, clipboard, family, steps, school, together, kite, bubbles, sprout, books, wonder, laptop, signpost, heart] }
               - { label: Text, name: body, widget: markdown, buttons: [bold, italic, link, bulleted-list], editor_components: [] }
 
       - name: parents
@@ -159,6 +156,7 @@ collections:
             summary: "{{fields.title}}"
             fields:
               - { label: Question, name: title, widget: string }
+              - { label: Icon, name: icon, widget: select, required: false, options: [blocks, clipboard, family, steps, school, together, kite, bubbles, sprout, books, wonder, laptop, signpost, heart] }
               - { label: Answer, name: body, widget: markdown, buttons: [bold, italic, link, bulleted-list], editor_components: [] }
 
       - name: contact

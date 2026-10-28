@@ -1,5 +1,5 @@
 {
-  "_note": "Approved website copy extracted from the client handoff (Part 1). Used by scripts/check-copy.mjs. Do not edit unless the client approves new copy.",
+  "_note": "Approved website copy extracted from the client handoff (Part 1), with the em dashes replaced by commas at the client's request (2026-10-28). Used by scripts/check-copy.mjs. Do not edit unless the client approves new copy.",
   "navigation": [
     "Home",
     "About Me",
@@ -12,10 +12,10 @@
     "/": [
       "Jessy El Khoury",
       "Pediatric Speech & Language Therapist",
-      "Supporting communication, learning, and development — together with families.",
+      "Supporting communication, learning, and development, together with families.",
       "Helping children build meaningful skills through individualized support and everyday interactions with the people who know them best.",
       "I have been working as a Speech & Language Therapist since 2014, supporting children with a wide range of communication and developmental needs. Over the years, my clinical experience has shaped a strong focus on early intervention, alongside experience with children with neurological, genetic, and developmental conditions.",
-      "My clinical and academic experience has shaped the way I look at communication — not as one isolated skill, but as something connected to a child's development, relationships, and everyday life.",
+      "My clinical and academic experience has shaped the way I look at communication, not as one isolated skill, but as something connected to a child's development, relationships, and everyday life.",
       "Early Communication & Language: Assessment and Intervention",
       "Clinical Assessment of Autism Spectrum Disorder",
       "Parent Support & Education",
@@ -42,7 +42,7 @@
     ],
     "/about-me/": [
       "I have been working as a Speech & Language Therapist since 2014, supporting children with a wide range of communication and developmental needs. Over the years, my clinical experience has shaped a strong focus on early intervention, alongside experience with children with neurological, genetic, and developmental conditions.",
-      "My clinical and academic experience has shaped the way I look at communication — not as one isolated skill, but as something connected to a child's development, relationships, and everyday life.",
+      "My clinical and academic experience has shaped the way I look at communication, not as one isolated skill, but as something connected to a child's development, relationships, and everyday life.",
       "Continuing to Learn",
       "Continued professional development is an important part of my work. I have pursued specialized training in Naturalistic Developmental Behavioral Interventions (NDBIs) and parent-mediated interventions, including approaches that support the development of social communication and interaction skills and approaches that help parents understand and respond to challenging behavior. I have also pursued specialized training in autism assessment, including the ADOS-2.",
       "I am currently undertaking advanced training in behavior analysis as part of my professional development toward becoming an International Behavior Analyst (IBA). This ongoing training broadens my understanding of learning, motivation, communication, and behavior.",
@@ -50,7 +50,7 @@
       "Clinical & Academic Experience",
       "Alongside my clinical work, I am an academic coordinator and instructor at the Higher Institute of Speech and Language Therapy at Saint Joseph University of Beirut. I have been teaching and supervising students since 2018 and have served as academic coordinator since 2021.",
       "My teaching and supervision include language and communication disorders, communication profiles associated with neurological and developmental conditions, and clinical decision-making. This academic role keeps me closely connected to current knowledge while bringing together the clinical and academic perspectives that shape my work.",
-      "At the heart of my work is the belief that every child has their own strengths, ways of learning, and ways of connecting with others. I also believe that parents are an important part of the process. They know their child best, and supporting communication means creating strategies that can become part of the child's real everyday life — within the relationships and routines that matter most."
+      "At the heart of my work is the belief that every child has their own strengths, ways of learning, and ways of connecting with others. I also believe that parents are an important part of the process. They know their child best, and supporting communication means creating strategies that can become part of the child's real everyday life, within the relationships and routines that matter most."
     ],
     "/areas-of-expertise/": [
       "Early Communication & Language: Assessment and Intervention",
@@ -109,7 +109,7 @@
       "You may have questions about your child's communication, language, interaction, or development. You may notice that they are not communicating in the way you expected, have difficulty expressing themselves, or seem to be struggling to connect or participate in everyday interactions.",
       "An initial conversation gives us an opportunity to understand what you are noticing, answer your questions, and consider together whether an assessment or intervention would be helpful.",
       "What Can an Assessment Tell Us?",
-      "An assessment is an opportunity to better understand your child — not simply to look for what is difficult.",
+      "An assessment is an opportunity to better understand your child, not simply to look for what is difficult.",
       "It helps build a picture of their communication and language, their strengths, the areas where they may need support, and the factors that may be influencing their everyday communication. The findings can then help guide meaningful next steps.",
       "What Does Intervention Look Like?",
       "Intervention can involve direct work with your child, parent-mediated intervention, or a combination of both, depending on your child's needs and your family's priorities.",

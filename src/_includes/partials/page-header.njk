@@ -1,16 +1,9 @@
+{#- Inner-page header. Set `headerArt` (an illustration file name, without .svg) before including. -#}
 <header class="page-header">
   <div class="container page-header__inner">
     <h1 class="page-header__title">{{ pageLabel | amp | safe }}</h1>
   </div>
-  {%- if not hideHeaderArt %}
-  <svg class="page-header__art" viewBox="0 0 320 260" aria-hidden="true" focusable="false">
-    <defs><clipPath id="page-header-arch"><path d="M60 260V140a100 100 0 0 1 200 0v120z"/></clipPath></defs>
-    <path d="M60 260V140a100 100 0 0 1 200 0v120z" fill="#5B7C99"/>
-    <g clip-path="url(#page-header-arch)">
-      <circle cx="200" cy="124" r="34" fill="#C97B5A"/>
-      <circle cx="78" cy="352" r="140" fill="#8A9878"/>
-    </g>
-    <path d="M38 260V140a122 122 0 0 1 244 0" fill="none" stroke="#2B3946" stroke-width="1.5" opacity=".7"/>
-  </svg>
+  {%- if headerArt %}
+  <img class="page-header__art" src="/assets/illustrations/{{ headerArt }}.svg" width="320" height="240" alt="" decoding="async">
   {%- endif %}
 </header>

@@ -5,11 +5,12 @@ permalink: /404.html
 eleventyExcludeFromCollections: true
 ---
 {%- set pageLabel = title -%}
+{%- set headerArt = "boat" -%}
 {% include "partials/page-header.njk" %}
 
 <section class="section section--first">
   <div class="container">
-    <ul class="question-links question-links--light" role="list">
+    <ul class="question-links" role="list">
       {%- for item in navigation %}
       <li><a href="{{ item.url }}"><span>{{ item.label }}</span>{% include "partials/arrow.njk" %}</a></li>
       {%- endfor %}

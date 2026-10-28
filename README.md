@@ -29,7 +29,7 @@ straight to the files in `src/_data/`.
 
 | What | File |
 | --- | --- |
-| Contact details, name, Arabic name, search description | `src/_data/settings.yml` |
+| Contact details, name, search description | `src/_data/settings.yml` |
 | Homepage hero | `src/_data/home.yml` |
 | About Me (intro, sections, closing statement, portrait) | `src/_data/about.yml` |
 | Areas of Expertise | `src/_data/areas.yml` |
@@ -103,7 +103,9 @@ The handoff's pre-launch checklist, and where each item stands:
 
 - [x] **All Part 1 text copied verbatim.** The content files were generated directly
   from the handoff document, not retyped, and `npm run check` verifies all 114
-  paragraphs and headings on the built pages.
+  paragraphs and headings on the built pages. One change was made at the client's
+  request on 2026-10-28: the four em dashes in the copy were replaced with commas.
+  The check now also fails if an em dash reappears.
 - [x] **Navigation labels and order match the handoff.** Also verified by
   `npm run check`.
 - [x] **Email and phone/WhatsApp placeholders replaced once Jessy supplies them.**
@@ -125,12 +127,9 @@ The handoff's pre-launch checklist, and where each item stands:
 
 ### To confirm with Jessy
 
-- **Arabic name in the logo:** shown as «جيسي الخوري». The handoff marks Arabic
-  integration as optional. Please confirm the spelling, or clear the field in the
-  CMS to use the English-only logo.
 - **Portrait (optional):** upload it under *Pages → About Me → Portrait*, with a
-  short description. It replaces the illustration on the homepage and About Me
-  page, and is converted to responsive AVIF/WebP/JPEG automatically.
+  short description. It replaces the illustration on the About Me page, and is
+  converted to responsive AVIF/WebP/JPEG automatically.
 - **Domain name.**
 
 ### Interface text not taken from the handoff
@@ -144,7 +143,7 @@ standard interface and accessibility text:
 - the footer line "© {year} Jessy El Khoury";
 - the 404 page heading, "Page not found";
 - page titles in browser tabs, built from the approved page names, for example
-  "About Me — Jessy El Khoury".
+  "About Me | Jessy El Khoury".
 
 The search and link-preview description is the approved hero sentence.
 
@@ -152,8 +151,8 @@ The search and link-preview description is the approved hero sentence.
 
 For anyone editing the site later:
 
-- Keep the approved copy exactly as written. Only the contact placeholders were
-  meant to change.
+- Keep the approved copy exactly as written. The only changes so far are the contact
+  details and the em dashes, which were replaced with commas at the client's request.
 - Do not add testimonials, credentials, services, claims or calls to action without
   Jessy's approval.
 - Do not describe Jessy as an IBA or BCBA. Her behavior-analysis training is ongoing
@@ -167,10 +166,14 @@ For anyone editing the site later:
 
 - **Palette:** from the handoff (dusty blue `#5B7C99`, warm cream `#F0E4D8`, clay
   `#C97B5A`, off-white `#FBF9F6`, near-black `#33322E`, ink navy `#2B3946`, moss
-  `#8A9878`). These colours are used for shapes and backgrounds. Text uses slightly
-  deeper tones of the same colours so that all text meets WCAG AA contrast.
-- **Type:** Fraunces for headings, Figtree for body text, Markazi Text for the Arabic
-  name. All are self-hosted and subset (about 130 KB in total) under the SIL Open
-  Font License; licences are in `src/assets/fonts/`.
-- **Imagery:** typography-led, with simple editorial shapes (an arch, sun and hills).
-  No stock photos, puzzle pieces, speech bubbles or cartoons.
+  `#8A9878`). These colours are used for the illustrations and backgrounds. Text uses
+  slightly deeper tones of the same colours so that all text meets WCAG AA contrast.
+- **Type:** Fraunces for headings, Figtree for body text. Both are self-hosted and
+  subset (about 95 KB in total) under the SIL Open Font License; licences are in
+  `src/assets/fonts/`.
+- **Illustrations:** hand-drawn storybook style (ink lines with soft palette fills),
+  drawn as SVG for this site, so they stay sharp and light. Scenes show parent and
+  child play, picture cards, blocks, books, a kite and rolling hills. Large scenes
+  are in `src/assets/illustrations/`; icons are in `src/_includes/partials/sprite.njk`,
+  and each Area of Expertise, How I Work principle and For Parents question picks its
+  icon in the CMS. No stock photos or puzzle pieces.

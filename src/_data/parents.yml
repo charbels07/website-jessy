@@ -1,15 +1,18 @@
 questions:
   - title: "Wondering If Your Child Needs Support?"
+    icon: wonder
     body: |-
       You may have questions about your child's communication, language, interaction, or development. You may notice that they are not communicating in the way you expected, have difficulty expressing themselves, or seem to be struggling to connect or participate in everyday interactions.
 
       An initial conversation gives us an opportunity to understand what you are noticing, answer your questions, and consider together whether an assessment or intervention would be helpful.
   - title: "What Can an Assessment Tell Us?"
+    icon: clipboard
     body: |-
-      An assessment is an opportunity to better understand your child — not simply to look for what is difficult.
+      An assessment is an opportunity to better understand your child, not simply to look for what is difficult.
 
       It helps build a picture of their communication and language, their strengths, the areas where they may need support, and the factors that may be influencing their everyday communication. The findings can then help guide meaningful next steps.
   - title: "What Does Intervention Look Like?"
+    icon: blocks
     body: |-
       Intervention can involve direct work with your child, parent-mediated intervention, or a combination of both, depending on your child's needs and your family's priorities.
 
@@ -17,6 +20,7 @@ questions:
 
       The aim is for parents to understand not only what to do, but also how and when to use strategies with their own child, so that opportunities for communication and learning can continue beyond the session.
   - title: "What Is ABA-Informed Support?"
+    icon: steps
     body: |-
       Applied Behavior Analysis (ABA) is an approach that examines how learning and behavior are influenced by the environment and everyday experiences. It can be used to support the development of communication, learning, daily living skills, and greater independence.
 
@@ -24,6 +28,7 @@ questions:
 
       As my training in behavior analysis is still ongoing, I provide behavior-analytic support under the supervision of a Board Certified Behavior Analyst (BCBA).
   - title: "Can We Work Online?"
+    icon: laptop
     body: |-
       Yes. Online sessions can be particularly well suited to parent-mediated interventions and parent coaching.
 
@@ -31,5 +36,6 @@ questions:
 
       Depending on your child's needs, support can also combine online parent coaching with in-person sessions.
   - title: "What Happens Next?"
+    icon: signpost
     body: |-
       If you are wondering whether support could be helpful for your child, you can get in touch to discuss your concerns. We can start by understanding what you are noticing and what you would like support with, and then consider the next step together.

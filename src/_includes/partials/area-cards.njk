@@ -1,12 +1,11 @@
 {#- Overview cards linking to each area of expertise. Set `cardHeading` to true to render titles as h3. -#}
-{%- set areaShapes = ["arch", "ring", "pair", "quarter", "half"] -%}
-{%- set areaTones = ["blue", "clay", "moss", "navy", "clay"] -%}
+{%- set areaIcons = ["blocks", "clipboard", "family", "steps", "school"] -%}
 <ul class="cards" role="list">
   {%- for area in areas.areas %}
   <li>
     <a class="card" href="/areas-of-expertise/#{{ area | itemId }}">
-      {%- set shape = areaShapes[loop.index0 % 5] %}{% set tone = areaTones[loop.index0 % 5] %}{% set shapeClass = "card__shape" %}
-      {% include "partials/shape.njk" %}
+      {%- set icon = area.icon or areaIcons[loop.index0 % 5] %}{% set iconClass = "card__icon" %}
+      {% include "partials/icon.njk" %}
       {%- if cardHeading %}
       <h3 class="card__title">{{ area.title | amp | safe }}</h3>
       {%- else %}

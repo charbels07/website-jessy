@@ -1,12 +1,11 @@
 {#- "How I Work" principles. Set `headingTag` ("h2" | "h3") and optionally `withIds` before including. -#}
-{%- set principleShapes = ["pair", "circle", "half", "ring", "arch"] -%}
-{%- set principleTones = ["clay", "blue", "moss", "clay", "blue"] -%}
+{%- set principleIcons = ["together", "kite", "bubbles", "sprout", "books"] -%}
 <ul class="principles" role="list">
   {%- for principle in howIWork.principles %}
   <li class="principle"{% if withIds %} id="{{ principle | itemId }}"{% endif %}>
     <div class="principle__head">
-      {%- set shape = principleShapes[loop.index0 % 5] %}{% set tone = principleTones[loop.index0 % 5] %}{% set shapeClass = "principle__shape" %}
-      {% include "partials/shape.njk" %}
+      {%- set icon = principle.icon or principleIcons[loop.index0 % 5] %}{% set iconClass = "principle__icon" %}
+      {% include "partials/icon.njk" %}
       <{{ headingTag }} class="principle__title">{{ principle.title | amp | safe }}</{{ headingTag }}>
     </div>
     <div class="principle__body prose">{{ principle.body | md | safe }}</div>

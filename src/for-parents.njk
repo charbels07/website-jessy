@@ -4,15 +4,13 @@ navKey: parents
 permalink: /for-parents/
 ---
 {%- set pageLabel = navigation | navLabel(navKey) -%}
+{%- set headerArt = "book" -%}
 {% include "partials/page-header.njk" %}
 
 <nav class="section section--first section--overview" aria-label="{{ pageLabel }}">
   <div class="container">
-    <ul class="question-links question-links--light question-links--grid" role="list">
-      {%- for question in parents.questions %}
-      <li><a href="#{{ question | itemId }}"><span>{{ question.title | amp | safe }}</span>{% include "partials/arrow.njk" %}</a></li>
-      {%- endfor %}
-    </ul>
+    {%- set linkBase = "" %}{% set listClass = "question-links--grid" %}
+    {% include "partials/question-links.njk" %}
   </div>
 </nav>
 

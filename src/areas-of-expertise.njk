@@ -4,6 +4,7 @@ navKey: areas
 permalink: /areas-of-expertise/
 ---
 {%- set pageLabel = navigation | navLabel(navKey) -%}
+{%- set headerArt = "areas" -%}
 {% include "partials/page-header.njk" %}
 
 <nav class="section section--first section--overview" aria-label="{{ pageLabel }}">
@@ -14,15 +15,14 @@ permalink: /areas-of-expertise/
 </nav>
 
 <div class="container entries">
-  {%- set areaShapes = ["arch", "ring", "pair", "quarter", "half"] -%}
-  {%- set areaTones = ["blue", "clay", "moss", "navy", "clay"] -%}
+  {%- set areaIcons = ["blocks", "clipboard", "family", "steps", "school"] -%}
   {%- for area in areas.areas %}
   <section class="entry" id="{{ area | itemId }}" aria-labelledby="{{ area | itemId }}-title">
     <div class="split">
       <div class="split__aside">
         <div class="sticky">
-          {%- set shape = areaShapes[loop.index0 % 5] %}{% set tone = areaTones[loop.index0 % 5] %}{% set shapeClass = "entry__shape" %}
-          {% include "partials/shape.njk" %}
+          {%- set icon = area.icon or areaIcons[loop.index0 % 5] %}{% set iconClass = "entry__icon" %}
+          {% include "partials/icon.njk" %}
           <h2 class="entry__title" id="{{ area | itemId }}-title">{{ area.title | amp | safe }}</h2>
         </div>
       </div>

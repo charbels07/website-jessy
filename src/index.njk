@@ -8,13 +8,12 @@ permalink: /
   <div class="container hero__inner">
     <div class="hero__text">
       <h1 class="hero__name" id="hero-name">{{ hero.name }}</h1>
-      <p class="hero__role"><span>{{ hero.role | amp | safe }}</span></p>
+      <p class="hero__role">{{ hero.role | amp | safe }}</p>
       <p class="hero__tagline">{{ hero.tagline }}</p>
       <p class="hero__lede">{{ hero.text }}</p>
     </div>
     <div class="hero__art">
-      {%- set scene = "sunrise" %}{% set loadingMode = "eager" %}
-      {% include "partials/arch.njk" %}
+      <img src="/assets/illustrations/hero.svg" width="640" height="520" alt="" fetchpriority="high">
     </div>
   </div>
 </section>
@@ -44,20 +43,21 @@ permalink: /
   </div>
 </section>
 
-<section class="section section--navy" aria-labelledby="home-parents">
+<section class="section section--soft section--before-hills" aria-labelledby="home-parents">
   <div class="container split">
     <div class="split__aside">
       <h2 class="section-title" id="home-parents"><a href="{{ navigation | navUrl('parents') }}">{{ navigation | navLabel("parents") }}{% include "partials/arrow.njk" %}</a></h2>
     </div>
-    <ul class="question-links split__main" role="list">
-      {%- for question in parents.questions %}
-      <li><a href="{{ navigation | navUrl('parents') }}#{{ question | itemId }}"><span>{{ question.title | amp | safe }}</span>{% include "partials/arrow.njk" %}</a></li>
-      {%- endfor %}
-    </ul>
+    <div class="split__main">
+      {%- set linkBase = navigation | navUrl('parents') %}{% set listClass = "" %}
+      {% include "partials/question-links.njk" %}
+    </div>
   </div>
 </section>
 
-<section class="section section--soft" aria-labelledby="home-contact">
+{% include "partials/hills.njk" %}
+
+<section class="section section--navy section--after-hills" aria-labelledby="home-contact">
   <div class="container">
     <h2 class="section-title section-head" id="home-contact"><a href="{{ navigation | navUrl('contact') }}">{{ navigation | navLabel("contact") }}{% include "partials/arrow.njk" %}</a></h2>
     {%- set hl = 3 %}

@@ -1,6 +1,7 @@
 areas:
   - id: early-communication-and-language
     title: "Early Communication & Language: Assessment and Intervention"
+    icon: blocks
     intro: |-
       I support young children with communication and language difficulties through assessment and individualized intervention, particularly during the early years. My work is guided by evidence-based practice and draws on complementary cognitive, developmental, and behavioral perspectives to understand each child's profile and identify meaningful goals.
     subsections:
@@ -21,6 +22,7 @@ areas:
           AAC assessment and support focus on identifying options that fit the child's communication needs, abilities, environments, and communication partners. Support may include helping families and professionals select appropriate tools and integrate them into everyday interactions, activities, and routines.
   - id: autism-assessment
     title: "Clinical Assessment of Autism Spectrum Disorder"
+    icon: clipboard
     intro: |-
       I have specialized training in autism assessment, including the administration of the Autism Diagnostic Observation Schedule, Second Edition (ADOS-2), and the Autism Diagnostic Interview–Revised (ADI-R).
 
@@ -30,6 +32,7 @@ areas:
     subsections: []
   - id: parent-support-and-education
     title: "Parent Support & Education"
+    icon: family
     intro: |-
       My work with parents includes parent-mediated interventions (PMIs), parent coaching, and psychoeducation, depending on the child's needs and the family's priorities. The aim is to give parents a clearer understanding of their child and practical, evidence-informed ways to support communication, participation, and everyday functioning.
     subsections:
@@ -54,6 +57,7 @@ areas:
           This may include discussing a child's strengths and difficulties, how they learn and interact, and the factors that may influence their participation in everyday activities. The aim is to help parents make sense of their child's needs and identify practical ways to support them at home and in other familiar environments.
   - id: aba-informed-support
     title: "ABA-Informed Support for Learning, Communication & Everyday Skills"
+    icon: steps
     intro: |-
       Applied Behavior Analysis (ABA) provides a framework for understanding how learning and behavior are influenced by environmental factors and everyday experiences.
 
@@ -63,6 +67,7 @@ areas:
     subsections: []
   - id: professional-consultation
     title: "Professional Consultation & Implementation Support"
+    icon: school
     intro: |-
       I provide consultation to educators, school teams, shadow teachers, and other professionals supporting children with communication, developmental, and learning needs.
 

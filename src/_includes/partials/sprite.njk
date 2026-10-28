@@ -1,10 +1,147 @@
-{#- Decorative shapes (simple editorial forms) and the arrow icon, referenced with <use>. -#}
+{#- Hand-drawn style icons (ink outline, soft palette fills) and the arrow, referenced with <use>. -#}
 <svg class="sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
-  <symbol id="shape-arch" viewBox="0 0 48 48"><path d="M10 46V24a14 14 0 0 1 28 0v22z"/></symbol>
-  <symbol id="shape-circle" viewBox="0 0 48 48"><circle cx="24" cy="24" r="17"/></symbol>
-  <symbol id="shape-pair" viewBox="0 0 48 48"><circle cx="18" cy="25" r="13"/><circle cx="32" cy="22" r="10" opacity=".55"/></symbol>
-  <symbol id="shape-quarter" viewBox="0 0 48 48"><path d="M8 42V10a32 32 0 0 1 32 32z"/></symbol>
-  <symbol id="shape-half" viewBox="0 0 48 48"><path d="M4 36a20 20 0 0 1 40 0z"/></symbol>
-  <symbol id="shape-ring" viewBox="0 0 48 48"><circle cx="24" cy="24" r="16" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="24" cy="24" r="6"/></symbol>
+  <defs>
+    <filter id="hand-sm" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.09" numOctaves="2" seed="3"/>
+      <feDisplacementMap in="SourceGraphic" scale="1.3" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+
+  {#- Areas of Expertise -#}
+  <symbol id="i-blocks" viewBox="0 0 48 48" fill="none" stroke="#2B3946" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <g filter="url(#hand-sm)">
+      <rect x="5" y="25" width="17" height="17" rx="1.5" fill="#C97B5A"/>
+      <rect x="26" y="25" width="17" height="17" rx="1.5" fill="#5B7C99"/>
+      <rect x="15.5" y="6.5" width="17" height="17" rx="1.5" fill="#A9B596"/>
+      <path d="M9.6 38.5l3.9-9.5 3.9 9.5M11.1 35.2h4.8" stroke="#FBF9F6" stroke-width="1.9"/>
+      <path d="M31.5 29v9.5h3.8c1.8 0 2.9-1 2.9-2.5s-1.1-2.3-2.8-2.3c1.5 0 2.5-.9 2.5-2.2S36.8 29 35.1 29z" stroke="#FBF9F6" stroke-width="1.9"/>
+      <path d="M27.6 11.6a4.8 4.8 0 1 0 0 6.8" stroke="#FBF9F6" stroke-width="1.9"/>
+    </g>
+  </symbol>
+  <symbol id="i-clipboard" viewBox="0 0 48 48" fill="none" stroke="#2B3946" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <g filter="url(#hand-sm)">
+      <rect x="7" y="8" width="25" height="34" rx="3" fill="#FBF9F6"/>
+      <rect x="14" y="4.5" width="11" height="7" rx="2" fill="#A9BED0"/>
+      <path d="M12 19l2.2 2.2 4-4.2M12 28l2.2 2.2 4-4.2" stroke="#C97B5A" stroke-width="2"/>
+      <path d="M21.5 19.5H27M21.5 28.5H27M12 36h10"/>
+      <circle cx="34" cy="32" r="6.5" fill="#DCE5ED"/>
+      <path d="M38.8 36.8l4.7 4.7" stroke-width="3"/>
+    </g>
+  </symbol>
+  <symbol id="i-family" viewBox="0 0 48 48" fill="none" stroke="#2B3946" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <g filter="url(#hand-sm)">
+      <path d="M26 9.5c-2-3.6-7.4-1.6-5.2 2.6L26 16.5l5.2-4.4c2.2-4.2-3.2-6.2-5.2-2.6z" fill="#C97B5A"/>
+      <path d="M10.5 23.5c2.6-2.4 8.6-2.4 11 0l1.4 13.5H9.2z" fill="#E8B69C"/>
+      <path d="M12.5 37v6.5M19.5 37v6.5"/>
+      <circle cx="16" cy="16.5" r="5" fill="#F2D3BC"/>
+      <path d="M30 30c2-1.8 6-1.8 8 0l1 8.5h-10z" fill="#A9BED0"/>
+      <path d="M32 38.5v5M36 38.5v5"/>
+      <circle cx="34" cy="25" r="4" fill="#D7A27C"/>
+      <path d="M22.4 31c2.6.6 5 .8 7.4 1.5"/>
+    </g>
+  </symbol>
+  <symbol id="i-steps" viewBox="0 0 48 48" fill="none" stroke="#2B3946" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <g filter="url(#hand-sm)">
+      <path d="M5 42.5V34h11v-9h10v-9h11v26.5z" fill="#CBD3BF"/>
+      <path d="M5 42.5h38"/>
+      <path d="M31.5 16V4.5"/>
+      <path d="M31.5 4.5l9 3.4-9 3.4z" fill="#C97B5A"/>
+      <circle cx="10.5" cy="29" r="1.6" fill="#5B7C99" stroke="none"/>
+      <circle cx="21" cy="20" r="1.6" fill="#5B7C99" stroke="none"/>
+    </g>
+  </symbol>
+  <symbol id="i-school" viewBox="0 0 48 48" fill="none" stroke="#2B3946" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <g filter="url(#hand-sm)">
+      <path d="M8.5 21h31v21.5h-31z" fill="#F0E4D8"/>
+      <path d="M5 22L24 9l19 13z" fill="#C97B5A"/>
+      <path d="M20 42.5V32h8v10.5" fill="#5B7C99"/>
+      <rect x="12" y="26" width="5" height="5" rx=".8" fill="#A9BED0"/>
+      <rect x="31" y="26" width="5" height="5" rx=".8" fill="#A9BED0"/>
+      <path d="M24 9V3"/>
+      <path d="M24 3l7 2.6-7 2.6z" fill="#8A9878"/>
+      <circle cx="24" cy="17" r="2.4" fill="#FBF9F6"/>
+    </g>
+  </symbol>
+
+  {#- How I Work -#}
+  <symbol id="i-together" viewBox="0 0 48 48" fill="none" stroke="#2B3946" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <g filter="url(#hand-sm)">
+      <path d="M24 13c-3.6-6.4-13-3-9.4 4.4L24 25.5l9.4-8.1C37 10 27.6 6.6 24 13z" fill="#C97B5A"/>
+      <path d="M5.5 26.5c3 1 6 3.6 8 6.8 1.8 2.8 4.8 4.2 10.5 4.2s8.7-1.4 10.5-4.2c2-3.2 5-5.8 8-6.8-1 6.6-5.6 15-18.5 15S6.5 33.1 5.5 26.5z" fill="#F2D3BC"/>
+      <path d="M14 33.5c-1.8-1.6-3.8-2.5-5.6-2.6M34 33.5c1.8-1.6 3.8-2.5 5.6-2.6" stroke-width="1.4"/>
+    </g>
+  </symbol>
+  <symbol id="i-kite" viewBox="0 0 48 48" fill="none" stroke="#2B3946" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <g filter="url(#hand-sm)">
+      <path d="M22 3.5l12 13.5-12 17-12-17z" fill="#A9BED0"/>
+      <path d="M22 3.5L10 17l12 17z" fill="#C97B5A"/>
+      <path d="M22 3.5V34M10 17h24" stroke-width="1.3"/>
+      <path d="M22 34c-3 4 3 6 0 10" stroke-width="1.4"/>
+      <path d="M17.5 38.5l4.5 1.8-4.5 1.8zM26.5 38.5L22 40.3l4.5 1.8z" fill="#8A9878" stroke-width="1.2"/>
+      <path d="M28 22c6 4 10 10 13 20" stroke-width="1.1"/>
+    </g>
+  </symbol>
+  <symbol id="i-bubbles" viewBox="0 0 48 48" fill="none" stroke="#2B3946" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <g filter="url(#hand-sm)">
+      <path d="M9 5.5h17a4.5 4.5 0 0 1 4.5 4.5v8a4.5 4.5 0 0 1-4.5 4.5H15l-6 5v-5a4.5 4.5 0 0 1-4.5-4.5v-8A4.5 4.5 0 0 1 9 5.5z" fill="#A9BED0"/>
+      <path d="M22 19.5h17a4.5 4.5 0 0 1 4.5 4.5v8a4.5 4.5 0 0 1-4.5 4.5h-.5v5.5l-6-5.5H22a4.5 4.5 0 0 1-4.5-4.5v-8a4.5 4.5 0 0 1 4.5-4.5z" fill="#E8B69C"/>
+      <circle cx="24.5" cy="28" r="1.6" fill="#2B3946" stroke="none"/>
+      <circle cx="30.5" cy="28" r="1.6" fill="#2B3946" stroke="none"/>
+      <circle cx="36.5" cy="28" r="1.6" fill="#2B3946" stroke="none"/>
+    </g>
+  </symbol>
+  <symbol id="i-sprout" viewBox="0 0 48 48" fill="none" stroke="#2B3946" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <g filter="url(#hand-sm)">
+      <path d="M12 29h24l-3 14.5H15z" fill="#C97B5A"/>
+      <path d="M10 29h28"/>
+      <path d="M24 29V15"/>
+      <path d="M24 17C24 10 18 6 10.5 6.5 10.5 14 16 18 24 17z" fill="#A9B596"/>
+      <path d="M24 21c0-6 5-9.5 12.5-9 0 6.4-5 10-12.5 9z" fill="#8A9878"/>
+    </g>
+  </symbol>
+  <symbol id="i-books" viewBox="0 0 48 48" fill="none" stroke="#2B3946" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <g filter="url(#hand-sm)">
+      <rect x="6" y="33" width="34" height="9" rx="1.5" fill="#5B7C99"/>
+      <rect x="9" y="23.5" width="31" height="9.5" rx="1.5" fill="#C97B5A"/>
+      <rect x="7" y="14" width="33" height="9.5" rx="1.5" fill="#A9B596"/>
+      <path d="M34 33v9M34 23.5v9.5M34 14v9.5" stroke-width="1.3"/>
+      <path d="M17 14V6.5l3 2.2 3-2.2V14" fill="#E8B69C"/>
+    </g>
+  </symbol>
+
+  {#- For Parents -#}
+  <symbol id="i-wonder" viewBox="0 0 48 48" fill="none" stroke="#2B3946" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <g filter="url(#hand-sm)">
+      <path d="M12 33c-5 0-8-3.6-8-7.8 0-4 3-7 6.8-7.4C11.4 11 16.8 6 23.6 6c6.4 0 11.2 4 12.4 9.8 4.6.4 8 4 8 8.6 0 4.8-3.6 8.6-8.6 8.6z" fill="#DCE5ED"/>
+      <path d="M19.5 16.5c0-2.6 2.2-4.5 4.8-4.5s4.7 1.8 4.7 4.4c0 3.6-4.6 3.8-4.6 7.4" stroke-width="2.2"/>
+      <circle cx="24.4" cy="28" r="1.6" fill="#2B3946" stroke="none"/>
+      <circle cx="12" cy="40" r="2.6" fill="#DCE5ED"/>
+      <circle cx="7" cy="44.5" r="1.6" fill="#DCE5ED"/>
+    </g>
+  </symbol>
+  <symbol id="i-laptop" viewBox="0 0 48 48" fill="none" stroke="#2B3946" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <g filter="url(#hand-sm)">
+      <rect x="8" y="9" width="32" height="22" rx="2.5" fill="#DCE5ED"/>
+      <path d="M3.5 36h41l-3 4.5h-35z" fill="#F0E4D8"/>
+      <path d="M8 31l-4.5 5M40 31l4.5 5"/>
+      <path d="M24 17c-2.2-4-8-1.8-5.8 2.8L24 25l5.8-5.2C32 15.2 26.2 13 24 17z" fill="#C97B5A"/>
+    </g>
+  </symbol>
+  <symbol id="i-signpost" viewBox="0 0 48 48" fill="none" stroke="#2B3946" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <g filter="url(#hand-sm)">
+      <path d="M22 9v34"/>
+      <path d="M9 9h22l5 5-5 5H9z" fill="#C97B5A"/>
+      <path d="M35 23H14l-5 5 5 5h21z" fill="#A9B596"/>
+      <path d="M10 43.5c4-3 20-3 26 0"/>
+      <circle cx="22" cy="5.5" r="2.2" fill="#E8B69C"/>
+    </g>
+  </symbol>
+  <symbol id="i-heart" viewBox="0 0 48 48" fill="none" stroke="#2B3946" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <g filter="url(#hand-sm)">
+      <path d="M24 16c-4.4-8-16.5-3.8-11.6 5.6L24 32l11.6-10.4C40.5 12.2 28.4 8 24 16z" fill="#C97B5A"/>
+      <path d="M38 8l1.3 3 3 1.3-3 1.3-1.3 3-1.3-3-3-1.3 3-1.3zM9 30l1 2.2 2.2 1-2.2 1-1 2.2-1-2.2-2.2-1 2.2-1z" fill="#A9BED0" stroke-width="1.2"/>
+    </g>
+  </symbol>
+
   <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M4 12h15m-6-6.5L19.5 12 13 18.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
 </svg>

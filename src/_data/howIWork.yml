@@ -1,17 +1,22 @@
 principles:
   - title: "Working Together"
+    icon: together
     body: |-
       Parents are an important part of the process. I work alongside families, sharing observations and strategies, teaching parents how to use them in everyday interactions, and making decisions together about what feels meaningful and realistic for their child and family.
   - title: "Natural & Intentional Learning"
+    icon: kite
     body: |-
       I follow the child's lead, building on their interests, strengths, and motivation. At the same time, I intentionally structure interactions and create opportunities for learning, so that communication can develop naturally while still being purposeful.
   - title: "Communication in Everyday Life"
+    icon: bubbles
     body: |-
       Communication is about more than what happens during a session. I focus on meaningful, functional communication that helps a child participate, connect with others, express themselves, and be more successful in their everyday life.
   - title: "Individualized Support"
+    icon: sprout
     body: |-
       Every child and every family is different. I adapt support to the child's communication profile, strengths, interests, and needs, while also considering each family's priorities, routines, and what works for them.
   - title: "Evidence-Informed Practice"
+    icon: books
     body: |-
       My work is grounded in current research, clinical experience, and an understanding of each child's individual needs and context. I draw on complementary cognitive, developmental, and behavioral perspectives to understand how children learn, communicate, interact, and participate in everyday life.
 
