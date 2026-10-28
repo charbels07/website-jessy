@@ -1,4 +1,5 @@
-{#- "Get in Touch" details. Placeholders from the handoff are shown as-is until real details are entered. -#}
+{#- "Get in Touch" details. Placeholders from the handoff are shown as-is until real details are entered;
+    the phone line is left out entirely when no number is set. -#}
 {%- set d = contact.details -%}
 <dl class="contact-list">
   <div class="contact-list__row">
@@ -11,6 +12,7 @@
       {%- endif -%}
     </dd>
   </div>
+  {%- if settings.phone %}
   <div class="contact-list__row">
     <dt>{{ d.phone_label }}</dt>
     <dd>
@@ -22,6 +24,7 @@
       {%- endif -%}
     </dd>
   </div>
+  {%- endif %}
   <div class="contact-list__row">
     <dt>{{ d.sessions_label }}</dt>
     <dd>{{ d.sessions }}</dd>

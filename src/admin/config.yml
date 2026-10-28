@@ -40,7 +40,8 @@ collections:
           - label: Phone / WhatsApp number
             name: phone
             widget: string
-            hint: Include the country code, e.g. +961 3 123 456. Leave the text in [square brackets] until the final number is confirmed.
+            required: false
+            hint: Leave empty to keep the phone number off the website. To show it, include the country code, e.g. +961 3 123 456.
           - label: This number is on WhatsApp
             name: whatsapp
             widget: boolean

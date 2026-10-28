@@ -1,12 +1,13 @@
 # Site-wide settings and contact details (editable in the CMS under
 # "Contact details & settings").
 #
-# The email and phone values are Jessy's final contact details; the site turns
-# them into working email / phone / WhatsApp links automatically.
+# Jessy's contact details; the site turns them into working links automatically.
+# The phone number is left empty at Jessy's request, which hides the
+# "Phone / WhatsApp" line everywhere on the site. Enter a number to show it again.
 name: "Jessy El Khoury"
 role: "Pediatric Speech & Language Therapist"
 email: "jessyelkhoury0@gmail.com"
-phone: "+961 71 758 175"
+phone: ""
 whatsapp: true
 description: "Helping children build meaningful skills through individualized support and everyday interactions with the people who know them best."
 # The site's public address, e.g. "https://www.example.com". Used for

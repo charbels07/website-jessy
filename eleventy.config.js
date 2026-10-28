@@ -92,7 +92,8 @@ export default function (eleventyConfig) {
 
   eleventyConfig.on("eleventy.after", () => {
     const settings = loadYaml(fs.readFileSync("src/_data/settings.yml", "utf8"));
-    const missing = ["email", "phone"].filter((key) => isPlaceholder(settings[key]));
+    // An empty phone number is deliberate (it hides the phone line); only flag leftover placeholders.
+    const missing = ["email", "phone"].filter((key) => (key === "email" || settings[key]) && isPlaceholder(settings[key]));
     if (missing.length) {
       console.warn(
         `\n[contact] Placeholder still in use for: ${missing.join(", ")}. ` +

@@ -102,17 +102,19 @@ enable Identity and Git Gateway in Netlify, and invite Jessy by email.
 The handoff's pre-launch checklist, and where each item stands:
 
 - [x] **All Part 1 text copied verbatim.** The content files were generated directly
-  from the handoff document, not retyped, and `npm run check` verifies all 114
-  paragraphs and headings on the built pages. One change was made at the client's
-  request on 2026-10-28: the four em dashes in the copy were replaced with commas.
-  The check now also fails if an em dash reappears.
+  from the handoff document, not retyped, and `npm run check` verifies every
+  paragraph and heading (112) on the built pages. Two changes were made at the
+  client's request on 2026-10-28: the four em dashes in the copy were replaced with
+  commas (the check now fails if one reappears), and the "Phone / WhatsApp" line was
+  removed because Jessy prefers to be contacted by email only.
 - [x] **Navigation labels and order match the handoff.** Also verified by
   `npm run check`.
 - [x] **Email and phone/WhatsApp placeholders replaced once Jessy supplies them.**
-  Set to the details Jessy supplied (jessyelkhoury0@gmail.com, +961 71 758 175).
-  Email, phone and WhatsApp links are live. They can be changed in the CMS under
-  *Contact details & settings*. `npm run check:launch` fails if a placeholder
-  ever reappears.
+  The email is set to jessyelkhoury0@gmail.com and links to a new message. At
+  Jessy's request no phone number is shown: the phone field in the CMS (*Contact
+  details & settings*) is empty, which hides the "Phone / WhatsApp" line on every
+  page. Entering a number brings it back, with working call and WhatsApp links.
+  `npm run check:launch` fails if a placeholder ever reappears.
 - [x] **No credentials, claims, services, testimonials or copy added.** See the
   note on interface text below.
 - [x] **Checked on mobile and desktop.** Layouts are tested from 320 to 1920 px wide,
@@ -139,7 +141,7 @@ standard interface and accessibility text:
 
 - "Skip to content" (keyboard users) and "Menu" (screen-reader label on the menu
   button);
-- the word "WhatsApp" on the WhatsApp link, once a number is entered;
+- the word "WhatsApp" on the WhatsApp link, if a phone number is ever entered;
 - the footer line "© {year} Jessy El Khoury";
 - the 404 page heading, "Page not found";
 - page titles in browser tabs, built from the approved page names, for example
@@ -151,8 +153,9 @@ The search and link-preview description is the approved hero sentence.
 
 For anyone editing the site later:
 
-- Keep the approved copy exactly as written. The only changes so far are the contact
-  details and the em dashes, which were replaced with commas at the client's request.
+- Keep the approved copy exactly as written. The only changes so far, all at the
+  client's request, are the contact details, the em dashes (replaced with commas) and
+  the removal of the phone line.
 - Do not add testimonials, credentials, services, claims or calls to action without
   Jessy's approval.
 - Do not describe Jessy as an IBA or BCBA. Her behavior-analysis training is ongoing

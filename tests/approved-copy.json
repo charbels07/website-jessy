@@ -1,5 +1,5 @@
 {
-  "_note": "Approved website copy extracted from the client handoff (Part 1), with the em dashes replaced by commas at the client's request (2026-10-28). Used by scripts/check-copy.mjs. Do not edit unless the client approves new copy.",
+  "_note": "Approved website copy extracted from the client handoff (Part 1). Client-requested changes on 2026-10-28: the em dashes were replaced by commas, and the Phone / WhatsApp line was removed (Jessy prefers to be contacted by email only). Used by scripts/check-copy.mjs. Do not edit unless the client approves new copy.",
   "navigation": [
     "Home",
     "About Me",
@@ -37,7 +37,6 @@
       "If you have questions about your child's communication or development, or would like to discuss whether support could be helpful, I'd be happy to help.",
       "You can get in touch to share what you have been noticing and what you would like support with. We can then discuss your concerns and consider the most appropriate next step together.",
       "Email: [Insert professional email address]",
-      "Phone / WhatsApp: [Insert professional phone number]",
       "Sessions: In person and online, depending on the child and family's needs."
     ],
     "/about-me/": [
@@ -132,7 +131,6 @@
       "You can get in touch to share what you have been noticing and what you would like support with. We can then discuss your concerns and consider the most appropriate next step together.",
       "Get in Touch",
       "Email: [Insert professional email address]",
-      "Phone / WhatsApp: [Insert professional phone number]",
       "Sessions: In person and online, depending on the child and family's needs."
     ]
   }
