@@ -988,14 +988,27 @@ ul[role="list"] {
   line-height: 1.3;
 }
 
-.subsection__title::before {
-  content: "";
-  flex: none;
-  width: 0.5rem;
-  height: 0.5rem;
-  border-radius: 50%;
-  background: var(--clay);
-  transform: translateY(-0.15em);
+.subsection__title {
+  align-items: center;
+}
+
+.subsection__icon {
+  width: 2.75rem;
+  height: 2.75rem;
+}
+
+/* Small illustration under a section heading, beside long text. */
+.aside-art {
+  width: min(100%, 17rem);
+  height: auto;
+  margin-top: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+@media (max-width: 55.99em) {
+  .aside-art {
+    width: 11rem;
+    margin-top: 1rem;
+  }
 }
 
 /* ---------- About ---------- */
@@ -1232,6 +1245,7 @@ ul[role="list"] {
   .site-footer,
   .skip-link,
   .hero__art,
+  .aside-art,
   .page-header__art,
   .about-intro__media,
   .hills,

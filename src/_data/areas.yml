@@ -6,16 +6,19 @@ areas:
       I support young children with communication and language difficulties through assessment and individualized intervention, particularly during the early years. My work is guided by evidence-based practice and draws on complementary cognitive, developmental, and behavioral perspectives to understand each child's profile and identify meaningful goals.
     subsections:
       - title: "Assessment"
+        icon: magnifier
         body: |-
           Assessment aims to build a comprehensive understanding of a child's communication and language abilities, strengths, needs, and everyday functioning. Depending on the child's profile and the questions being explored, I use standardized assessments alongside functional and dynamic assessment approaches.
 
           Functional assessment tools, such as the VB-MAPP, may also be used when appropriate to help identify current skills, learning needs, and intervention priorities.
       - title: "Early Communication & Language Intervention"
+        icon: rings
         body: |-
           Intervention is individualized to the child's communication profile, developmental level, interests, strengths, and family priorities. I draw primarily on principles from Naturalistic Developmental Behavioral Interventions (NDBIs) and parent-mediated interventions, integrating learning opportunities into play, everyday interactions, and familiar routines.
 
           This work may support children with communication and language delays, autism, neurological conditions, genetic syndromes, and other developmental conditions.
       - title: "Augmentative and Alternative Communication (AAC)"
+        icon: aac
         body: |-
           Augmentative and alternative communication (AAC) includes different ways of communicating that can supplement or support spoken language. AAC may involve unaided methods, such as gestures and signs, or aided systems, such as communication boards, picture supports, and speech-generating devices or applications.
 
@@ -37,6 +40,7 @@ areas:
       My work with parents includes parent-mediated interventions (PMIs), parent coaching, and psychoeducation, depending on the child's needs and the family's priorities. The aim is to give parents a clearer understanding of their child and practical, evidence-informed ways to support communication, participation, and everyday functioning.
     subsections:
       - title: "Parent-Mediated Interventions for Social Communication"
+        icon: faces
         body: |-
           I have specialized training in parent-mediated interventions that support children's social communication and interaction skills. Through parent coaching, I work with parents during everyday interactions, helping them recognize and build on their child's communication attempts and create opportunities for interaction and learning.
 
@@ -44,6 +48,7 @@ areas:
 
           The aim is to help parents understand not only what strategies to use, but also how and when to use them with their own child.
       - title: "Parent-Mediated Interventions for Challenging Behavior"
+        icon: idea
         body: |-
           I have training in parent-mediated interventions that help parents better understand and respond to challenging behavior.
 
@@ -51,6 +56,7 @@ areas:
 
           The emphasis is on understanding the function or meaning of behavior and helping children communicate, participate, and navigate everyday situations more effectively.
       - title: "Psychoeducation for Parents"
+        icon: book
         body: |-
           Psychoeducation helps parents develop a clearer understanding of their child's communication, learning, interaction, and developmental profile.
 

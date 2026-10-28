@@ -22,6 +22,7 @@ permalink: /
   <div class="container split">
     <div class="split__aside">
       <h2 class="section-title" id="home-about"><a href="{{ navigation | navUrl('about') }}">{{ navigation | navLabel("about") }}{% include "partials/arrow.njk" %}</a></h2>
+      <img class="aside-art" src="/assets/illustrations/growing.svg" width="320" height="240" alt="" loading="lazy" decoding="async">
     </div>
     <div class="split__main prose prose--lead">{{ about.intro | md | safe }}</div>
   </div>

@@ -174,6 +174,7 @@ For anyone editing the site later:
 - **Illustrations:** hand-drawn storybook style (ink lines with soft palette fills),
   drawn as SVG for this site, so they stay sharp and light. Scenes show parent and
   child play, picture cards, blocks, books, a kite and rolling hills. Large scenes
-  are in `src/assets/illustrations/`; icons are in `src/_includes/partials/sprite.njk`,
-  and each Area of Expertise, How I Work principle and For Parents question picks its
-  icon in the CMS. No stock photos or puzzle pieces.
+  are in `src/assets/illustrations/`; icons are in `src/_includes/partials/sprite.njk`.
+  Each Area of Expertise (and its subsections), How I Work principle and For Parents
+  question picks its icon in the CMS, and each About Me section can show a small
+  illustration beside its text. No stock photos or puzzle pieces.

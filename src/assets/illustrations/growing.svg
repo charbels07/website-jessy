@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 240" fill="none" stroke="#2B3946" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+  <defs>
+    <filter id="hand" x="-3%" y="-3%" width="106%" height="106%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" seed="17"/>
+      <feDisplacementMap in="SourceGraphic" scale="2.2" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+  <g filter="url(#hand)">
+    <path d="M14 222C40 200 110 194 168 198S292 204 306 222Z" fill="#F4EADF" stroke="none"/>
+    <path d="M14 222C40 200 110 194 168 198S292 204 306 222"/>
+    <!-- sun -->
+    <circle cx="250" cy="50" r="18" fill="#EFC6A6" stroke="none"/>
+    <path d="M274 50h7M267 67l5 5M250 74v7M233 67l-5 5M226 50h-7M233 33l-5-5M250 26v-7M267 33l5-5" stroke="#C97B5A" stroke-width="2.2"/>
+    <!-- watering can and drops -->
+    <path d="M38 132h44v34H38z" fill="#A9BED0"/>
+    <path d="M82 140l26-16" stroke-width="5"/>
+    <path d="M82 140l26-16" stroke="#A9BED0" stroke-width="2"/>
+    <path d="M104 118l10 10" stroke-width="2.4"/>
+    <path d="M38 140c-12 0-14 20 0 20" stroke-width="2.4"/>
+    <path d="M124 132v6M118 146v6M130 148v6" stroke="#5B7C99" stroke-width="2.6"/>
+    <!-- sprout in pot -->
+    <path d="M146 166h56l-7 40h-42z" fill="#C97B5A"/>
+    <path d="M142 166h64"/>
+    <path d="M174 166c0-26 2-50 8-70"/>
+    <path d="M176 128c-4-16-20-24-36-20 4 16 18 24 36 20z" fill="#A9B596"/>
+    <path d="M178 106c4-16 20-22 34-18-4 16-18 22-34 18z" fill="#8A9878"/>
+    <path d="M182 96c-2-12 4-22 14-26 2 12-4 22-14 26z" fill="#A9B596"/>
+    <path d="M176 148c6-12 20-16 32-12-6 12-20 16-32 12z" fill="#8A9878"/>
+  </g>
+</svg>

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 240" fill="none" stroke="#2B3946" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+  <defs>
+    <filter id="hand" x="-3%" y="-3%" width="106%" height="106%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" seed="19"/>
+      <feDisplacementMap in="SourceGraphic" scale="2.2" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+  <g filter="url(#hand)">
+    <path d="M14 222C40 200 110 194 168 198S292 204 306 222Z" fill="#F4EADF" stroke="none"/>
+    <path d="M14 222C40 200 110 194 168 198S292 204 306 222"/>
+    <!-- books -->
+    <rect x="70" y="170" width="150" height="26" rx="3" fill="#5B7C99"/>
+    <rect x="80" y="144" width="136" height="26" rx="3" fill="#C97B5A"/>
+    <rect x="74" y="118" width="142" height="26" rx="3" fill="#A9B596"/>
+    <path d="M200 170v26M200 144v26M200 118v26" stroke-width="1.6"/>
+    <path d="M92 183h60M100 157h50M94 131h56" stroke="#FBF9F6" stroke-width="3"/>
+    <!-- graduation cap -->
+    <path d="M90 92l58-24 58 24-58 24z" fill="#2B3946"/>
+    <path d="M116 104v14c18 10 46 10 64 0v-14" fill="#46627D"/>
+    <path d="M148 92l42 10v22" stroke="#E8B69C" stroke-width="2.4"/>
+    <circle cx="190" cy="128" r="4" fill="#E8B69C"/>
+    <!-- pencil and apple -->
+    <path d="M238 196l14-62 12 3-14 62z" fill="#EFC6A6"/>
+    <path d="M252 134l3-12 9 15z" fill="#FBF9F6"/>
+    <path d="M238 196l12 3" stroke-width="3"/>
+    <circle cx="44" cy="182" r="16" fill="#C97B5A"/>
+    <path d="M44 166c0-6 2-10 6-12" stroke-width="2"/>
+    <path d="M48 160c6-6 14-4 16 0-6 4-12 4-16 0z" fill="#8A9878"/>
+  </g>
+</svg>

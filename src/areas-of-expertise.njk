@@ -30,7 +30,10 @@ permalink: /areas-of-expertise/
         <div class="prose prose--lead-first">{{ area.intro | md | safe }}</div>
         {%- for sub in area.subsections %}
         <div class="subsection">
-          <h3 class="subsection__title">{{ sub.title | amp | safe }}</h3>
+          <h3 class="subsection__title">
+            {%- if sub.icon %}{% set icon = sub.icon %}{% set iconClass = "subsection__icon" %}{% include "partials/icon.njk" %}{% endif -%}
+            <span>{{ sub.title | amp | safe }}</span>
+          </h3>
           <div class="prose">{{ sub.body | md | safe }}</div>
         </div>
         {%- endfor %}

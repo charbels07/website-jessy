@@ -26,6 +26,9 @@ permalink: /about-me/
     <div class="split">
       <div class="split__aside">
         <h2 class="entry__title" id="{{ section | itemId }}">{{ section.title | amp | safe }}</h2>
+        {%- if section.art %}
+        <img class="aside-art" src="/assets/illustrations/{{ section.art }}.svg" width="320" height="240" alt="" loading="lazy" decoding="async">
+        {%- endif %}
       </div>
       <div class="split__main">
         <div class="prose">{{ section.body | md | safe }}</div>

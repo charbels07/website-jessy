@@ -15,11 +15,16 @@ permalink: /for-parents/
 </nav>
 
 <div class="container entries">
+  {%- set questionIcons = ["wonder", "clipboard", "blocks", "steps", "laptop", "signpost"] -%}
   {%- for question in parents.questions %}
   <section class="entry" id="{{ question | itemId }}" aria-labelledby="{{ question | itemId }}-title">
     <div class="split">
       <div class="split__aside">
-        <h2 class="entry__title" id="{{ question | itemId }}-title">{{ question.title | amp | safe }}</h2>
+        <div class="sticky">
+          {%- set icon = question.icon or questionIcons[loop.index0 % 6] %}{% set iconClass = "entry__icon" %}
+          {% include "partials/icon.njk" %}
+          <h2 class="entry__title" id="{{ question | itemId }}-title">{{ question.title | amp | safe }}</h2>
+        </div>
       </div>
       <div class="split__main prose prose--lead-first">{{ question.body | md | safe }}</div>
     </div>

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 240" fill="none" stroke="#2B3946" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+  <defs>
+    <filter id="hand" x="-3%" y="-3%" width="106%" height="106%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" seed="23"/>
+      <feDisplacementMap in="SourceGraphic" scale="2.2" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+  <g filter="url(#hand)">
+    <path d="M14 222C40 200 110 194 168 198S292 204 306 222Z" fill="#F4EADF" stroke="none"/>
+    <path d="M14 222C40 200 110 194 168 198S292 204 306 222"/>
+    <!-- easel and board -->
+    <path d="M104 206l26-128M216 206l-26-128M160 90v116" stroke-width="3"/>
+    <rect x="78" y="30" width="164" height="112" rx="6" fill="#5B7C99"/>
+    <rect x="78" y="30" width="164" height="112" rx="6" stroke="#2B3946"/>
+    <path d="M70 142h180" stroke-width="5"/>
+    <path d="M70 142h180" stroke="#E8B69C" stroke-width="2"/>
+    <!-- chalk drawings -->
+    <path d="M98 100l12-34 12 34M102 88h16" stroke="#FBF9F6" stroke-width="3"/>
+    <path d="M134 66v34h12c8 0 12-4 12-9s-4-8-11-8c6 0 10-3 10-8s-4-9-11-9z" stroke="#FBF9F6" stroke-width="3"/>
+    <circle cx="204" cy="66" r="12" fill="#EFC6A6" stroke="none"/>
+    <path d="M176 116l14-14 10 8 14-14 10 10" stroke="#CBD3BF" stroke-width="3"/>
+    <!-- pointer -->
+    <path d="M250 196l-28-78" stroke-width="3"/>
+    <circle cx="221" cy="116" r="3" fill="#C97B5A"/>
+    <!-- chalk and eraser -->
+    <rect x="86" y="132" width="20" height="7" rx="2" fill="#F0E4D8" stroke-width="1.6"/>
+  </g>
+</svg>
