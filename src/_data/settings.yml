@@ -1,0 +1,18 @@
+# Site-wide settings and contact details (editable in the CMS under
+# "Contact details & settings").
+#
+# The email and phone values below are the placeholders from the approved
+# handoff. Replace them only once Jessy has supplied her final details —
+# the site turns them into working email / phone / WhatsApp links
+# automatically as soon as real values are entered.
+name: "Jessy El Khoury"
+name_arabic: "جيسي الخوري"
+role: "Pediatric Speech & Language Therapist"
+email: "[Insert professional email address]"
+phone: "[Insert professional phone number]"
+whatsapp: true
+description: "Helping children build meaningful skills through individualized support and everyday interactions with the people who know them best."
+# The site's public address, e.g. "https://www.example.com". Used for
+# canonical links, social previews and the sitemap. Can stay empty on
+# Netlify, which provides the address automatically during the build.
+url: ""

@@ -1,0 +1,66 @@
+---
+layout: layouts/base.njk
+navKey: home
+permalink: /
+---
+{%- set hero = home.hero -%}
+<section class="hero" aria-labelledby="hero-name">
+  <div class="container hero__inner">
+    <div class="hero__text">
+      <h1 class="hero__name" id="hero-name">{{ hero.name }}</h1>
+      <p class="hero__role"><span>{{ hero.role | amp | safe }}</span></p>
+      <p class="hero__tagline">{{ hero.tagline }}</p>
+      <p class="hero__lede">{{ hero.text }}</p>
+    </div>
+    <div class="hero__art">
+      {%- set scene = "sunrise" %}{% set loadingMode = "eager" %}
+      {% include "partials/arch.njk" %}
+    </div>
+  </div>
+</section>
+
+<section class="section section--ruled" aria-labelledby="home-about">
+  <div class="container split">
+    <div class="split__aside">
+      <h2 class="section-title" id="home-about"><a href="{{ navigation | navUrl('about') }}">{{ navigation | navLabel("about") }}{% include "partials/arrow.njk" %}</a></h2>
+    </div>
+    <div class="split__main prose prose--lead">{{ about.intro | md | safe }}</div>
+  </div>
+</section>
+
+<section class="section section--cream" aria-labelledby="home-areas">
+  <div class="container">
+    <h2 class="section-title section-head" id="home-areas"><a href="{{ navigation | navUrl('areas') }}">{{ navigation | navLabel("areas") }}{% include "partials/arrow.njk" %}</a></h2>
+    {%- set cardHeading = true %}
+    {% include "partials/area-cards.njk" %}
+  </div>
+</section>
+
+<section class="section" aria-labelledby="home-how">
+  <div class="container">
+    <h2 class="section-title section-head" id="home-how"><a href="{{ navigation | navUrl('how') }}">{{ navigation | navLabel("how") }}{% include "partials/arrow.njk" %}</a></h2>
+    {%- set headingTag = "h3" %}
+    {% include "partials/principles.njk" %}
+  </div>
+</section>
+
+<section class="section section--navy" aria-labelledby="home-parents">
+  <div class="container split">
+    <div class="split__aside">
+      <h2 class="section-title" id="home-parents"><a href="{{ navigation | navUrl('parents') }}">{{ navigation | navLabel("parents") }}{% include "partials/arrow.njk" %}</a></h2>
+    </div>
+    <ul class="question-links split__main" role="list">
+      {%- for question in parents.questions %}
+      <li><a href="{{ navigation | navUrl('parents') }}#{{ question | itemId }}"><span>{{ question.title | amp | safe }}</span>{% include "partials/arrow.njk" %}</a></li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="section section--soft" aria-labelledby="home-contact">
+  <div class="container">
+    <h2 class="section-title section-head" id="home-contact"><a href="{{ navigation | navUrl('contact') }}">{{ navigation | navLabel("contact") }}{% include "partials/arrow.njk" %}</a></h2>
+    {%- set hl = 3 %}
+    {% include "partials/contact-block.njk" %}
+  </div>
+</section>

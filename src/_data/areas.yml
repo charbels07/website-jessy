@@ -1,0 +1,74 @@
+areas:
+  - id: early-communication-and-language
+    title: "Early Communication & Language: Assessment and Intervention"
+    intro: |-
+      I support young children with communication and language difficulties through assessment and individualized intervention, particularly during the early years. My work is guided by evidence-based practice and draws on complementary cognitive, developmental, and behavioral perspectives to understand each child's profile and identify meaningful goals.
+    subsections:
+      - title: "Assessment"
+        body: |-
+          Assessment aims to build a comprehensive understanding of a child's communication and language abilities, strengths, needs, and everyday functioning. Depending on the child's profile and the questions being explored, I use standardized assessments alongside functional and dynamic assessment approaches.
+
+          Functional assessment tools, such as the VB-MAPP, may also be used when appropriate to help identify current skills, learning needs, and intervention priorities.
+      - title: "Early Communication & Language Intervention"
+        body: |-
+          Intervention is individualized to the child's communication profile, developmental level, interests, strengths, and family priorities. I draw primarily on principles from Naturalistic Developmental Behavioral Interventions (NDBIs) and parent-mediated interventions, integrating learning opportunities into play, everyday interactions, and familiar routines.
+
+          This work may support children with communication and language delays, autism, neurological conditions, genetic syndromes, and other developmental conditions.
+      - title: "Augmentative and Alternative Communication (AAC)"
+        body: |-
+          Augmentative and alternative communication (AAC) includes different ways of communicating that can supplement or support spoken language. AAC may involve unaided methods, such as gestures and signs, or aided systems, such as communication boards, picture supports, and speech-generating devices or applications.
+
+          AAC assessment and support focus on identifying options that fit the child's communication needs, abilities, environments, and communication partners. Support may include helping families and professionals select appropriate tools and integrate them into everyday interactions, activities, and routines.
+  - id: autism-assessment
+    title: "Clinical Assessment of Autism Spectrum Disorder"
+    intro: |-
+      I have specialized training in autism assessment, including the administration of the Autism Diagnostic Observation Schedule, Second Edition (ADOS-2), and the Autism Diagnostic Interview–Revised (ADI-R).
+
+      These standardized instruments contribute to a broader clinical assessment. Their findings are considered alongside developmental history, clinical observations, and other relevant information to build a comprehensive understanding of the child's profile.
+
+      The assessment process can help identify strengths and areas of need, inform clinical decision-making, and guide appropriate recommendations and next steps.
+    subsections: []
+  - id: parent-support-and-education
+    title: "Parent Support & Education"
+    intro: |-
+      My work with parents includes parent-mediated interventions (PMIs), parent coaching, and psychoeducation, depending on the child's needs and the family's priorities. The aim is to give parents a clearer understanding of their child and practical, evidence-informed ways to support communication, participation, and everyday functioning.
+    subsections:
+      - title: "Parent-Mediated Interventions for Social Communication"
+        body: |-
+          I have specialized training in parent-mediated interventions that support children's social communication and interaction skills. Through parent coaching, I work with parents during everyday interactions, helping them recognize and build on their child's communication attempts and create opportunities for interaction and learning.
+
+          This may involve observing parent-child interactions, modelling strategies, guiding parents as they practise, and providing individualized feedback. Strategies may include following the child's interests, responding to communication attempts, and embedding learning opportunities into play and daily routines.
+
+          The aim is to help parents understand not only what strategies to use, but also how and when to use them with their own child.
+      - title: "Parent-Mediated Interventions for Challenging Behavior"
+        body: |-
+          I have training in parent-mediated interventions that help parents better understand and respond to challenging behavior.
+
+          The work focuses on understanding the factors that may influence behavior, recognizing patterns and triggers, adapting routines and environments, supporting communication, and teaching alternative skills. Parents are supported in developing practical, evidence-informed strategies that can be used consistently in everyday situations.
+
+          The emphasis is on understanding the function or meaning of behavior and helping children communicate, participate, and navigate everyday situations more effectively.
+      - title: "Psychoeducation for Parents"
+        body: |-
+          Psychoeducation helps parents develop a clearer understanding of their child's communication, learning, interaction, and developmental profile.
+
+          This may include discussing a child's strengths and difficulties, how they learn and interact, and the factors that may influence their participation in everyday activities. The aim is to help parents make sense of their child's needs and identify practical ways to support them at home and in other familiar environments.
+  - id: aba-informed-support
+    title: "ABA-Informed Support for Learning, Communication & Everyday Skills"
+    intro: |-
+      Applied Behavior Analysis (ABA) provides a framework for understanding how learning and behavior are influenced by environmental factors and everyday experiences.
+
+      My ongoing training in behavior analysis builds on my clinical experience and deepens my understanding of learning, motivation, communication, and behavior. I draw on behavior-analytic principles to support functional communication, learning, independence, and participation in everyday life.
+
+      This may include identifying meaningful learning goals, understanding factors that influence behavior, supporting the development of functional skills, and helping children participate more successfully in everyday routines.
+    subsections: []
+  - id: professional-consultation
+    title: "Professional Consultation & Implementation Support"
+    intro: |-
+      I provide consultation to educators, school teams, shadow teachers, and other professionals supporting children with communication, developmental, and learning needs.
+
+      Consultation focuses on translating individualized recommendations into practical strategies that can be integrated into a child's everyday environment. Depending on the child's needs and the team's priorities, consultation may address augmentative and alternative communication (AAC), the implementation of ABA-based strategies, and the integration of communication and learning opportunities into daily routines.
+
+      For AAC, this may involve helping teams make communication systems accessible and use them consistently during classroom activities, transitions, play, and social interactions.
+
+      For ABA-based strategies, consultation may focus on implementing agreed-upon individualized strategies that support functional communication, skill development, participation, and independence. This may include adapting routines and environments, supporting the development of alternative skills, and promoting consistency across the child's daily settings.
+    subsections: []

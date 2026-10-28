@@ -1,0 +1,14 @@
+---
+layout: layouts/base.njk
+navKey: contact
+permalink: /contact/
+---
+{%- set pageLabel = navigation | navLabel(navKey) -%}
+{% include "partials/page-header.njk" %}
+
+<section class="section section--first">
+  <div class="container">
+    {%- set hl = 2 %}
+    {% include "partials/contact-block.njk" %}
+  </div>
+</section>

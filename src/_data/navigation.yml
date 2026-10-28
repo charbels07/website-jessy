@@ -1,0 +1,20 @@
+# Main navigation — labels and order are fixed by the approved handoff:
+# Home · About Me · Areas of Expertise · How I Work · For Parents · Contact
+- key: home
+  label: "Home"
+  url: "/"
+- key: about
+  label: "About Me"
+  url: "/about-me/"
+- key: areas
+  label: "Areas of Expertise"
+  url: "/areas-of-expertise/"
+- key: how
+  label: "How I Work"
+  url: "/how-i-work/"
+- key: parents
+  label: "For Parents"
+  url: "/for-parents/"
+- key: contact
+  label: "Contact"
+  url: "/contact/"

@@ -1,0 +1,30 @@
+---
+layout: layouts/base.njk
+navKey: parents
+permalink: /for-parents/
+---
+{%- set pageLabel = navigation | navLabel(navKey) -%}
+{% include "partials/page-header.njk" %}
+
+<nav class="section section--first section--overview" aria-label="{{ pageLabel }}">
+  <div class="container">
+    <ul class="question-links question-links--light question-links--grid" role="list">
+      {%- for question in parents.questions %}
+      <li><a href="#{{ question | itemId }}"><span>{{ question.title | amp | safe }}</span>{% include "partials/arrow.njk" %}</a></li>
+      {%- endfor %}
+    </ul>
+  </div>
+</nav>
+
+<div class="container entries">
+  {%- for question in parents.questions %}
+  <section class="entry" id="{{ question | itemId }}" aria-labelledby="{{ question | itemId }}-title">
+    <div class="split">
+      <div class="split__aside">
+        <h2 class="entry__title" id="{{ question | itemId }}-title">{{ question.title | amp | safe }}</h2>
+      </div>
+      <div class="split__main prose prose--lead-first">{{ question.body | md | safe }}</div>
+    </div>
+  </section>
+  {%- endfor %}
+</div>

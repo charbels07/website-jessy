@@ -1,0 +1,24 @@
+{#- Arch-framed portrait, or an abstract editorial scene when no portrait has been uploaded yet.
+    Set `scene` ("sunrise" | "together") and optionally `loadingMode` before including. -#}
+{%- set hasPortrait = about.portrait and about.portrait.image -%}
+<div class="arch-frame{% if hasPortrait %} arch-frame--portrait{% endif %}">
+  <div class="arch">
+    {%- if hasPortrait %}
+    {% portrait about.portrait, "(min-width: 56em) 28rem, 80vw", loadingMode or "lazy" %}
+    {%- elif scene == "together" %}
+    <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+      <rect width="400" height="500" fill="#F0E4D8"/>
+      <circle cx="170" cy="268" r="112" fill="#5B7C99"/>
+      <circle cx="276" cy="340" r="72" fill="#C97B5A"/>
+      <path d="M0 440h400v60H0z" fill="#8A9878"/>
+    </svg>
+    {%- else %}
+    <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+      <rect width="400" height="500" fill="#5B7C99"/>
+      <circle cx="258" cy="200" r="64" fill="#C97B5A"/>
+      <circle cx="84" cy="610" r="250" fill="#8A9878"/>
+      <circle cx="380" cy="660" r="240" fill="#F0E4D8"/>
+    </svg>
+    {%- endif %}
+  </div>
+</div>

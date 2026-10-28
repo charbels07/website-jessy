@@ -1,0 +1,70 @@
+{%- set pageLabel = title or (navigation | navLabel(navKey)) -%}
+{%- set docTitle = (settings.name ~ " — " ~ settings.role) if navKey == "home" else (pageLabel ~ " — " ~ settings.name) -%}
+{%- set hasEmail = not (settings.email | isPlaceholder) -%}
+{%- set hasPhone = not (settings.phone | isPlaceholder) -%}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ docTitle }}</title>
+  <meta name="description" content="{{ settings.description }}">
+  {%- if build.url %}
+  <link rel="canonical" href="{{ build.url }}{{ page.url }}">
+  {%- endif %}
+  <meta name="theme-color" content="#FBF9F6">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="preload" href="/assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/figtree.woff2" as="font" type="font/woff2" crossorigin>
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{{ settings.name }}">
+  <meta property="og:title" content="{{ docTitle }}">
+  <meta property="og:description" content="{{ settings.description }}">
+  <meta property="og:locale" content="en_US">
+  {%- if build.url %}
+  <meta property="og:url" content="{{ build.url }}{{ page.url }}">
+  <meta property="og:image" content="{{ build.url }}/assets/social/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="{{ settings.name }} — {{ settings.role }}">
+  {%- endif %}
+  <meta name="twitter:card" content="summary_large_image">
+
+  <script>document.documentElement.classList.add("js")</script>
+  <style>{% inlineCss %}</style>
+  <script type="application/ld+json">{{ settings | personSchema(build.url) | safe }}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  {% include "partials/sprite.njk" %}
+  {% include "partials/header.njk" %}
+  <main id="main" tabindex="-1">
+    {{ content | safe }}
+  </main>
+  {% include "partials/footer.njk" %}
+  <script>
+    (() => {
+      const header = document.querySelector("[data-header]");
+      const toggle = header.querySelector(".nav-toggle");
+      const nav = document.getElementById("site-nav");
+      const setOpen = (open) => {
+        toggle.setAttribute("aria-expanded", String(open));
+        header.toggleAttribute("data-open", open);
+      };
+      toggle.addEventListener("click", () => setOpen(toggle.getAttribute("aria-expanded") !== "true"));
+      nav.addEventListener("click", (event) => { if (event.target.closest("a")) setOpen(false); });
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && header.hasAttribute("data-open")) { setOpen(false); toggle.focus(); }
+      });
+      matchMedia("(min-width: 64em)").addEventListener("change", () => setOpen(false));
+      const onScroll = () => header.classList.toggle("is-scrolled", window.scrollY > 8);
+      addEventListener("scroll", onScroll, { passive: true });
+      onScroll();
+    })();
+  </script>
+</body>
+</html>

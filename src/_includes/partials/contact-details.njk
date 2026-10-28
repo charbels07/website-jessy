@@ -1,0 +1,29 @@
+{#- "Get in Touch" details. Placeholders from the handoff are shown as-is until real details are entered. -#}
+{%- set d = contact.details -%}
+<dl class="contact-list">
+  <div class="contact-list__row">
+    <dt>{{ d.email_label }}</dt>
+    <dd>
+      {%- if settings.email | isPlaceholder -%}
+      <span class="placeholder">{{ settings.email }}</span>
+      {%- else -%}
+      <a href="mailto:{{ settings.email }}">{{ settings.email }}</a>
+      {%- endif -%}
+    </dd>
+  </div>
+  <div class="contact-list__row">
+    <dt>{{ d.phone_label }}</dt>
+    <dd>
+      {%- if settings.phone | isPlaceholder -%}
+      <span class="placeholder">{{ settings.phone }}</span>
+      {%- else -%}
+      <a href="{{ settings.phone | telHref }}">{{ settings.phone }}</a>
+      {%- if settings.whatsapp %} <a class="chip" href="{{ settings.phone | waHref }}" rel="noopener">WhatsApp{% include "partials/arrow.njk" %}</a>{% endif -%}
+      {%- endif -%}
+    </dd>
+  </div>
+  <div class="contact-list__row">
+    <dt>{{ d.sessions_label }}</dt>
+    <dd>{{ d.sessions }}</dd>
+  </div>
+</dl>

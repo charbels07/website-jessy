@@ -1,0 +1,29 @@
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <div class="site-footer__brand">
+      <p class="site-footer__name">
+        <span class="brand__latin">{{ settings.name }}</span>
+        {%- if settings.name_arabic %}
+        <span class="brand__arabic" lang="ar" dir="rtl">{{ settings.name_arabic }}</span>
+        {%- endif %}
+      </p>
+      <p class="site-footer__role">{{ settings.role | amp | safe }}</p>
+    </div>
+    <nav class="site-footer__nav" aria-label="Footer">
+      <ul>
+        {%- for item in navigation %}
+        <li><a href="{{ item.url }}"{% if item.key == navKey %} aria-current="page"{% endif %}>{{ item.label }}</a></li>
+        {%- endfor %}
+      </ul>
+    </nav>
+    {%- if hasEmail or hasPhone %}
+    <ul class="site-footer__contact">
+      {%- if hasEmail %}<li><a href="mailto:{{ settings.email }}">{{ settings.email }}</a></li>{% endif %}
+      {%- if hasPhone %}<li><a href="{{ settings.phone | telHref }}">{{ settings.phone }}</a></li>{% endif %}
+    </ul>
+    {%- endif %}
+  </div>
+  <div class="container site-footer__base">
+    <p>© {{ build.year }} {{ settings.name }}</p>
+  </div>
+</footer>

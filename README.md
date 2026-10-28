@@ -1,0 +1,165 @@
+# Jessy El Khoury — website
+
+Website for Jessy El Khoury, Pediatric Speech & Language Therapist, built from the
+approved content and developer handoff.
+
+- **Static site** built with [Eleventy](https://www.11ty.dev/): plain HTML, inlined
+  CSS, a few lines of JavaScript for the mobile menu. Fast, accessible, cheap to host.
+- **Editable by Jessy** through [Decap CMS](https://decapcms.org/) at `/admin/`.
+  Copy, contact details and her portrait can all be changed without touching code.
+- **Approved copy is checked automatically**: `npm run check` confirms every
+  paragraph from the handoff appears verbatim on the right page.
+
+## Quick start
+
+Requires Node.js 20 or newer.
+
+```bash
+npm install
+npm start          # http://localhost:8080, reloads on changes
+npm run build      # production build into _site/
+npm run check      # build + verify the approved copy
+```
+
+To try the CMS locally, run `npm run cms` in a second terminal next to `npm start`,
+then open <http://localhost:8080/admin/> and click **Login**. Changes are written
+straight to the files in `src/_data/`.
+
+## Where things live
+
+| What | File |
+| --- | --- |
+| Contact details, name, Arabic name, search description | `src/_data/settings.yml` |
+| Homepage hero | `src/_data/home.yml` |
+| About Me (intro, sections, closing statement, portrait) | `src/_data/about.yml` |
+| Areas of Expertise | `src/_data/areas.yml` |
+| How I Work | `src/_data/howIWork.yml` |
+| For Parents | `src/_data/parents.yml` |
+| Contact page copy | `src/_data/contact.yml` |
+| Navigation (fixed order from the handoff) | `src/_data/navigation.yml` |
+| Page templates | `src/*.njk`, `src/_includes/` |
+| Styles | `src/_includes/css/main.css` |
+| CMS configuration | `src/admin/config.yml` |
+| Approved copy used by the checker | `tests/approved-copy.json` |
+
+The homepage reuses copy from the other pages (the About Me introduction, the five
+Areas of Expertise titles, the How I Work principles, the For Parents questions and
+the Contact section), so each text exists in one place only.
+
+## Deploying (Netlify)
+
+`netlify.toml` already holds the build settings.
+
+1. Push this repository to GitHub, with the site on the `main` branch.
+2. In Netlify: **Add new site → Import an existing project → GitHub**, pick the
+   repository. The build command (`npm run build`) and publish folder (`_site`) are
+   detected from `netlify.toml`.
+3. Add Jessy's domain under **Domain management**. HTTPS is set up automatically.
+   Netlify passes the address to the build, so canonical links, the sitemap and
+   social previews use it without further setup.
+
+Any other static host works too (Cloudflare Pages, Vercel, GitHub Pages): build with
+`npm run build` and serve `_site/`. In that case, enter the address under **Website
+address** in the CMS settings, and set up CMS sign-in separately (see the Decap
+docs on external OAuth clients).
+
+### Content editing (CMS sign-in)
+
+The CMS saves each change as a commit to the repository, and Netlify rebuilds the
+site in about a minute. It is configured for the **GitHub** backend with
+`repo: charbels07/website-jessy` and `branch: main`. Update both in
+`src/admin/config.yml` if the repository moves (for example, when it is
+transferred to Jessy).
+
+1. On GitHub, go to **Settings → Developer settings → OAuth Apps → New OAuth App**.
+   Use the site's address as the homepage URL and
+   `https://api.netlify.com/auth/done` as the authorization callback URL.
+2. In Netlify, go to **Site configuration → Access & security → OAuth → Install
+   provider → GitHub** and paste the client ID and secret.
+3. Give Jessy a GitHub account with write access to the repository. She then edits
+   the site at `https://<her-domain>/admin/`.
+
+If Jessy would rather sign in with just an email and password, Decap also supports
+Netlify Identity with Git Gateway. Check that Netlify Identity is available on the
+account first, since Netlify changed its status in 2025–26. To use it, change the
+backend in `src/admin/config.yml` to `name: git-gateway` (the file has the snippet),
+enable Identity and Git Gateway in Netlify, and invite Jessy by email.
+
+## Before launch
+
+The handoff's pre-launch checklist, and where each item stands:
+
+- [x] **All Part 1 text copied verbatim.** The content files were generated directly
+  from the handoff document, not retyped, and `npm run check` verifies all 114
+  paragraphs and headings on the built pages.
+- [x] **Navigation labels and order match the handoff.** Also verified by
+  `npm run check`.
+- [ ] **Email and phone/WhatsApp placeholders replaced once Jessy supplies them.**
+  Enter them in the CMS under *Contact details & settings*. Email, phone and
+  WhatsApp links switch on automatically. `npm run check:launch` fails while the
+  placeholders are still shown.
+- [x] **No credentials, claims, services, testimonials or copy added.** See the
+  note on interface text below.
+- [x] **Checked on mobile and desktop.** Layouts are tested from 320 to 1920 px wide,
+  with no horizontal scrolling.
+- [x] **Accessibility, images, contact links, forms and navigation tested.** No axe
+  WCAG 2.1 AA violations on any page. The site works by keyboard, including the
+  mobile menu with Escape to close, and without JavaScript. Every internal link and
+  anchor resolves. There is no contact form, so no personal or medical information
+  is collected.
+- [x] **Part 2 implementation notes not visible on the site.** `npm run check` also
+  scans every page for developer-only text and the excluded term "Verbal Behavior".
+
+### To confirm with Jessy
+
+- **Contact details:** professional email address, and phone/WhatsApp number with
+  country code.
+- **Arabic name in the logo:** shown as «جيسي الخوري». The handoff marks Arabic
+  integration as optional. Please confirm the spelling, or clear the field in the
+  CMS to use the English-only logo.
+- **Portrait (optional):** upload it under *Pages → About Me → Portrait*, with a
+  short description. It replaces the illustration on the homepage and About Me
+  page, and is converted to responsive AVIF/WebP/JPEG automatically.
+- **Domain name.**
+
+### Interface text not taken from the handoff
+
+All website copy comes from the handoff. The only other words on the site are
+standard interface and accessibility text:
+
+- "Skip to content" (keyboard users) and "Menu" (screen-reader label on the menu
+  button);
+- the word "WhatsApp" on the WhatsApp link, once a number is entered;
+- the footer line "© {year} Jessy El Khoury";
+- the 404 page heading, "Page not found";
+- page titles in browser tabs, built from the approved page names, for example
+  "About Me — Jessy El Khoury".
+
+The search and link-preview description is the approved hero sentence.
+
+## Content rules (from the handoff)
+
+For anyone editing the site later:
+
+- Keep the approved copy exactly as written. Only the contact placeholders were
+  meant to change.
+- Do not add testimonials, credentials, services, claims or calls to action without
+  Jessy's approval.
+- Do not describe Jessy as an IBA or BCBA. Her behavior-analysis training is ongoing
+  and behavior-analytic work is under BCBA supervision.
+- Keep "specialized training" wording for ADOS-2 and ADI-R.
+- Use "parent-mediated interventions (PMIs)" only at its first mention.
+- Do not add the term or service "Verbal Behavior".
+- No numbering before the Areas of Expertise titles.
+
+## Design notes
+
+- **Palette:** from the handoff (dusty blue `#5B7C99`, warm cream `#F0E4D8`, clay
+  `#C97B5A`, off-white `#FBF9F6`, near-black `#33322E`, ink navy `#2B3946`, moss
+  `#8A9878`). These colours are used for shapes and backgrounds. Text uses slightly
+  deeper tones of the same colours so that all text meets WCAG AA contrast.
+- **Type:** Fraunces for headings, Figtree for body text, Markazi Text for the Arabic
+  name. All are self-hosted and subset (about 130 KB in total) under the SIL Open
+  Font License; licences are in `src/assets/fonts/`.
+- **Imagery:** typography-led, with simple editorial shapes (an arch, sun and hills).
+  No stock photos, puzzle pieces, speech bubbles or cartoons.

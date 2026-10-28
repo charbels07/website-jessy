@@ -1,0 +1,101 @@
+import fs from "node:fs";
+import path from "node:path";
+import { load as loadYaml } from "js-yaml";
+import markdownIt from "markdown-it";
+import Image, { generateHTML } from "@11ty/eleventy-img";
+
+// Approved copy is rendered as-is: no smart quotes, no auto-linking, no raw HTML.
+const md = markdownIt({ html: false, linkify: false, typographer: false });
+
+const escapeHtml = (s) =>
+  String(s ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+
+// A placeholder such as "[Insert professional email address]" counts as "not supplied yet".
+const isPlaceholder = (value) => !value || /^\s*\[.*\]\s*$/.test(value);
+
+export default function (eleventyConfig) {
+  eleventyConfig.addDataExtension("yml,yaml", (contents) => loadYaml(contents));
+
+  eleventyConfig.addPassthroughCopy({
+    "src/assets/fonts": "assets/fonts",
+    "src/assets/icons": "/",
+    "src/assets/social": "assets/social",
+    "src/assets/uploads": "assets/uploads",
+    "src/admin": "admin",
+  });
+  eleventyConfig.ignores.add("src/admin/**");
+  eleventyConfig.addWatchTarget("src/_includes/css/");
+
+  // Paragraphs of approved copy (blank-line separated, Markdown allowed for CMS edits).
+  eleventyConfig.addFilter("md", (text) => md.render(String(text ?? "")));
+
+  // Escapes a heading and sets each "&" in the display face's italic ampersand.
+  eleventyConfig.addFilter("amp", (text) =>
+    escapeHtml(text).replace(/&amp;/g, '<span class="amp">&amp;</span>'),
+  );
+
+  eleventyConfig.addFilter("isPlaceholder", isPlaceholder);
+  eleventyConfig.addFilter("telHref", (phone) => "tel:" + String(phone).replace(/[^\d+]/g, ""));
+  eleventyConfig.addFilter("waHref", (phone) => "https://wa.me/" + String(phone).replace(/\D/g, ""));
+  eleventyConfig.addFilter("navLabel", (nav, key) => nav.find((item) => item.key === key)?.label);
+  eleventyConfig.addFilter("navUrl", (nav, key) => nav.find((item) => item.key === key)?.url);
+  eleventyConfig.addFilter("itemId", (item) => item.id || eleventyConfig.getFilter("slugify")(item.title));
+
+  eleventyConfig.addFilter("personSchema", (settings, url) => {
+    const person = { "@context": "https://schema.org", "@type": "Person", name: settings.name, jobTitle: settings.role };
+    if (url) person.url = url + "/";
+    if (!isPlaceholder(settings.email)) person.email = settings.email;
+    if (!isPlaceholder(settings.phone)) person.telephone = settings.phone;
+    return JSON.stringify(person).replace(/</g, "\\u003c");
+  });
+
+  // All CSS is inlined: one small stylesheet, no render-blocking request.
+  eleventyConfig.addShortcode("inlineCss", () => {
+    const css = fs.readFileSync("src/_includes/css/main.css", "utf8");
+    return css
+      .replace(/\/\*[\s\S]*?\*\//g, "")
+      .replace(/\s+/g, " ")
+      .replace(/\s*([{}:;,>])\s*/g, "$1")
+      .replace(/;}/g, "}")
+      .trim();
+  });
+
+  // Responsive, optimised portrait (AVIF/WebP/JPEG) from an image uploaded through the CMS.
+  eleventyConfig.addAsyncShortcode("portrait", async (portrait, sizes, loading = "lazy") => {
+    if (!portrait?.image) return "";
+    const metadata = await Image(path.join("src", portrait.image), {
+      widths: [400, 720, 1080],
+      formats: ["avif", "webp", "jpeg"],
+      outputDir: "_site/assets/img/",
+      urlPath: "/assets/img/",
+    });
+    return generateHTML(metadata, {
+      alt: portrait.alt || "",
+      sizes,
+      loading,
+      decoding: "async",
+      class: "portrait__img",
+    });
+  });
+
+  eleventyConfig.on("eleventy.after", () => {
+    const settings = loadYaml(fs.readFileSync("src/_data/settings.yml", "utf8"));
+    const missing = ["email", "phone"].filter((key) => isPlaceholder(settings[key]));
+    if (missing.length) {
+      console.warn(
+        `\n[contact] Placeholder still in use for: ${missing.join(", ")}. ` +
+          "Replace it in the CMS (Contact details & settings) once Jessy supplies the final details.\n",
+      );
+    }
+  });
+
+  return {
+    dir: { input: "src", output: "_site", includes: "_includes", data: "_data" },
+    templateFormats: ["njk", "11ty.js"],
+    htmlTemplateEngine: "njk",
+  };
+}

@@ -1,0 +1,184 @@
+# Decap CMS configuration: lets Jessy edit the website copy, contact details and
+# portrait at /admin/ without touching code. Every save is a commit to the
+# repository, and Netlify rebuilds the site automatically (about a minute).
+#
+# Sign-in: GitHub (see README, "Content editing"). To let Jessy sign in with an
+# email address instead, switch to Netlify Identity: replace the backend block
+# with
+#   backend:
+#     name: git-gateway
+#     branch: main
+# and enable Identity + Git Gateway in the Netlify dashboard.
+backend:
+  name: github
+  repo: charbels07/website-jessy
+  branch: main
+
+# Lets you try the CMS on your own computer: run `npm run cms` next to
+# `npm start`, then open http://localhost:8080/admin/. Ignored on the live site.
+local_backend: true
+
+site_url: /
+display_url: /
+logo_url: /icon-512.png
+media_folder: src/assets/uploads
+public_folder: /assets/uploads
+
+collections:
+  - name: settings
+    label: Contact details & settings
+    editor: { preview: false }
+    files:
+      - name: settings
+        label: Contact details & settings
+        file: src/_data/settings.yml
+        fields:
+          - label: Email address
+            name: email
+            widget: string
+            hint: Shown on the Contact section and page, and turned into an email link automatically. Leave the text in [square brackets] until the final address is confirmed.
+          - label: Phone / WhatsApp number
+            name: phone
+            widget: string
+            hint: Include the country code, e.g. +961 3 123 456. Leave the text in [square brackets] until the final number is confirmed.
+          - label: This number is on WhatsApp
+            name: whatsapp
+            widget: boolean
+            default: true
+            hint: Adds a WhatsApp link next to the number.
+          - label: Name
+            name: name
+            widget: string
+          - label: Name in Arabic (shown beside the name in the logo)
+            name: name_arabic
+            widget: string
+            required: false
+            hint: Leave empty to show the logo in English only.
+          - label: Professional title
+            name: role
+            widget: string
+          - label: Description for search engines and link previews
+            name: description
+            widget: text
+          - label: Website address
+            name: url
+            widget: string
+            required: false
+            hint: e.g. https://www.example.com — can stay empty while the site is hosted on Netlify.
+
+  - name: pages
+    label: Pages
+    editor: { preview: false }
+    files:
+      - name: home
+        label: Home
+        file: src/_data/home.yml
+        fields:
+          - label: Hero
+            name: hero
+            widget: object
+            collapsed: false
+            fields:
+              - { label: Name, name: name, widget: string }
+              - { label: Professional title, name: role, widget: string }
+              - { label: Tagline, name: tagline, widget: text }
+              - { label: Introduction, name: text, widget: text }
+
+      - name: about
+        label: About Me
+        file: src/_data/about.yml
+        fields:
+          - label: Introduction (also shown on the homepage)
+            name: intro
+            widget: markdown
+            buttons: [bold, italic, link]
+            editor_components: []
+          - label: Portrait
+            name: portrait
+            widget: object
+            collapsed: false
+            hint: Optional. When a photo is added it appears on the homepage and the About Me page; until then an illustration is shown.
+            fields:
+              - { label: Photo, name: image, widget: image, required: false, choose_url: false }
+              - { label: Photo description (for screen readers), name: alt, widget: string, required: false, hint: "e.g. Portrait of Jessy El Khoury" }
+          - label: Sections
+            name: sections
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Text, name: body, widget: markdown, buttons: [bold, italic, link, bulleted-list], editor_components: [] }
+          - label: Closing statement (highlighted at the end of the page)
+            name: closing
+            widget: markdown
+            buttons: [bold, italic, link]
+            editor_components: []
+            required: false
+
+      - name: areas
+        label: Areas of Expertise
+        file: src/_data/areas.yml
+        fields:
+          - label: Areas
+            name: areas
+            widget: list
+            summary: "{{fields.title}}"
+            hint: Each area has a card on the homepage that links to its section on the Areas of Expertise page.
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Link name, name: id, widget: string, required: false, hint: "Short, lowercase, words joined by hyphens (used in links to this section). Avoid changing it once the site is live." }
+              - { label: Introduction, name: intro, widget: markdown, buttons: [bold, italic, link, bulleted-list], editor_components: [] }
+              - label: Subsections
+                name: subsections
+                widget: list
+                required: false
+                summary: "{{fields.title}}"
+                fields:
+                  - { label: Title, name: title, widget: string }
+                  - { label: Text, name: body, widget: markdown, buttons: [bold, italic, link, bulleted-list], editor_components: [] }
+
+      - name: how
+        label: How I Work
+        file: src/_data/howIWork.yml
+        fields:
+          - label: Principles
+            name: principles
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Text, name: body, widget: markdown, buttons: [bold, italic, link, bulleted-list], editor_components: [] }
+
+      - name: parents
+        label: For Parents
+        file: src/_data/parents.yml
+        fields:
+          - label: Questions
+            name: questions
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { label: Question, name: title, widget: string }
+              - { label: Answer, name: body, widget: markdown, buttons: [bold, italic, link, bulleted-list], editor_components: [] }
+
+      - name: contact
+        label: Contact
+        file: src/_data/contact.yml
+        fields:
+          - label: Introduction
+            name: intro
+            widget: object
+            collapsed: false
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Text, name: body, widget: markdown, buttons: [bold, italic, link], editor_components: [] }
+          - label: Contact details box
+            name: details
+            widget: object
+            hint: The email address and phone number themselves are edited under "Contact details & settings".
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Email label, name: email_label, widget: string }
+              - { label: Phone label, name: phone_label, widget: string }
+              - { label: Sessions label, name: sessions_label, widget: string }
+              - { label: Sessions, name: sessions, widget: string }

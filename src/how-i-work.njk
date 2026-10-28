@@ -1,0 +1,14 @@
+---
+layout: layouts/base.njk
+navKey: how
+permalink: /how-i-work/
+---
+{%- set pageLabel = navigation | navLabel(navKey) -%}
+{% include "partials/page-header.njk" %}
+
+<section class="section section--first">
+  <div class="container">
+    {%- set headingTag = "h2" %}{% set withIds = true %}
+    {% include "partials/principles.njk" %}
+  </div>
+</section>

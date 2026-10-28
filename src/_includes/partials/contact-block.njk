@@ -1,0 +1,11 @@
+{#- Contact copy + details. Set `hl` (heading level) before including. -#}
+<div class="contact-grid">
+  <div class="contact-grid__intro">
+    <h{{ hl }} class="contact-grid__title">{{ contact.intro.title | amp | safe }}</h{{ hl }}>
+    <div class="prose prose--large">{{ contact.intro.body | md | safe }}</div>
+  </div>
+  <div class="contact-card">
+    <h{{ hl }} class="contact-card__title">{{ contact.details.title | amp | safe }}</h{{ hl }}>
+    {% include "partials/contact-details.njk" %}
+  </div>
+</div>

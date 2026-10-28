@@ -1,0 +1,32 @@
+{
+  "name": "website-jessy",
+  "version": "1.0.0",
+  "description": "Website for Jessy El Khoury, Pediatric Speech & Language Therapist",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy",
+    "check": "npm run build && node scripts/check-copy.mjs",
+    "check:launch": "npm run build && node scripts/check-copy.mjs --launch",
+    "cms": "npx decap-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/charbels07/website-jessy.git"
+  },
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/charbels07/website-jessy/issues"
+  },
+  "homepage": "https://github.com/charbels07/website-jessy#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.7",
+    "@11ty/eleventy-img": "^7.1.1",
+    "js-yaml": "^4.3.2",
+    "markdown-it": "^15.0.3"
+  },
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  }
+}
