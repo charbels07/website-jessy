@@ -70,6 +70,9 @@
   {% include "partials/header.njk" %}
   <main id="main" tabindex="-1">
     {{ content | safe }}
+    {%- if toTop %}
+    {% include "partials/to-top.njk" %}
+    {%- endif %}
   </main>
   {% include "partials/footer.njk" %}
   <script>
@@ -138,13 +141,24 @@
       const whenIdle = window.requestIdleCallback ? (fn) => requestIdleCallback(fn, { timeout: 3000 }) : (fn) => setTimeout(fn, 1500);
       if (document.readyState === "complete") whenIdle(warm);
       else addEventListener("load", () => whenIdle(warm));
-      // The "Back to top" button shows once the list at the top of the page has scrolled away.
+      // The "Back to top" button (on the longer pages) shows once the top of the page has
+      // scrolled away: the list of links where there is one, else the title banner or the hero.
+      // It steps aside while the email button passes underneath it (the bottom of the screen).
       const toTop = document.querySelector("[data-to-top]");
-      const overview = document.querySelector(".section--overview");
+      const overview = document.querySelector(".section--overview") || document.querySelector(".page-header, .hero");
       if (toTop && overview) {
+        let pastTop = false;
+        const underneath = new Set();
+        const update = () => toTop.classList.toggle("is-visible", pastTop && underneath.size === 0);
         new IntersectionObserver(([entry]) => {
-          toTop.classList.toggle("is-visible", !entry.isIntersecting && entry.boundingClientRect.top < 0);
+          pastTop = !entry.isIntersecting && entry.boundingClientRect.top < 0;
+          update();
         }).observe(overview);
+        const avoid = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => (entry.isIntersecting ? underneath.add(entry.target) : underneath.delete(entry.target)));
+          update();
+        }, { rootMargin: "-75% 0px 0px 0px" });
+        document.querySelectorAll(".email-button").forEach((el) => avoid.observe(el));
       }
       const onScroll = () => header.classList.toggle("is-scrolled", window.scrollY > 8);
       addEventListener("scroll", onScroll, { passive: true });

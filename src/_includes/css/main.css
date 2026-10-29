@@ -1906,7 +1906,7 @@ a:focus-visible .mark {
   transform: none;
 }
 
-/* ---------- Back to top (Areas of Expertise) ---------- */
+/* ---------- Back to top (longer pages) ---------- */
 
 .to-top {
   position: fixed;
@@ -1942,7 +1942,7 @@ a:focus-visible .mark {
   }
 }
 
-/* Hidden (and out of the Tab order) until the list at the top has scrolled away. */
+/* Hidden (and out of the Tab order) until the top of the page has scrolled away. */
 .js .to-top:not(.is-visible) {
   opacity: 0;
   visibility: hidden;
