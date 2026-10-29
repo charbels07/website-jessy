@@ -916,6 +916,17 @@ a:focus-visible .mark {
   height: auto;
 }
 
+/* The painted scene is wide: on larger screens it reaches a little into the gap and the
+   page margin (its edges fade out), so Jessy isn't drawn too small. */
+@media (min-width: 56em) {
+  .hero__art {
+    width: calc(100% + 2rem + var(--gutter) * 0.8);
+    max-width: 46rem;
+    margin-right: calc(var(--gutter) * -0.8);
+    justify-self: end;
+  }
+}
+
 /* The painted scenes fade softly into the page at their edges. */
 .scene {
   -webkit-mask-image:
@@ -1469,10 +1480,19 @@ a:focus-visible .mark {
   height: auto;
 }
 
+/* The painted scene is landscape, so it gets more room than a portrait photo. */
+.about-intro__media--scene {
+  width: min(100%, 30rem);
+}
+
 @media (max-width: 55.99em) {
   .about-intro__media {
     width: min(80%, 20rem);
     justify-self: center;
+  }
+
+  .about-intro__media--scene {
+    width: min(100%, 32rem);
   }
 }
 

@@ -9,11 +9,11 @@ permalink: /about-me/
 
 <section class="section section--first">
   <div class="container about-intro">
-    <div class="about-intro__media">
+    <div class="about-intro__media{% if not (about.portrait and about.portrait.image) %} about-intro__media--scene{% endif %}">
       {%- if about.portrait and about.portrait.image %}
       <figure class="portrait-frame">{% portrait about.portrait, "(min-width: 56em) 24rem, 72vw", "eager" %}</figure>
       {%- else %}
-      {% scene "/assets/art/therapy-scene-close.webp", "(min-width: 56em) 26rem, 80vw", "eager" %}
+      {% scene "/assets/art/about-jessy.webp", "(min-width: 56em) 30rem, 92vw", "eager" %}
       {%- endif %}
     </div>
     <div class="about-intro__text prose prose--lead doodles">{{ about.intro | md | safe }}</div>
