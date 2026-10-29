@@ -61,7 +61,7 @@ page. The lists at the top of the
 Areas of Expertise and For Parents pages scroll smoothly down the same page instead,
 so they have no arrows; these jumps don't add a back-button step, so going back always
 returns to the previous page. On the longer pages (Home, About Me, Areas of Expertise,
-How I Work, For Parents) a small round "back to top" button with an up arrow appears at
+For Parents) a small round "back to top" button with an up arrow appears at
 the bottom right once you scroll past the top of the page; set `toTop: true` in a page's
 front matter to add it to another page. Browsers without view transitions simply jump, and the
 motion is off for anyone who has reduced motion switched on. Hover effects only show
