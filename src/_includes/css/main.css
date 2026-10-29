@@ -76,10 +76,12 @@ html {
   scroll-padding-top: calc(var(--header-h) + 1.5rem);
 }
 
-/* Opening another page slides it in from the right, like turning to a new page, and it
-   opens directly at the linked section (no scrolling down). The header stays in place
-   and going back slides the other way. Browsers without view transitions just jump.
-   Links within the same page scroll smoothly instead (see the script in base.njk). */
+/* Moving to another page slides sideways in the order of the main menu: to a page
+   further right (Home, About Me, ... Contact) the new page comes in from the right; to
+   one further left it comes in from the left. It opens directly at the linked section
+   (no scrolling down) and the header stays in place. The direction is set on <html>
+   as data-vt by the script in base.njk. Browsers without view transitions just jump.
+   Links within the same page scroll smoothly instead. */
 @view-transition {
   navigation: auto;
 }
@@ -96,12 +98,32 @@ html {
   animation: 0.38s var(--ease) both slide-in-right;
 }
 
-html:active-view-transition-type(back)::view-transition-old(root) {
+html[data-vt="left"]::view-transition-old(root) {
   animation-name: slide-out-right;
 }
 
-html:active-view-transition-type(back)::view-transition-new(root) {
+html[data-vt="left"]::view-transition-new(root) {
   animation-name: slide-in-left;
+}
+
+html[data-vt="none"]::view-transition-old(root) {
+  animation-name: fade-out;
+}
+
+html[data-vt="none"]::view-transition-new(root) {
+  animation-name: fade-in;
+}
+
+@keyframes fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
 }
 
 @keyframes slide-out-left {

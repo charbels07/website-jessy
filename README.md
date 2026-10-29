@@ -48,9 +48,11 @@ the Contact section), so each text exists in one place only. The Areas, How I Wo
 For Parents and Contact sections are teasers: their titles link to the full text on
 each page, and the Contact teaser shows the first sentence and the email address.
 
-Opening another page (for example from a homepage arrow) slides the new page in from
-the right with CSS view transitions, opening it directly at the linked section; the
-header stays in place and going back slides the other way. The lists at the top of the
+Moving between pages slides sideways (CSS view transitions) in the order of the main
+menu: going to a page further right (Home, About Me, Areas of Expertise, How I Work,
+For Parents, Contact) slides right, going to one further left slides left, including
+with the browser's back and forward buttons. Pages open directly at the linked
+section, and the header stays in place. The lists at the top of the
 Areas of Expertise and For Parents pages scroll smoothly down the same page instead,
 so they have no arrows. Browsers without view transitions simply jump, and the motion
 is off for anyone who has reduced motion switched on.

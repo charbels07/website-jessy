@@ -65,6 +65,11 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("waHref", (phone) => "https://wa.me/" + String(phone).replace(/\D/g, ""));
   eleventyConfig.addFilter("navLabel", (nav, key) => nav.find((item) => item.key === key)?.label);
   eleventyConfig.addFilter("navUrl", (nav, key) => nav.find((item) => item.key === key)?.url);
+  // Position of a page in the main navigation (0 = Home), or "" for pages outside it.
+  eleventyConfig.addFilter("navIndex", (nav, key) => {
+    const index = nav.findIndex((item) => item.key === key);
+    return index === -1 ? "" : index;
+  });
   eleventyConfig.addFilter("itemId", (item) => item.id || eleventyConfig.getFilter("slugify")(item.title));
 
   eleventyConfig.addFilter("personSchema", (settings, url) => {

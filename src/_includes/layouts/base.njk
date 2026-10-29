@@ -3,7 +3,7 @@
 {%- set hasEmail = not (settings.email | isPlaceholder) -%}
 {%- set hasPhone = not (settings.phone | isPlaceholder) -%}
 <!doctype html>
-<html lang="en">
+<html lang="en" data-page="{{ navigation | navIndex(navKey) }}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -39,14 +39,26 @@
 
   <script>
     document.documentElement.classList.add("js");
-    // Going back through history slides the page the other way (where supported).
-    addEventListener("pagereveal", (event) => {
-      const activation = window.navigation && navigation.activation;
-      if (event.viewTransition && activation && activation.from && activation.navigationType === "traverse" &&
-          activation.entry.index < activation.from.index) {
-        event.viewTransition.types.add("back");
-      }
-    });
+    // Page transitions follow the order of the main menu: moving to a page further right
+    // slides right, moving to one further left slides left. Each page remembers its place
+    // so the next page knows which way to go (also after the browser's back button).
+    (() => {
+      const root = document.documentElement;
+      const here = root.dataset.page;
+      const update = () => {
+        try {
+          const from = sessionStorage.getItem("page-index");
+          if (here === "" || from === null || from === "") root.dataset.vt = "none";
+          else root.dataset.vt = Number(here) > Number(from) ? "right" : Number(here) < Number(from) ? "left" : "none";
+          sessionStorage.setItem("page-index", here);
+        } catch (error) {
+          root.dataset.vt = "right";
+        }
+      };
+      update();
+      // A page restored by the back/forward buttons doesn't rerun its scripts: update again.
+      addEventListener("pageshow", (event) => { if (event.persisted) update(); });
+    })();
   </script>
   <style>{% inlineCss %}</style>
   <script type="application/ld+json">{{ settings | personSchema(build.url) | safe }}</script>
