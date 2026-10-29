@@ -192,9 +192,11 @@ For anyone editing the site later:
   `#C97B5A`, off-white `#FBF9F6`, near-black `#33322E`, ink navy `#2B3946`, moss
   `#8A9878`). These colours are used for the illustrations and backgrounds. Text uses
   slightly deeper tones of the same colours so that all text meets WCAG AA contrast.
-- **Type:** Fraunces for headings, Figtree for body text. Both are self-hosted and
-  subset (about 95 KB in total) under the SIL Open Font License; licences are in
-  `src/assets/fonts/`.
+- **Type:** Fraunces for headings, Figtree for body text. At the client's request the
+  headings' capital J and lowercase f come from Newsreader (plainer forms: Fraunces's J
+  dips below the line and its f curls), merged into the same font family by
+  `unicode-range`. All are self-hosted and subset (about 100 KB in total) under the SIL
+  Open Font License; licences are in `src/assets/fonts/`.
 - **Illustrations:** hand-drawn storybook style (ink lines with soft palette fills),
   drawn as SVG for this site, so they stay sharp and light. Scenes show parent and
   child play, picture cards, blocks, books, a kite and rolling hills. Large scenes

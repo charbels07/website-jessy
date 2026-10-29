@@ -104,7 +104,7 @@ collections:
             summary: "{{fields.title}}"
             fields:
               - { label: Title, name: title, widget: string }
-              - { label: Illustration, name: art, widget: select, required: false, options: [learning, teaching, growing, reading, areas, kite, book, tin-cans, boat] }
+              - { label: Illustration, name: art, widget: select, required: false, options: [learning, teaching, storybook, areas, kite, book, tin-cans, boat] }
               - { label: Text, name: body, widget: markdown, buttons: [bold, italic, link, bulleted-list], editor_components: [] }
           - label: Closing statement (highlighted at the end of the page)
             name: closing
