@@ -44,8 +44,16 @@ straight to the files in `src/_data/`.
 
 The homepage reuses copy from the other pages (the About Me introduction, the five
 Areas of Expertise titles, the five How I Work titles, the For Parents questions and
-the Contact section), so each text exists in one place only. The Areas, How I Work
-and For Parents sections are teasers: their titles link to the full text on each page.
+the Contact section), so each text exists in one place only. The Areas, How I Work,
+For Parents and Contact sections are teasers: their titles link to the full text on
+each page, and the Contact teaser shows the first sentence and the email address.
+
+Opening another page (for example from a homepage arrow) slides the new page in from
+the right with CSS view transitions, opening it directly at the linked section; the
+header stays in place and going back slides the other way. The lists at the top of the
+Areas of Expertise and For Parents pages scroll smoothly down the same page instead,
+so they have no arrows. Browsers without view transitions simply jump, and the motion
+is off for anyone who has reduced motion switched on.
 
 ## Preview on GitHub Pages
 
@@ -104,10 +112,13 @@ The handoff's pre-launch checklist, and where each item stands:
 
 - [x] **All Part 1 text copied verbatim.** The content files were generated directly
   from the handoff document, not retyped, and `npm run check` verifies every
-  paragraph and heading (112) on the built pages. Two changes were made at the
-  client's request on 2026-10-28: the four em dashes in the copy were replaced with
-  commas (the check now fails if one reappears), and the "Phone / WhatsApp" line was
-  removed because Jessy prefers to be contacted by email only.
+  paragraph and heading on the built pages. Changes made at the client's request on
+  2026-10-28/29: the four em dashes in the copy were replaced with commas (the check
+  now fails if one reappears); the "Phone / WhatsApp" line was removed because Jessy
+  prefers to be contacted by email only; the hero tagline ("Supporting communication,
+  learning, and development, together with families.") was removed; and the homepage
+  How I Work and Contact sections were shortened to teasers, with the full text kept
+  on those pages.
 - [x] **Navigation labels and order match the handoff.** Also verified by
   `npm run check`.
 - [x] **Email and phone/WhatsApp placeholders replaced once Jessy supplies them.**
@@ -155,8 +166,8 @@ The search and link-preview description is the approved hero sentence.
 For anyone editing the site later:
 
 - Keep the approved copy exactly as written. The only changes so far, all at the
-  client's request, are the contact details, the em dashes (replaced with commas) and
-  the removal of the phone line.
+  client's request, are the contact details, the em dashes (replaced with commas), the
+  removal of the phone line and the hero tagline, and the shorter homepage teasers.
 - Do not add testimonials, credentials, services, claims or calls to action without
   Jessy's approval.
 - Do not describe Jessy as an IBA or BCBA. Her behavior-analysis training is ongoing

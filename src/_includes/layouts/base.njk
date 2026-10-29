@@ -37,7 +37,17 @@
   {%- endif %}
   <meta name="twitter:card" content="summary_large_image">
 
-  <script>document.documentElement.classList.add("js")</script>
+  <script>
+    document.documentElement.classList.add("js");
+    // Going back through history slides the page the other way (where supported).
+    addEventListener("pagereveal", (event) => {
+      const activation = window.navigation && navigation.activation;
+      if (event.viewTransition && activation && activation.from && activation.navigationType === "traverse" &&
+          activation.entry.index < activation.from.index) {
+        event.viewTransition.types.add("back");
+      }
+    });
+  </script>
   <style>{% inlineCss %}</style>
   <script type="application/ld+json">{{ settings | personSchema(build.url) | safe }}</script>
 </head>
@@ -64,6 +74,22 @@
         if (event.key === "Escape" && header.hasAttribute("data-open")) { setOpen(false); toggle.focus(); }
       });
       matchMedia("(min-width: 64em)").addEventListener("change", () => setOpen(false));
+      // Links to a section of the same page scroll smoothly down to it. (Links to another
+      // page slide the new page in instead, and open directly at the right section.)
+      const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)");
+      document.addEventListener("click", (event) => {
+        const link = event.target.closest('a[href*="#"]');
+        if (!link || link.classList.contains("skip-link")) return;
+        if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+        if (link.origin !== location.origin || link.pathname !== location.pathname || !link.hash) return;
+        const target = document.getElementById(decodeURIComponent(link.hash.slice(1)));
+        if (!target) return;
+        event.preventDefault();
+        history.pushState(null, "", link.hash);
+        target.scrollIntoView({ behavior: reduceMotion.matches ? "auto" : "smooth", block: "start" });
+        target.setAttribute("tabindex", "-1");
+        target.focus({ preventScroll: true });
+      });
       const onScroll = () => header.classList.toggle("is-scrolled", window.scrollY > 8);
       addEventListener("scroll", onScroll, { passive: true });
       onScroll();

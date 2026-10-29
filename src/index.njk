@@ -9,7 +9,9 @@ permalink: /
     <div class="hero__text">
       <h1 class="hero__name" id="hero-name">{{ hero.name }}</h1>
       <p class="hero__role">{{ hero.role | amp | safe }}</p>
+      {%- if hero.tagline %}
       <p class="hero__tagline">{{ hero.tagline }}</p>
+      {%- endif %}
       <p class="hero__lede">{{ hero.text }}</p>
     </div>
     <div class="hero__art">
@@ -59,8 +61,6 @@ permalink: /
 
 <section class="section section--navy section--after-hills" aria-labelledby="home-contact">
   <div class="container">
-    <h2 class="section-title section-head" id="home-contact"><a href="{{ navigation | navUrl('contact') }}">{{ navigation | navLabel("contact") }}{% include "partials/arrow.njk" %}</a></h2>
-    {%- set hl = 3 %}
-    {% include "partials/contact-block.njk" %}
+    {% include "partials/contact-teaser.njk" %}
   </div>
 </section>

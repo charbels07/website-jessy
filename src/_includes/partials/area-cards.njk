@@ -1,4 +1,5 @@
-{#- Overview cards linking to each area of expertise. Set `cardHeading` to true to render titles as h3. -#}
+{#- Overview cards linking to each area of expertise. Set `cardHeading` to true to render titles as h3,
+    and `cardArrows` to false to leave out the arrows (used where the cards scroll within the same page). -#}
 {%- set areaIcons = ["blocks", "clipboard", "family", "steps", "school"] -%}
 <ul class="cards" role="list">
   {%- for area in areas.areas %}
@@ -11,7 +12,9 @@
       {%- else %}
       <span class="card__title">{{ area.title | amp | safe }}</span>
       {%- endif %}
+      {%- if cardArrows !== false %}
       <span class="card__arrow">{% include "partials/arrow.njk" %}</span>
+      {%- endif %}
     </a>
   </li>
   {%- endfor %}

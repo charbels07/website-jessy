@@ -58,6 +58,8 @@ export default function (eleventyConfig) {
   );
 
   eleventyConfig.addFilter("isPlaceholder", isPlaceholder);
+  // First paragraph of a blank-line separated text (used for homepage teasers).
+  eleventyConfig.addFilter("firstParagraph", (text) => String(text ?? "").split(/\n\s*\n/)[0]);
   eleventyConfig.addFilter("versioned", versioned);
   eleventyConfig.addFilter("telHref", (phone) => "tel:" + String(phone).replace(/[^\d+]/g, ""));
   eleventyConfig.addFilter("waHref", (phone) => "https://wa.me/" + String(phone).replace(/\D/g, ""));

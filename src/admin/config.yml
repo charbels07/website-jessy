@@ -77,7 +77,7 @@ collections:
             fields:
               - { label: Name, name: name, widget: string }
               - { label: Professional title, name: role, widget: string }
-              - { label: Tagline, name: tagline, widget: text }
+              - { label: Tagline (optional), name: tagline, widget: text, required: false }
               - { label: Introduction, name: text, widget: text }
 
       - name: about

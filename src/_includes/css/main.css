@@ -76,10 +76,76 @@ html {
   scroll-padding-top: calc(var(--header-h) + 1.5rem);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  html {
-    scroll-behavior: smooth;
+/* Opening another page slides it in from the right, like turning to a new page, and it
+   opens directly at the linked section (no scrolling down). The header stays in place
+   and going back slides the other way. Browsers without view transitions just jump.
+   Links within the same page scroll smoothly instead (see the script in base.njk). */
+@view-transition {
+  navigation: auto;
+}
+
+.site-header {
+  view-transition-name: site-header;
+}
+
+::view-transition-old(root) {
+  animation: 0.38s var(--ease) both slide-out-left;
+}
+
+::view-transition-new(root) {
+  animation: 0.38s var(--ease) both slide-in-right;
+}
+
+html:active-view-transition-type(back)::view-transition-old(root) {
+  animation-name: slide-out-right;
+}
+
+html:active-view-transition-type(back)::view-transition-new(root) {
+  animation-name: slide-in-left;
+}
+
+@keyframes slide-out-left {
+  to {
+    opacity: 0;
+    transform: translateX(-16%);
   }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(16%);
+  }
+}
+
+@keyframes slide-out-right {
+  to {
+    opacity: 0;
+    transform: translateX(16%);
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-16%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  @view-transition {
+    navigation: none;
+  }
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}
+
+/* Sections reached from an arrow link take focus without showing an outline. */
+[id][tabindex="-1"]:focus {
+  outline: none;
 }
 
 body {
@@ -328,7 +394,6 @@ ul[role="list"] {
   justify-content: center;
   width: 2.75rem;
   height: 2.75rem;
-  margin-right: -0.5rem;
   padding: 0;
   border: 0;
   border-radius: 999px;
@@ -372,13 +437,21 @@ ul[role="list"] {
     padding-block: 0.75rem;
   }
 
+  /* Menu button on the left, name centred. */
   .js .site-header__inner {
+    position: relative;
     flex-wrap: nowrap;
+    justify-content: center;
     padding-block: 0;
   }
 
   .js .nav-toggle {
     display: inline-flex;
+    position: absolute;
+    top: 50%;
+    left: -0.5rem;
+    margin: 0;
+    transform: translateY(-50%);
   }
 
   .js .site-nav {
@@ -688,7 +761,7 @@ ul[role="list"] {
 
 .hero__lede {
   max-width: 44ch;
-  margin-top: 1.5rem;
+  margin-top: clamp(1.75rem, 4vw, 2.5rem);
   font-size: var(--step-1);
   line-height: 1.55;
 }
@@ -830,6 +903,8 @@ ul[role="list"] {
 }
 
 .section--overview .card {
+  min-height: 0;
+  gap: 1.25rem;
   background: var(--cream-soft);
 }
 
@@ -1292,6 +1367,50 @@ ul[role="list"] {
   border-radius: 0.5rem;
   color: var(--ink);
   font-size: 0.9375rem;
+}
+
+/* Homepage Contact teaser (on navy). */
+.contact-teaser__title {
+  margin-bottom: 1rem;
+  font-size: var(--step-2);
+  line-height: 1.2;
+  color: var(--on-navy);
+}
+
+.contact-teaser__email {
+  margin-top: clamp(1.75rem, 4vw, 2.25rem);
+}
+
+.email-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  max-width: 100%;
+  padding: 0.7rem 1.5rem 0.7rem 0.9rem;
+  background: var(--paper);
+  border-radius: 999px;
+  color: var(--navy);
+  font-size: var(--step-1);
+  font-weight: 500;
+  font-variant-numeric: lining-nums;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+  transition: background-color 0.25s var(--ease), transform 0.35s var(--ease);
+}
+
+.email-button:hover {
+  background: var(--cream);
+  color: var(--navy);
+  transform: translateY(-2px);
+}
+
+.email-button__icon {
+  width: 2.25rem;
+  height: 2.25rem;
+}
+
+.section--navy :focus-visible {
+  outline-color: var(--clay-on-navy);
 }
 
 /* ---------- Footer ---------- */

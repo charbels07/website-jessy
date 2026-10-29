@@ -1,4 +1,5 @@
-{#- Links to each For Parents question. Set `linkBase` ("" on the For Parents page itself) and optionally `listClass`. -#}
+{#- Links to each For Parents question. Set `linkBase` ("" on the For Parents page itself), optionally `listClass`,
+    and `linkArrows` to false to leave out the arrows (used where the links scroll within the same page). -#}
 {%- set questionIcons = ["wonder", "clipboard", "blocks", "steps", "laptop", "signpost"] -%}
 <ul class="question-links {{ listClass }}" role="list">
   {%- for question in parents.questions %}
@@ -7,7 +8,7 @@
       {%- set icon = question.icon or questionIcons[loop.index0 % 6] %}{% set iconClass = "question-links__icon" %}
       {% include "partials/icon.njk" %}
       <span>{{ question.title | amp | safe }}</span>
-      {%- include "partials/arrow.njk" %}
+      {%- if linkArrows !== false %}{% include "partials/arrow.njk" %}{% endif %}
     </a>
   </li>
   {%- endfor %}

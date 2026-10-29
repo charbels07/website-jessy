@@ -1,0 +1,20 @@
+{#- Homepage teaser for Contact: the invitation and the email address. The full details are on the Contact page. -#}
+<div class="split">
+  <div class="split__aside">
+    <h2 class="section-title" id="home-contact"><a href="{{ navigation | navUrl('contact') }}">{{ navigation | navLabel("contact") }}{% include "partials/arrow.njk" %}</a></h2>
+  </div>
+  <div class="split__main contact-teaser">
+    <h3 class="contact-teaser__title">{{ contact.intro.title | amp | safe }}</h3>
+    <div class="prose prose--large">{{ contact.intro.body | firstParagraph | md | safe }}</div>
+    {%- if settings.email | isPlaceholder %}
+    <p class="contact-teaser__email"><span class="placeholder">{{ settings.email }}</span></p>
+    {%- else %}
+    <p class="contact-teaser__email">
+      <a class="email-button" href="mailto:{{ settings.email }}">
+        {%- set icon = "envelope" %}{% set iconClass = "email-button__icon" %}{% include "partials/icon.njk" -%}
+        <span>{{ settings.email }}</span>
+      </a>
+    </p>
+    {%- endif %}
+  </div>
+</div>
