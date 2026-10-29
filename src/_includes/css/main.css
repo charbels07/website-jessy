@@ -476,6 +476,12 @@ ul[role="list"] {
     transform: translateY(-50%);
   }
 
+  /* Once the menu is open, its close button (the X) sits on the right. */
+  .js .site-header[data-open] .nav-toggle {
+    left: auto;
+    right: -0.5rem;
+  }
+
   .js .site-nav {
     position: absolute;
     top: 100%;
