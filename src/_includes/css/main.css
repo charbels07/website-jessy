@@ -219,8 +219,10 @@ a {
   transition: color 0.2s var(--ease);
 }
 
-a:hover {
-  color: var(--navy);
+@media (hover: hover) {
+  a:hover {
+    color: var(--navy);
+  }
 }
 
 :focus-visible {
@@ -305,7 +307,9 @@ ul[role="list"] {
 /* ---------- Hover and focus ----------
    Links come alive instead of just underlining: arrows get a round button that fills in,
    link text gets a soft marker stroke swept in behind it, rows and cards lift onto a
-   panel, and their drawings tilt. Keyboard focus shows the same as the mouse. */
+   panel, and their drawings tilt. Keyboard focus shows the same as the mouse.
+   Hover effects only apply where there is a real mouse or trackpad (hover: hover): on a
+   touch screen a tap counts as a hover that stays stuck on after you come back. */
 
 .go {
   position: relative;
@@ -330,20 +334,36 @@ ul[role="list"] {
   position: relative;
 }
 
-a:hover .go,
 a:focus-visible .go {
   color: var(--paper);
 }
 
-a:hover .go::before,
+@media (hover: hover) {
+  a:hover .go {
+    color: var(--paper);
+  }
+}
+
 a:focus-visible .go::before {
   opacity: 1;
   transform: none;
 }
 
-a:hover .go .icon-arrow,
+@media (hover: hover) {
+  a:hover .go::before {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 a:focus-visible .go .icon-arrow {
   transform: translateX(12%);
+}
+
+@media (hover: hover) {
+  a:hover .go .icon-arrow {
+    transform: translateX(12%);
+  }
 }
 
 .section--navy .go {
@@ -354,9 +374,14 @@ a:focus-visible .go .icon-arrow {
   background: var(--clay-on-navy);
 }
 
-.section--navy a:hover .go,
 .section--navy a:focus-visible .go {
   color: var(--navy);
+}
+
+@media (hover: hover) {
+  .section--navy a:hover .go {
+    color: var(--navy);
+  }
 }
 
 .mark,
@@ -375,9 +400,14 @@ a:focus-visible .go .icon-arrow {
   background-size: 0% 0.4em;
 }
 
-a:hover .mark,
 a:focus-visible .mark {
   background-size: 100% 0.4em;
+}
+
+@media (hover: hover) {
+  a:hover .mark {
+    background-size: 100% 0.4em;
+  }
 }
 
 /* Smaller links: the whole word is highlighted. */
@@ -388,11 +418,16 @@ a:focus-visible .mark {
   background-size: 0% 100%;
 }
 
-.prose a:hover,
 .prose a:focus-visible,
-.contact-list dd a:hover,
 .contact-list dd a:focus-visible {
   background-size: 100% 100%;
+}
+
+@media (hover: hover) {
+  .prose a:hover,
+  .contact-list dd a:hover {
+    background-size: 100% 100%;
+  }
 }
 
 .section--navy .mark {
@@ -400,9 +435,14 @@ a:focus-visible .mark {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .go .icon-arrow,
-  a:hover .go .icon-arrow {
+  .go .icon-arrow {
     transform: none;
+  }
+
+  @media (hover: hover) {
+    a:hover .go .icon-arrow {
+      transform: none;
+    }
   }
 }
 
@@ -441,8 +481,10 @@ a:focus-visible .mark {
   text-decoration: none;
 }
 
-.brand:hover {
-  color: var(--navy);
+@media (hover: hover) {
+  .brand:hover {
+    color: var(--navy);
+  }
 }
 
 .brand__latin {
@@ -489,20 +531,31 @@ a:focus-visible .mark {
   transition: opacity 0.25s var(--ease), transform 0.35s var(--ease);
 }
 
-.site-nav a:hover,
 .site-nav a:focus-visible {
   color: var(--navy);
+}
+
+@media (hover: hover) {
+  .site-nav a:hover {
+    color: var(--navy);
+  }
 }
 
 .site-nav a[aria-current="page"] {
   color: var(--clay-text);
 }
 
-.site-nav a:hover::after,
 .site-nav a:focus-visible::after,
 .site-nav a[aria-current="page"]::after {
   opacity: 1;
   transform: none;
+}
+
+@media (hover: hover) {
+  .site-nav a:hover::after {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 .site-nav .site-nav__cta {
@@ -517,11 +570,17 @@ a:focus-visible .mark {
   display: none;
 }
 
-.site-nav .site-nav__cta:hover,
 .site-nav .site-nav__cta:focus-visible,
 .site-nav .site-nav__cta[aria-current="page"] {
   background: var(--navy);
   color: var(--paper);
+}
+
+@media (hover: hover) {
+  .site-nav .site-nav__cta:hover {
+    background: var(--navy);
+    color: var(--paper);
+  }
 }
 
 .nav-toggle {
@@ -634,9 +693,14 @@ a:focus-visible .mark {
     display: none;
   }
 
-  .js .site-nav li a[aria-current="page"],
-  .js .site-nav li a:not(.site-nav__cta):hover {
+  .js .site-nav li a[aria-current="page"] {
     color: var(--clay-text);
+  }
+
+  @media (hover: hover) {
+    .js .site-nav li a:not(.site-nav__cta):hover {
+      color: var(--clay-text);
+    }
   }
 
   .js .site-nav li .site-nav__cta {
@@ -692,9 +756,14 @@ a:focus-visible .mark {
 }
 
 .section--navy .section-title,
-.section--navy .section-title a,
-.section--navy .section-title a:hover {
+.section--navy .section-title a {
   color: var(--on-navy);
+}
+
+@media (hover: hover) {
+  .section--navy .section-title a:hover {
+    color: var(--on-navy);
+  }
 }
 
 .section--navy .amp {
@@ -743,8 +812,10 @@ a:focus-visible .mark {
   text-decoration: none;
 }
 
-.section-title a:hover {
-  color: var(--navy);
+@media (hover: hover) {
+  .section-title a:hover {
+    color: var(--navy);
+  }
 }
 
 .section-title .go {
@@ -1108,24 +1179,44 @@ a:focus-visible .mark {
   transform: rotate(90deg);
 }
 
-.card:hover .card__down,
 .card:focus-visible .card__down {
   background: var(--navy);
   border-color: var(--navy);
   color: var(--paper);
 }
 
-.card:hover .card__down .icon-arrow,
+@media (hover: hover) {
+  .card:hover .card__down {
+    background: var(--navy);
+    border-color: var(--navy);
+    color: var(--paper);
+  }
+}
+
 .card:focus-visible .card__down .icon-arrow {
   transform: rotate(90deg) translateX(3px);
 }
 
-.card:hover,
+@media (hover: hover) {
+  .card:hover .card__down .icon-arrow {
+    transform: rotate(90deg) translateX(3px);
+  }
+}
+
 .card:focus-visible {
   color: var(--navy);
   transform: translateY(-3px);
   border-color: rgb(43 57 70 / 0.16);
   box-shadow: 0 22px 40px -28px rgb(43 57 70 / 0.45);
+}
+
+@media (hover: hover) {
+  .card:hover {
+    color: var(--navy);
+    transform: translateY(-3px);
+    border-color: rgb(43 57 70 / 0.16);
+    box-shadow: 0 22px 40px -28px rgb(43 57 70 / 0.45);
+  }
 }
 
 .card__icon {
@@ -1156,9 +1247,14 @@ a:focus-visible .mark {
   height: 1.5rem;
 }
 
-.card:hover .card__icon,
 .card:focus-visible .card__icon {
   transform: rotate(-4deg) scale(1.04);
+}
+
+@media (hover: hover) {
+  .card:hover .card__icon {
+    transform: rotate(-4deg) scale(1.04);
+  }
 }
 
 .card__icon {
@@ -1166,9 +1262,14 @@ a:focus-visible .mark {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .card,
-  .card:hover {
+  .card {
     transform: none;
+  }
+
+  @media (hover: hover) {
+    .card:hover {
+      transform: none;
+    }
   }
 }
 
@@ -1255,12 +1356,20 @@ a:focus-visible .mark {
   transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease), border-color 0.35s var(--ease);
 }
 
-.tile:hover,
 .tile:focus-visible {
   color: var(--navy);
   transform: translateY(-3px);
   border-color: rgb(43 57 70 / 0.16);
   box-shadow: 0 22px 40px -28px rgb(43 57 70 / 0.45);
+}
+
+@media (hover: hover) {
+  .tile:hover {
+    color: var(--navy);
+    transform: translateY(-3px);
+    border-color: rgb(43 57 70 / 0.16);
+    box-shadow: 0 22px 40px -28px rgb(43 57 70 / 0.45);
+  }
 }
 
 .tile__icon {
@@ -1269,9 +1378,14 @@ a:focus-visible .mark {
   transition: transform 0.35s var(--ease);
 }
 
-.tile:hover .tile__icon,
 .tile:focus-visible .tile__icon {
   transform: rotate(-4deg) scale(1.05);
+}
+
+@media (hover: hover) {
+  .tile:hover .tile__icon {
+    transform: rotate(-4deg) scale(1.05);
+  }
 }
 
 .tile__title {
@@ -1292,9 +1406,14 @@ a:focus-visible .mark {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .tile,
-  .tile:hover {
+  .tile {
     transform: none;
+  }
+
+  @media (hover: hover) {
+    .tile:hover {
+      transform: none;
+    }
   }
 }
 
@@ -1336,15 +1455,26 @@ a:focus-visible .mark {
   background: var(--paper);
 }
 
-.question-links a:hover,
 .question-links a:focus-visible {
   color: var(--navy);
 }
 
-.question-links a:hover::before,
+@media (hover: hover) {
+  .question-links a:hover {
+    color: var(--navy);
+  }
+}
+
 .question-links a:focus-visible::before {
   opacity: 1;
   transform: none;
+}
+
+@media (hover: hover) {
+  .question-links a:hover::before {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 .question-links a > span:not(.go) {
@@ -1352,9 +1482,14 @@ a:focus-visible .mark {
   transition: transform 0.35s var(--ease);
 }
 
-.question-links a:hover > span:not(.go),
 .question-links a:focus-visible > span:not(.go) {
   transform: translateX(0.35rem);
+}
+
+@media (hover: hover) {
+  .question-links a:hover > span:not(.go) {
+    transform: translateX(0.35rem);
+  }
 }
 
 .question-links__icon {
@@ -1363,9 +1498,14 @@ a:focus-visible .mark {
   transition: transform 0.35s var(--ease);
 }
 
-.question-links a:hover .question-links__icon,
 .question-links a:focus-visible .question-links__icon {
   transform: rotate(-8deg) scale(1.1);
+}
+
+@media (hover: hover) {
+  .question-links a:hover .question-links__icon {
+    transform: rotate(-8deg) scale(1.1);
+  }
 }
 
 .question-links .go {
@@ -1609,17 +1749,30 @@ a:focus-visible .mark {
   transition: background-color 0.25s var(--ease), color 0.25s var(--ease), border-color 0.25s var(--ease);
 }
 
-.chip:hover,
 .chip:focus-visible {
   background: var(--navy);
   border-color: var(--navy);
   color: var(--paper);
 }
 
-.chip:hover .icon-arrow,
+@media (hover: hover) {
+  .chip:hover {
+    background: var(--navy);
+    border-color: var(--navy);
+    color: var(--paper);
+  }
+}
+
 .chip:focus-visible .icon-arrow {
   color: inherit;
   transform: translateX(3px);
+}
+
+@media (hover: hover) {
+  .chip:hover .icon-arrow {
+    color: inherit;
+    transform: translateX(3px);
+  }
 }
 
 .chip .icon-arrow {
@@ -1671,11 +1824,18 @@ a:focus-visible .mark {
   transition: background-color 0.25s var(--ease), transform 0.35s var(--ease);
 }
 
-.email-button:hover,
 .email-button:focus-visible {
   background: var(--cream);
   color: var(--navy);
   transform: translateY(-2px);
+}
+
+@media (hover: hover) {
+  .email-button:hover {
+    background: var(--cream);
+    color: var(--navy);
+    transform: translateY(-2px);
+  }
 }
 
 .email-button__icon {
@@ -1684,13 +1844,38 @@ a:focus-visible .mark {
   transition: transform 0.35s var(--ease);
 }
 
-.email-button:hover .email-button__icon,
 .email-button:focus-visible .email-button__icon {
   transform: rotate(-10deg) scale(1.08);
 }
 
+@media (hover: hover) {
+  .email-button:hover .email-button__icon {
+    transform: rotate(-10deg) scale(1.08);
+  }
+}
+
 .section--navy :focus-visible {
   outline-color: var(--clay-on-navy);
+}
+
+/* ---------- Touch screens ----------
+   Cards, tiles and question rows press in gently when tapped, instead of the browser's
+   grey tap flash (which could also stay visible after going back). */
+
+.card,
+.tile,
+.question-links a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.card:active,
+.tile:active {
+  transform: scale(0.985);
+}
+
+.question-links a:active::before {
+  opacity: 1;
+  transform: none;
 }
 
 /* ---------- Footer ---------- */
@@ -1721,15 +1906,26 @@ a:focus-visible .mark {
   transition: opacity 0.25s var(--ease), transform 0.35s var(--ease);
 }
 
-.site-footer a:hover,
 .site-footer a:focus-visible {
   color: var(--navy);
 }
 
-.site-footer a:hover::after,
+@media (hover: hover) {
+  .site-footer a:hover {
+    color: var(--navy);
+  }
+}
+
 .site-footer a:focus-visible::after {
   opacity: 1;
   transform: none;
+}
+
+@media (hover: hover) {
+  .site-footer a:hover::after {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 .site-footer__inner {
