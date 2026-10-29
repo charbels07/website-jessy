@@ -114,7 +114,13 @@
             .then((response) => (response.ok ? response.text() : ""))
             .then((html) => {
               const doc = new DOMParser().parseFromString(html, "text/html");
-              doc.querySelectorAll("img[src]").forEach((img) => fetch(new URL(img.getAttribute("src"), a.href)).catch(() => {}));
+              doc.querySelectorAll("img[src]").forEach((img) => {
+                // An Image with the same srcset and sizes fetches the size this screen would use.
+                const pre = new Image();
+                if (img.getAttribute("sizes")) pre.sizes = img.getAttribute("sizes");
+                if (img.getAttribute("srcset")) pre.srcset = img.getAttribute("srcset");
+                pre.src = new URL(img.getAttribute("src"), a.href).href;
+              });
             })
             .catch(() => {});
         });

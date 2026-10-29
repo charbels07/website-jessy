@@ -916,6 +916,18 @@ a:focus-visible .mark {
   height: auto;
 }
 
+/* The painted scenes fade softly into the page at their edges. */
+.scene {
+  -webkit-mask-image:
+    linear-gradient(to right, transparent, #000 7%, #000 93%, transparent),
+    linear-gradient(to bottom, transparent, #000 7%, #000 93%, transparent);
+  -webkit-mask-composite: source-in;
+  mask-image:
+    linear-gradient(to right, transparent, #000 7%, #000 93%, transparent),
+    linear-gradient(to bottom, transparent, #000 7%, #000 93%, transparent);
+  mask-composite: intersect;
+}
+
 @media (max-width: 55.99em) {
   .hero__art {
     width: min(100%, 30rem);

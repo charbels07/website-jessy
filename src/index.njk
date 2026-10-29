@@ -15,7 +15,7 @@ permalink: /
       <p class="hero__lede">{{ hero.text }}</p>
     </div>
     <div class="hero__art">
-      <img src="{{ '/assets/illustrations/hero.svg' | versioned }}" width="640" height="520" alt="" fetchpriority="high">
+      {% scene "/assets/art/therapy-scene.webp", "(min-width: 56em) 36rem, 92vw", "eager" %}
     </div>
   </div>
 </section>

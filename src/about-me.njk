@@ -13,7 +13,7 @@ permalink: /about-me/
       {%- if about.portrait and about.portrait.image %}
       <figure class="portrait-frame">{% portrait about.portrait, "(min-width: 56em) 24rem, 72vw", "eager" %}</figure>
       {%- else %}
-      <img src="{{ '/assets/illustrations/reading.svg' | versioned }}" width="480" height="500" alt="" decoding="async">
+      {% scene "/assets/art/therapy-scene-close.webp", "(min-width: 56em) 26rem, 80vw", "eager" %}
       {%- endif %}
     </div>
     <div class="about-intro__text prose prose--lead doodles">{{ about.intro | md | safe }}</div>

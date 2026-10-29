@@ -111,6 +111,25 @@ export default function (eleventyConfig) {
     });
   });
 
+  // The painted scenes of Jessy with a child (homepage, About Me): responsive WebP sizes.
+  // Decorative like the drawings, so they are published alongside them with alt="".
+  eleventyConfig.addAsyncShortcode("scene", async (src, sizes, loading = "lazy") => {
+    const metadata = await Image(path.join("src", src), {
+      widths: [480, 800, 1200, "auto"],
+      formats: ["webp"],
+      outputDir: "_site/assets/illustrations/",
+      urlPath: "/assets/illustrations/",
+    });
+    return generateHTML(metadata, {
+      alt: "",
+      sizes,
+      loading,
+      decoding: "async",
+      class: "scene",
+      ...(loading === "eager" ? { fetchpriority: "high" } : {}),
+    });
+  });
+
   eleventyConfig.on("eleventy.after", () => {
     const settings = loadYaml(fs.readFileSync("src/_data/settings.yml", "utf8"));
     // An empty phone number is deliberate (it hides the phone line); only flag leftover placeholders.
