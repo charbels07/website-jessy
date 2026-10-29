@@ -1,12 +1,20 @@
 {#- Overview cards linking to each area of expertise. Set `cardHeading` to true to render titles as h3,
-    and `cardArrows` to false to leave out the arrows (used where the cards scroll within the same page). -#}
+    and `cardArrows` to false where the cards scroll within the same page: they then show a round
+    "go down" button instead of the right-pointing arrow. -#}
 {%- set areaIcons = ["blocks", "clipboard", "family", "steps", "school"] -%}
 <ul class="cards" role="list">
   {%- for area in areas.areas %}
   <li>
     <a class="card" href="/areas-of-expertise/#{{ area | itemId }}">
       {%- set icon = area.icon or areaIcons[loop.index0 % 5] %}{% set iconClass = "card__icon" %}
+      {%- if cardArrows === false %}
+      <span class="card__top">
+        {% include "partials/icon.njk" %}
+        <span class="card__down">{% include "partials/arrow.njk" %}</span>
+      </span>
+      {%- else %}
       {% include "partials/icon.njk" %}
+      {%- endif %}
       {%- if cardHeading %}
       <h3 class="card__title">{{ area.title | amp | safe }}</h3>
       {%- else %}
