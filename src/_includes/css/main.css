@@ -1728,6 +1728,13 @@ a:focus-visible .mark {
   border-bottom: 0;
 }
 
+.contact-note {
+  margin: 1.25rem 0 0;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
+  color: var(--navy);
+}
+
 .contact-list dt {
   font-size: 0.8125rem;
   font-weight: 600;

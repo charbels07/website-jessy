@@ -1,5 +1,6 @@
 {#- "Get in Touch" details. Placeholders from the handoff are shown as-is until real details are entered;
-    the phone line is left out entirely when no number is set. -#}
+    the phone line is left out entirely when no number is set. The sessions sentence gets a label row
+    when it has a label, and otherwise stands on its own below the list. -#}
 {%- set d = contact.details -%}
 <dl class="contact-list">
   <div class="contact-list__row">
@@ -25,8 +26,13 @@
     </dd>
   </div>
   {%- endif %}
+  {%- if d.sessions and d.sessions_label %}
   <div class="contact-list__row">
     <dt>{{ d.sessions_label }}</dt>
     <dd>{{ d.sessions }}</dd>
   </div>
+  {%- endif %}
 </dl>
+{%- if d.sessions and not d.sessions_label %}
+<p class="contact-note">{{ d.sessions }}</p>
+{%- endif %}

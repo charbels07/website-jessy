@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 240" fill="none" stroke="#2B3946" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+  <defs>
+    <filter id="hand" x="-3%" y="-3%" width="106%" height="106%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" seed="29"/>
+      <feDisplacementMap in="SourceGraphic" scale="2.2" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+  <g filter="url(#hand)">
+    <path d="M14 222C40 200 110 194 168 198S292 204 306 222Z" fill="#F4EADF" stroke="none"/>
+    <path d="M14 222C40 200 110 194 168 198S292 204 306 222"/>
+    <!-- CV -->
+    <g transform="rotate(-4 146 122)">
+      <rect x="90" y="30" width="116" height="172" rx="6" fill="#FBF9F6"/>
+      <rect x="104" y="46" width="32" height="36" rx="4" fill="#DCE5ED"/>
+      <circle cx="120" cy="60" r="7" fill="#A9BED0"/>
+      <path d="M108 82c1-9 6-13 12-13s11 4 12 13" fill="#A9BED0"/>
+      <path d="M146 54h46" stroke-width="4.4"/>
+      <path d="M146 67h34" stroke="#C97B5A" stroke-width="3"/>
+      <path d="M146 78h42" stroke="#A9BED0" stroke-width="2.4"/>
+      <path d="M104 102h30" stroke="#C97B5A" stroke-width="3"/>
+      <path d="M104 114h86M104 124h78M104 134h84" stroke="#A9BED0" stroke-width="2.4"/>
+      <path d="M104 152h30" stroke="#C97B5A" stroke-width="3"/>
+      <circle cx="106" cy="166" r="2.2" fill="#2B3946" stroke="none"/>
+      <circle cx="106" cy="178" r="2.2" fill="#2B3946" stroke="none"/>
+      <path d="M114 166h72M114 178h60" stroke="#A9BED0" stroke-width="2.4"/>
+      <!-- paperclip -->
+      <path d="M182 22v26a6 6 0 0 0 12 0V18a4.5 4.5 0 0 0-9 0v28" stroke="#5B7C99" stroke-width="2.4"/>
+    </g>
+    <!-- rolled diploma with a ribbon -->
+    <g transform="rotate(-10 252 190)">
+      <rect x="210" y="180" width="86" height="22" rx="11" fill="#F0E4D8"/>
+      <ellipse cx="290" cy="191" rx="6" ry="11" fill="#FBF9F6"/>
+      <path d="M246 180v22" stroke="#C97B5A" stroke-width="5"/>
+      <path d="M246 202l-7 14M246 202l6 14" stroke="#C97B5A" stroke-width="3"/>
+    </g>
+    <!-- pen -->
+    <path d="M222 156l44-56 9 7-44 56-11 5z" fill="#5B7C99"/>
+    <path d="M266 100l4-5 9 7-4 5" fill="#2B3946"/>
+    <path d="M220 168l3-12 8 6z" fill="#FBF9F6"/>
+    <!-- sparkles -->
+    <path d="M52 96l2 5 5 2-5 2-2 5-2-5-5-2 5-2zM270 46l1.6 4 4 1.6-4 1.6-1.6 4-1.6-4-4-1.6 4-1.6z" fill="#A9BED0" stroke-width="1.6"/>
+  </g>
+</svg>

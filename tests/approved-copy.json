@@ -1,5 +1,5 @@
 {
-  "_note": "Approved website copy extracted from the client handoff (Part 1). Client-requested changes on 2026-10-28/29: em dashes replaced by commas; the Phone / WhatsApp line removed (email only); the hero tagline removed; and the homepage How I Work and Contact sections shortened to teasers (the full copy stays on those pages). Used by scripts/check-copy.mjs. Do not edit unless the client approves new copy.",
+  "_note": "Approved website copy extracted from the client handoff (Part 1). Client-requested changes on 2026-10-28/29: em dashes replaced by commas; the Phone / WhatsApp line removed (email only); the hero tagline removed; and the homepage How I Work and Contact sections shortened to teasers (the full copy stays on those pages); and the Contact page's Sessions line replaced by the client's sentence on languages (Arabic, French, English) and formats. Used by scripts/check-copy.mjs. Do not edit unless the client approves new copy.",
   "navigation": [
     "Home",
     "About Me",
@@ -126,7 +126,7 @@
       "You can get in touch to share what you have been noticing and what you would like support with. We can then discuss your concerns and consider the most appropriate next step together.",
       "Get in Touch",
       "Email: [Insert professional email address]",
-      "Sessions: In person and online, depending on the child and family's needs."
+      "Sessions are offered in Arabic, French, and English, both in person and online, depending on the child's and family's needs."
     ]
   }
 }
