@@ -46,13 +46,18 @@ The homepage reuses copy from the other pages (the About Me introduction, the fi
 Areas of Expertise titles, the five How I Work titles, the For Parents questions and
 the Contact section), so each text exists in one place only. The Areas, How I Work,
 For Parents and Contact sections are teasers: their titles link to the full text on
-each page, and the Contact teaser shows the first sentence and the email address.
+each page, and the Contact teaser shows one short sentence (editable in the CMS under
+Pages, Home) and the email address.
 
 Moving between pages slides sideways (CSS view transitions) in the order of the main
 menu: going to a page further right (Home, About Me, Areas of Expertise, How I Work,
 For Parents, Contact) slides right, going to one further left slides left, including
 with the browser's back and forward buttons. Pages open directly at the linked
-section, and the header stays in place. The lists at the top of the
+section, and the header stays in place. Once a page has loaded, the other pages and
+their drawings are quietly loaded in the background (skipped in data-saver mode), so
+every move starts straight away with the drawings already there. The homepage's
+fade-up only plays when the site is first opened, not when sliding in from another
+page. The lists at the top of the
 Areas of Expertise and For Parents pages scroll smoothly down the same page instead,
 so they have no arrows. Browsers without view transitions simply jump, and the motion
 is off for anyone who has reduced motion switched on.

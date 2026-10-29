@@ -102,6 +102,26 @@
         target.setAttribute("tabindex", "-1");
         target.focus({ preventScroll: true });
       });
+      // Once this page is idle, quietly load the other pages and their illustrations, so moving
+      // to another page slides straight away with its drawings already in place.
+      const warm = () => {
+        if (navigator.connection && navigator.connection.saveData) return;
+        const seen = new Set([location.pathname]);
+        document.querySelectorAll(".site-nav a[href]").forEach((a) => {
+          if (seen.has(a.pathname)) return;
+          seen.add(a.pathname);
+          fetch(a.href)
+            .then((response) => (response.ok ? response.text() : ""))
+            .then((html) => {
+              const doc = new DOMParser().parseFromString(html, "text/html");
+              doc.querySelectorAll("img[src]").forEach((img) => fetch(new URL(img.getAttribute("src"), a.href)).catch(() => {}));
+            })
+            .catch(() => {});
+        });
+      };
+      const whenIdle = window.requestIdleCallback ? (fn) => requestIdleCallback(fn, { timeout: 3000 }) : (fn) => setTimeout(fn, 1500);
+      if (document.readyState === "complete") whenIdle(warm);
+      else addEventListener("load", () => whenIdle(warm));
       const onScroll = () => header.classList.toggle("is-scrolled", window.scrollY > 8);
       addEventListener("scroll", onScroll, { passive: true });
       onScroll();
