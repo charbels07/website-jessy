@@ -5,3 +5,6 @@ hero:
   role: "Pediatric Speech & Language Therapist"
   tagline: ""
   text: "Helping children build meaningful skills through individualized support and everyday interactions with the people who know them best."
+# Short sentence above the email button in the homepage Contact section
+# (from the approved Contact copy).
+contact_teaser: "I'd be happy to help."

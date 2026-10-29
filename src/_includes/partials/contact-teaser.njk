@@ -1,11 +1,11 @@
-{#- Homepage teaser for Contact: the invitation and the email address. The full details are on the Contact page. -#}
+{#- Homepage teaser for Contact: a short sentence and the email address. The full details are on the Contact page. -#}
 <div class="split">
   <div class="split__aside">
     <h2 class="section-title" id="home-contact"><a href="{{ navigation | navUrl('contact') }}">{{ navigation | navLabel("contact") }}{% include "partials/arrow.njk" %}</a></h2>
   </div>
   <div class="split__main contact-teaser">
     <h3 class="contact-teaser__title">{{ contact.intro.title | amp | safe }}</h3>
-    <div class="prose prose--large">{{ contact.intro.body | firstParagraph | md | safe }}</div>
+    <p class="contact-teaser__text">{{ home.contact_teaser or (contact.intro.body | firstParagraph) }}</p>
     {%- if settings.email | isPlaceholder %}
     <p class="contact-teaser__email"><span class="placeholder">{{ settings.email }}</span></p>
     {%- else %}
