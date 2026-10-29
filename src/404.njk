@@ -12,7 +12,7 @@ eleventyExcludeFromCollections: true
   <div class="container">
     <ul class="question-links" role="list">
       {%- for item in navigation %}
-      <li><a href="{{ item.url }}"><span>{{ item.label }}</span>{% include "partials/arrow.njk" %}</a></li>
+      <li><a href="{{ item.url }}"><span>{{ item.label }}</span>{% include "partials/go.njk" %}</a></li>
       {%- endfor %}
     </ul>
   </div>

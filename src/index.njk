@@ -23,7 +23,7 @@ permalink: /
 <section class="section section--ruled" aria-labelledby="home-about">
   <div class="container split">
     <div class="split__aside">
-      <h2 class="section-title" id="home-about"><a href="{{ navigation | navUrl('about') }}">{{ navigation | navLabel("about") }}{% include "partials/arrow.njk" %}</a></h2>
+      <h2 class="section-title" id="home-about"><a href="{{ navigation | navUrl('about') }}"><span class="mark">{{ navigation | navLabel("about") }}</span>{% include "partials/go.njk" %}</a></h2>
       <img class="aside-art" src="{{ '/assets/illustrations/growing.svg' | versioned }}" width="320" height="240" alt="" loading="lazy" decoding="async">
     </div>
     <div class="split__main prose prose--lead doodles">{{ about.intro | md | safe }}</div>
@@ -32,7 +32,7 @@ permalink: /
 
 <section class="section section--cream" aria-labelledby="home-areas">
   <div class="container">
-    <h2 class="section-title section-head" id="home-areas"><a href="{{ navigation | navUrl('areas') }}">{{ navigation | navLabel("areas") }}{% include "partials/arrow.njk" %}</a></h2>
+    <h2 class="section-title section-head" id="home-areas"><a href="{{ navigation | navUrl('areas') }}"><span class="mark">{{ navigation | navLabel("areas") }}</span>{% include "partials/go.njk" %}</a></h2>
     {%- set cardHeading = true %}
     {% include "partials/area-cards.njk" %}
   </div>
@@ -40,7 +40,7 @@ permalink: /
 
 <section class="section" aria-labelledby="home-how">
   <div class="container">
-    <h2 class="section-title section-head" id="home-how"><a href="{{ navigation | navUrl('how') }}">{{ navigation | navLabel("how") }}{% include "partials/arrow.njk" %}</a></h2>
+    <h2 class="section-title section-head" id="home-how"><a href="{{ navigation | navUrl('how') }}"><span class="mark">{{ navigation | navLabel("how") }}</span>{% include "partials/go.njk" %}</a></h2>
     {% include "partials/principle-links.njk" %}
   </div>
 </section>
@@ -48,7 +48,7 @@ permalink: /
 <section class="section section--soft section--before-hills" aria-labelledby="home-parents">
   <div class="container split">
     <div class="split__aside">
-      <h2 class="section-title" id="home-parents"><a href="{{ navigation | navUrl('parents') }}">{{ navigation | navLabel("parents") }}{% include "partials/arrow.njk" %}</a></h2>
+      <h2 class="section-title" id="home-parents"><a href="{{ navigation | navUrl('parents') }}"><span class="mark">{{ navigation | navLabel("parents") }}</span>{% include "partials/go.njk" %}</a></h2>
     </div>
     <div class="split__main">
       {%- set linkBase = navigation | navUrl('parents') %}{% set listClass = "" %}

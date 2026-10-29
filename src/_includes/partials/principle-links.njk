@@ -7,7 +7,7 @@
       {%- set icon = principle.icon or principleIcons[loop.index0 % 5] %}{% set iconClass = "tile__icon" %}
       {% include "partials/icon.njk" %}
       <h3 class="tile__title">{{ principle.title | amp | safe }}</h3>
-      <span class="tile__arrow">{% include "partials/arrow.njk" %}</span>
+      <span class="tile__arrow">{% include "partials/go.njk" %}</span>
     </a>
   </li>
   {%- endfor %}

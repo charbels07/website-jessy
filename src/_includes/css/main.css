@@ -42,6 +42,8 @@
   --on-navy: #f0e4d8;
   --clay-on-navy: #e0a082;
   --line: rgb(43 57 70 / 0.14);
+  /* Soft marker stroke swept behind link text on hover. */
+  --marker: rgb(201 123 90 / 0.3);
 
   --serif: "Fraunces", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
   --sans: "Figtree", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -300,6 +302,110 @@ ul[role="list"] {
   transition: transform 0.3s var(--ease);
 }
 
+/* ---------- Hover and focus ----------
+   Links come alive instead of just underlining: arrows get a round button that fills in,
+   link text gets a soft marker stroke swept in behind it, rows and cards lift onto a
+   panel, and their drawings tilt. Keyboard focus shows the same as the mouse. */
+
+.go {
+  position: relative;
+  display: inline-flex;
+  flex: none;
+  color: var(--clay-text);
+  transition: color 0.25s var(--ease);
+}
+
+.go::before {
+  content: "";
+  position: absolute;
+  inset: -45%;
+  border-radius: 50%;
+  background: var(--navy);
+  opacity: 0;
+  transform: scale(0.3);
+  transition: opacity 0.25s var(--ease), transform 0.4s var(--ease);
+}
+
+.go .icon-arrow {
+  position: relative;
+}
+
+a:hover .go,
+a:focus-visible .go {
+  color: var(--paper);
+}
+
+a:hover .go::before,
+a:focus-visible .go::before {
+  opacity: 1;
+  transform: none;
+}
+
+a:hover .go .icon-arrow,
+a:focus-visible .go .icon-arrow {
+  transform: translateX(12%);
+}
+
+.section--navy .go {
+  color: var(--clay-on-navy);
+}
+
+.section--navy .go::before {
+  background: var(--clay-on-navy);
+}
+
+.section--navy a:hover .go,
+.section--navy a:focus-visible .go {
+  color: var(--navy);
+}
+
+.mark,
+.prose a,
+.contact-list dd a {
+  background-image: linear-gradient(var(--marker), var(--marker));
+  background-repeat: no-repeat;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  transition: background-size 0.45s var(--ease), color 0.2s var(--ease);
+}
+
+/* Big titles: a broad stroke through the lower half of the letters. */
+.mark {
+  background-position: 0 88%;
+  background-size: 0% 0.4em;
+}
+
+a:hover .mark,
+a:focus-visible .mark {
+  background-size: 100% 0.4em;
+}
+
+/* Smaller links: the whole word is highlighted. */
+.prose a,
+.contact-list dd a {
+  border-radius: 0.2em;
+  background-position: 0 0;
+  background-size: 0% 100%;
+}
+
+.prose a:hover,
+.prose a:focus-visible,
+.contact-list dd a:hover,
+.contact-list dd a:focus-visible {
+  background-size: 100% 100%;
+}
+
+.section--navy .mark {
+  background-image: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .go .icon-arrow,
+  a:hover .go .icon-arrow {
+    transform: none;
+  }
+}
+
 /* ---------- Header ---------- */
 
 .site-header {
@@ -352,7 +458,7 @@ ul[role="list"] {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.25rem clamp(1rem, 1.8vw, 1.75rem);
+  gap: 0.25rem clamp(0.15rem, 0.6vw, 0.6rem);
   margin: 0;
   padding: 0;
   list-style: none;
@@ -360,8 +466,9 @@ ul[role="list"] {
 
 .site-nav a {
   position: relative;
+  isolation: isolate;
   display: inline-block;
-  padding: 0.5rem 0;
+  padding: 0.5rem 0.75rem;
   color: var(--ink);
   font-size: 0.9375rem;
   font-weight: 500;
@@ -369,27 +476,33 @@ ul[role="list"] {
   text-decoration: none;
 }
 
+/* A soft cream pill grows in behind the hovered link and stays behind the current page. */
 .site-nav a::after {
   content: "";
   position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0.25rem;
-  height: 1px;
-  background: var(--clay);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.3s var(--ease);
+  inset: 0;
+  z-index: -1;
+  border-radius: 999px;
+  background: var(--cream);
+  opacity: 0;
+  transform: scale(0.75);
+  transition: opacity 0.25s var(--ease), transform 0.35s var(--ease);
 }
 
 .site-nav a:hover,
-.site-nav a[aria-current="page"] {
+.site-nav a:focus-visible {
   color: var(--navy);
 }
 
+.site-nav a[aria-current="page"] {
+  color: var(--clay-text);
+}
+
 .site-nav a:hover::after,
+.site-nav a:focus-visible::after,
 .site-nav a[aria-current="page"]::after {
-  transform: scaleX(1);
+  opacity: 1;
+  transform: none;
 }
 
 .site-nav .site-nav__cta {
@@ -405,6 +518,7 @@ ul[role="list"] {
 }
 
 .site-nav .site-nav__cta:hover,
+.site-nav .site-nav__cta:focus-visible,
 .site-nav .site-nav__cta[aria-current="page"] {
   background: var(--navy);
   color: var(--paper);
@@ -520,7 +634,8 @@ ul[role="list"] {
     display: none;
   }
 
-  .js .site-nav li a[aria-current="page"] {
+  .js .site-nav li a[aria-current="page"],
+  .js .site-nav li a:not(.site-nav__cta):hover {
     color: var(--clay-text);
   }
 
@@ -582,7 +697,6 @@ ul[role="list"] {
   color: var(--on-navy);
 }
 
-.section--navy .section-title .icon-arrow,
 .section--navy .amp {
   color: var(--clay-on-navy);
 }
@@ -624,7 +738,7 @@ ul[role="list"] {
 .section-title a {
   display: inline-flex;
   align-items: baseline;
-  gap: 0.35em;
+  gap: 0.45em;
   color: inherit;
   text-decoration: none;
 }
@@ -633,15 +747,13 @@ ul[role="list"] {
   color: var(--navy);
 }
 
-.section-title .icon-arrow {
-  width: 0.6em;
-  height: 0.6em;
-  color: var(--clay-text);
+.section-title .go {
   transform: translateY(0.02em);
 }
 
-.section-title a:hover .icon-arrow {
-  transform: translate(0.2em, 0.02em);
+.section-title .icon-arrow {
+  width: 0.6em;
+  height: 0.6em;
 }
 
 .section-head {
@@ -973,17 +1085,20 @@ ul[role="list"] {
   transform: rotate(90deg);
 }
 
-.card:hover .card__down {
+.card:hover .card__down,
+.card:focus-visible .card__down {
   background: var(--navy);
   border-color: var(--navy);
   color: var(--paper);
 }
 
-.card:hover .card__down .icon-arrow {
+.card:hover .card__down .icon-arrow,
+.card:focus-visible .card__down .icon-arrow {
   transform: rotate(90deg) translateX(3px);
 }
 
-.card:hover {
+.card:hover,
+.card:focus-visible {
   color: var(--navy);
   transform: translateY(-3px);
   border-color: rgb(43 57 70 / 0.16);
@@ -1018,11 +1133,8 @@ ul[role="list"] {
   height: 1.5rem;
 }
 
-.card:hover .icon-arrow {
-  transform: translateX(4px);
-}
-
-.card:hover .card__icon {
+.card:hover .card__icon,
+.card:focus-visible .card__icon {
   transform: rotate(-4deg) scale(1.04);
 }
 
@@ -1120,7 +1232,8 @@ ul[role="list"] {
   transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease), border-color 0.35s var(--ease);
 }
 
-.tile:hover {
+.tile:hover,
+.tile:focus-visible {
   color: var(--navy);
   transform: translateY(-3px);
   border-color: rgb(43 57 70 / 0.16);
@@ -1133,7 +1246,8 @@ ul[role="list"] {
   transition: transform 0.35s var(--ease);
 }
 
-.tile:hover .tile__icon {
+.tile:hover .tile__icon,
+.tile:focus-visible .tile__icon {
   transform: rotate(-4deg) scale(1.05);
 }
 
@@ -1154,10 +1268,6 @@ ul[role="list"] {
   height: 1.4rem;
 }
 
-.tile:hover .icon-arrow {
-  transform: translateX(4px);
-}
-
 @media (prefers-reduced-motion: reduce) {
   .tile,
   .tile:hover {
@@ -1172,6 +1282,8 @@ ul[role="list"] {
 }
 
 .question-links a {
+  position: relative;
+  isolation: isolate;
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -1184,33 +1296,69 @@ ul[role="list"] {
   text-decoration: none;
 }
 
-.question-links a > span {
-  flex: 1;
+.question-links a::before {
+  content: "";
+  position: absolute;
+  inset: 0.3rem -0.85rem;
+  z-index: -1;
+  border-radius: 1rem;
+  background: var(--cream-soft);
+  box-shadow: 0 14px 28px -22px rgb(43 57 70 / 0.5);
+  opacity: 0;
+  transform: scale(0.97);
+  transition: opacity 0.3s var(--ease), transform 0.35s var(--ease);
 }
 
-.question-links a:hover {
+.section--soft .question-links a::before {
+  background: var(--paper);
+}
+
+.question-links a:hover,
+.question-links a:focus-visible {
   color: var(--navy);
 }
 
-.question-links a:hover > span {
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.2em;
+.question-links a:hover::before,
+.question-links a:focus-visible::before {
+  opacity: 1;
+  transform: none;
+}
+
+.question-links a > span:not(.go) {
+  flex: 1;
+  transition: transform 0.35s var(--ease);
+}
+
+.question-links a:hover > span:not(.go),
+.question-links a:focus-visible > span:not(.go) {
+  transform: translateX(0.35rem);
 }
 
 .question-links__icon {
   width: 2.75rem;
   height: 2.75rem;
+  transition: transform 0.35s var(--ease);
+}
+
+.question-links a:hover .question-links__icon,
+.question-links a:focus-visible .question-links__icon {
+  transform: rotate(-8deg) scale(1.1);
+}
+
+.question-links .go {
+  margin-right: 0.3rem;
 }
 
 .question-links .icon-arrow {
   width: 1.35rem;
   height: 1.35rem;
-  color: var(--clay-text);
 }
 
-.question-links a:hover .icon-arrow {
-  transform: translateX(5px);
+@media (prefers-reduced-motion: reduce) {
+  .question-links a > span:not(.go),
+  .question-links__icon {
+    transform: none !important;
+  }
 }
 
 @media (min-width: 56em) {
@@ -1425,8 +1573,21 @@ ul[role="list"] {
   text-decoration: none;
 }
 
-.chip:hover {
+.chip {
+  transition: background-color 0.25s var(--ease), color 0.25s var(--ease), border-color 0.25s var(--ease);
+}
+
+.chip:hover,
+.chip:focus-visible {
+  background: var(--navy);
   border-color: var(--navy);
+  color: var(--paper);
+}
+
+.chip:hover .icon-arrow,
+.chip:focus-visible .icon-arrow {
+  color: inherit;
+  transform: translateX(3px);
 }
 
 .chip .icon-arrow {
@@ -1478,7 +1639,8 @@ ul[role="list"] {
   transition: background-color 0.25s var(--ease), transform 0.35s var(--ease);
 }
 
-.email-button:hover {
+.email-button:hover,
+.email-button:focus-visible {
   background: var(--cream);
   color: var(--navy);
   transform: translateY(-2px);
@@ -1487,6 +1649,12 @@ ul[role="list"] {
 .email-button__icon {
   width: 2.25rem;
   height: 2.25rem;
+  transition: transform 0.35s var(--ease);
+}
+
+.email-button:hover .email-button__icon,
+.email-button:focus-visible .email-button__icon {
+  transform: rotate(-10deg) scale(1.08);
 }
 
 .section--navy :focus-visible {
@@ -1502,14 +1670,34 @@ ul[role="list"] {
 }
 
 .site-footer a {
+  position: relative;
+  isolation: isolate;
   color: var(--navy);
   text-decoration: none;
 }
 
-.site-footer a:hover {
+/* Like the main menu: a soft pill grows in behind the hovered link. */
+.site-footer a::after {
+  content: "";
+  position: absolute;
+  inset: -0.3rem -0.65rem;
+  z-index: -1;
+  border-radius: 999px;
+  background: var(--paper);
+  opacity: 0;
+  transform: scale(0.75);
+  transition: opacity 0.25s var(--ease), transform 0.35s var(--ease);
+}
+
+.site-footer a:hover,
+.site-footer a:focus-visible {
   color: var(--navy);
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
+}
+
+.site-footer a:hover::after,
+.site-footer a:focus-visible::after {
+  opacity: 1;
+  transform: none;
 }
 
 .site-footer__inner {

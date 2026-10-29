@@ -1,7 +1,7 @@
 {#- Homepage teaser for Contact: a short sentence and the email address. The full details are on the Contact page. -#}
 <div class="split">
   <div class="split__aside">
-    <h2 class="section-title" id="home-contact"><a href="{{ navigation | navUrl('contact') }}">{{ navigation | navLabel("contact") }}{% include "partials/arrow.njk" %}</a></h2>
+    <h2 class="section-title" id="home-contact"><a href="{{ navigation | navUrl('contact') }}"><span class="mark">{{ navigation | navLabel("contact") }}</span>{% include "partials/go.njk" %}</a></h2>
   </div>
   <div class="split__main contact-teaser">
     <h3 class="contact-teaser__title">{{ contact.intro.title | amp | safe }}</h3>

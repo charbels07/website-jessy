@@ -8,7 +8,7 @@
       {%- set icon = question.icon or questionIcons[loop.index0 % 6] %}{% set iconClass = "question-links__icon" %}
       {% include "partials/icon.njk" %}
       <span>{{ question.title | amp | safe }}</span>
-      {%- if linkArrows !== false %}{% include "partials/arrow.njk" %}{% endif %}
+      {%- if linkArrows !== false %}{% include "partials/go.njk" %}{% endif %}
     </a>
   </li>
   {%- endfor %}
