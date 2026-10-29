@@ -1934,10 +1934,11 @@ a:focus-visible .mark {
   transform: rotate(-90deg);
 }
 
+/* On larger screens it sits in from the corner. */
 @media (min-width: 64em) {
   .to-top {
-    right: 2rem;
-    bottom: 2rem;
+    right: 4rem;
+    bottom: 4rem;
   }
 }
 
