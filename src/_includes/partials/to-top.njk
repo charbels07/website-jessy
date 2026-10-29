@@ -1,0 +1,7 @@
+{#- "Back to top" button, fixed at the bottom right. It appears once the list at the top of the page has
+    scrolled out of view, and returns to the top (script in layouts/base.njk). Without JavaScript it is
+    always shown and simply jumps to the start of the content. -#}
+<a class="to-top" href="#main" data-to-top>
+  {% include "partials/arrow.njk" %}
+  <span class="visually-hidden">Back to top</span>
+</a>

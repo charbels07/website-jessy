@@ -96,6 +96,13 @@
         const link = event.target.closest('a[href*="#"]');
         if (!link || link.classList.contains("skip-link")) return;
         if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+        if (link.hasAttribute("data-to-top")) {
+          event.preventDefault();
+          history.replaceState(null, "", location.pathname + location.search);
+          scrollTo({ top: 0, behavior: reduceMotion.matches ? "auto" : "smooth" });
+          document.getElementById("main").focus({ preventScroll: true });
+          return;
+        }
         if (link.origin !== location.origin || link.pathname !== location.pathname || !link.hash) return;
         const target = document.getElementById(decodeURIComponent(link.hash.slice(1)));
         if (!target) return;
@@ -131,6 +138,14 @@
       const whenIdle = window.requestIdleCallback ? (fn) => requestIdleCallback(fn, { timeout: 3000 }) : (fn) => setTimeout(fn, 1500);
       if (document.readyState === "complete") whenIdle(warm);
       else addEventListener("load", () => whenIdle(warm));
+      // The "Back to top" button shows once the list at the top of the page has scrolled away.
+      const toTop = document.querySelector("[data-to-top]");
+      const overview = document.querySelector(".section--overview");
+      if (toTop && overview) {
+        new IntersectionObserver(([entry]) => {
+          toTop.classList.toggle("is-visible", !entry.isIntersecting && entry.boundingClientRect.top < 0);
+        }).observe(overview);
+      }
       const onScroll = () => header.classList.toggle("is-scrolled", window.scrollY > 8);
       addEventListener("scroll", onScroll, { passive: true });
       onScroll();

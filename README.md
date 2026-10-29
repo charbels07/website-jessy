@@ -60,7 +60,8 @@ fade-up only plays when the site is first opened, not when sliding in from anoth
 page. The lists at the top of the
 Areas of Expertise and For Parents pages scroll smoothly down the same page instead,
 so they have no arrows; these jumps don't add a back-button step, so going back always
-returns to the previous page. Browsers without view transitions simply jump, and the
+returns to the previous page. Once you scroll past the list on Areas of Expertise, a
+small round "back to top" button with an up arrow appears at the bottom right. Browsers without view transitions simply jump, and the
 motion is off for anyone who has reduced motion switched on. Hover effects only show
 with a mouse or trackpad, so on phones a tapped card doesn't stay highlighted.
 

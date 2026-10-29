@@ -1906,6 +1906,71 @@ a:focus-visible .mark {
   transform: none;
 }
 
+/* ---------- Back to top (Areas of Expertise) ---------- */
+
+.to-top {
+  position: fixed;
+  right: max(1rem, env(safe-area-inset-right));
+  /* High enough to clear the toolbar that phone browsers float over the bottom of the page. */
+  bottom: calc(5rem + env(safe-area-inset-bottom));
+  z-index: 40;
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid rgb(43 57 70 / 0.18);
+  border-radius: 50%;
+  background: var(--paper);
+  color: var(--clay-text);
+  box-shadow: 0 10px 22px -14px rgb(43 57 70 / 0.55);
+  -webkit-tap-highlight-color: transparent;
+  transition: opacity 0.3s var(--ease), transform 0.3s var(--ease), visibility 0s,
+    background-color 0.25s var(--ease), color 0.25s var(--ease), border-color 0.25s var(--ease);
+}
+
+.to-top .icon-arrow {
+  width: 1.3rem;
+  height: 1.3rem;
+  transform: rotate(-90deg);
+}
+
+@media (min-width: 64em) {
+  .to-top {
+    right: 2rem;
+    bottom: 2rem;
+  }
+}
+
+/* Hidden (and out of the Tab order) until the list at the top has scrolled away. */
+.js .to-top:not(.is-visible) {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(0.75rem);
+  transition: opacity 0.3s var(--ease), transform 0.3s var(--ease), visibility 0s linear 0.3s;
+}
+
+.to-top:focus-visible {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: var(--paper);
+}
+
+@media (hover: hover) {
+  .to-top:hover {
+    background: var(--navy);
+    border-color: var(--navy);
+    color: var(--paper);
+  }
+
+  .to-top:hover .icon-arrow {
+    transform: rotate(-90deg) translateX(2px);
+  }
+}
+
+.to-top:active {
+  transform: scale(0.94);
+}
+
 /* ---------- Footer ---------- */
 
 .site-footer {
@@ -2011,6 +2076,7 @@ a:focus-visible .mark {
 @media print {
   .site-header,
   .site-footer,
+  .to-top,
   .skip-link,
   .hero__art,
   .aside-art,
