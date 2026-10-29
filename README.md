@@ -43,8 +43,9 @@ straight to the files in `src/_data/`.
 | Approved copy used by the checker | `tests/approved-copy.json` |
 
 The homepage reuses copy from the other pages (the About Me introduction, the five
-Areas of Expertise titles, the How I Work principles, the For Parents questions and
-the Contact section), so each text exists in one place only.
+Areas of Expertise titles, the five How I Work titles, the For Parents questions and
+the Contact section), so each text exists in one place only. The Areas, How I Work
+and For Parents sections are teasers: their titles link to the full text on each page.
 
 ## Preview on GitHub Pages
 

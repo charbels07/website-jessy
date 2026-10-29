@@ -1,0 +1,14 @@
+{#- Homepage teaser for How I Work: each principle's icon and title, linking to its full text on the How I Work page. -#}
+{%- set principleIcons = ["together", "kite", "bubbles", "sprout", "books"] -%}
+<ul class="tiles" role="list">
+  {%- for principle in howIWork.principles %}
+  <li>
+    <a class="tile" href="{{ navigation | navUrl('how') }}#{{ principle | itemId }}">
+      {%- set icon = principle.icon or principleIcons[loop.index0 % 5] %}{% set iconClass = "tile__icon" %}
+      {% include "partials/icon.njk" %}
+      <h3 class="tile__title">{{ principle.title | amp | safe }}</h3>
+      <span class="tile__arrow">{% include "partials/arrow.njk" %}</span>
+    </a>
+  </li>
+  {%- endfor %}
+</ul>
