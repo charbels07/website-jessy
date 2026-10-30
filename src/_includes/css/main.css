@@ -1008,27 +1008,35 @@ a:focus-visible .mark {
   height: auto;
 }
 
-/* The painted scene is wide: on larger screens it reaches a little into the gap and the
-   page margin (its edges fade out), so Jessy isn't drawn too small. */
 @media (min-width: 56em) {
   .hero__art {
-    width: calc(100% + 2rem + var(--gutter) * 0.8);
-    max-width: 46rem;
-    margin-right: calc(var(--gutter) * -0.8);
+    width: min(100%, 38rem);
     justify-self: end;
   }
 }
 
-/* The painted scenes fade softly into the page at their edges. */
+/* The painted scenes are whole rooms with their own colours, so rather than blending
+   into the page they are framed: rounded corners and a soft shadow. */
 .scene {
-  -webkit-mask-image:
-    linear-gradient(to right, transparent, #000 7%, #000 93%, transparent),
-    linear-gradient(to bottom, transparent, #000 7%, #000 93%, transparent);
-  -webkit-mask-composite: source-in;
-  mask-image:
-    linear-gradient(to right, transparent, #000 7%, #000 93%, transparent),
-    linear-gradient(to bottom, transparent, #000 7%, #000 93%, transparent);
-  mask-composite: intersect;
+  display: block;
+  border-radius: var(--radius);
+  box-shadow: 0 1px 0 rgb(43 57 70 / 0.05), 0 26px 44px -30px rgb(43 57 70 / 0.6);
+}
+
+/* Behind the picture, a cream card tilted slightly, like a photo laid on a stack. */
+.scene-frame {
+  position: relative;
+  isolation: isolate;
+}
+
+.scene-frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: var(--radius);
+  background: var(--cream);
+  transform: rotate(-2.5deg);
 }
 
 @media (max-width: 55.99em) {

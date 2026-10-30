@@ -10,7 +10,7 @@ toTop: true
 
 <section class="section section--first">
   <div class="container about-intro">
-    <div class="about-intro__media{% if not (about.portrait and about.portrait.image) %} about-intro__media--scene{% endif %}">
+    <div class="about-intro__media{% if not (about.portrait and about.portrait.image) %} about-intro__media--scene scene-frame{% endif %}">
       {%- if about.portrait and about.portrait.image %}
       <figure class="portrait-frame">{% portrait about.portrait, "(min-width: 56em) 24rem, 72vw", "eager" %}</figure>
       {%- else %}

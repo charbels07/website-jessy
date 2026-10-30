@@ -204,10 +204,11 @@ For anyone editing the site later:
   drawn as SVG for this site, so they stay sharp and light. Scenes show parent and
   child play, picture cards, blocks, books, a kite and rolling hills. Large scenes
   are in `src/assets/illustrations/`; icons are in `src/_includes/partials/sprite.njk`.
-  The homepage and About Me show soft painted pictures of Jessy supplied by the client
-  (`src/assets/art/`): on the homepage with a child on the rug beside her, on About Me
-  on her own. Their pale background was matched to the page colour, the build makes
-  sized WebP copies, and their edges fade into the page.
+  The homepage and About Me show painted pictures of Jessy supplied by the client
+  (`src/assets/art/`): on the homepage playing with a child, on About Me at her desk.
+  They are whole rooms with their own colours, so they are framed (rounded corners, a
+  soft shadow and a tilted cream card behind) rather than blended into the page; the
+  build makes sized WebP copies.
   Each Area of Expertise (and its subsections), How I Work principle and For Parents
   question picks its icon in the CMS, and each About Me section can show a small
   illustration beside its text. Longer passages have a faint layer of hand-drawn
