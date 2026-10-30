@@ -262,6 +262,10 @@ ul[role="list"] {
   padding: 0;
 }
 
+.nowrap {
+  white-space: nowrap;
+}
+
 .visually-hidden {
   position: absolute !important;
   width: 1px;
@@ -1638,6 +1642,11 @@ a:focus-visible .mark {
   .about-intro {
     grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
   }
+
+  /* Without a portrait the introduction stands on its own, at a comfortable reading width. */
+  .about-intro--text-only {
+    grid-template-columns: minmax(0, 48rem);
+  }
 }
 
 .about-intro__media {
@@ -1649,19 +1658,10 @@ a:focus-visible .mark {
   height: auto;
 }
 
-/* The painted scene is landscape, so it gets more room than a portrait photo. */
-.about-intro__media--scene {
-  width: min(100%, 30rem);
-}
-
 @media (max-width: 55.99em) {
   .about-intro__media {
     width: min(80%, 20rem);
     justify-self: center;
-  }
-
-  .about-intro__media--scene {
-    width: min(100%, 32rem);
   }
 }
 

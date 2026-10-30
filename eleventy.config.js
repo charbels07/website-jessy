@@ -52,9 +52,12 @@ export default function (eleventyConfig) {
   // Paragraphs of approved copy (blank-line separated, Markdown allowed for CMS edits).
   eleventyConfig.addFilter("md", (text) => md.render(String(text ?? "")));
 
-  // Escapes a heading and sets each "&" in the display face's italic ampersand.
+  // Escapes a heading, sets each "&" in the display face's italic ampersand, and keeps a short
+  // bracketed part such as "(ADOS-2 and ADI-R)" together on one line.
   eleventyConfig.addFilter("amp", (text) =>
-    escapeHtml(text).replace(/&amp;/g, '<span class="amp">&amp;</span>'),
+    escapeHtml(text)
+      .replace(/&amp;/g, '<span class="amp">&amp;</span>')
+      .replace(/\(([^()]{1,24})\)/g, '<span class="nowrap">($1)</span>'),
   );
 
   eleventyConfig.addFilter("isPlaceholder", isPlaceholder);

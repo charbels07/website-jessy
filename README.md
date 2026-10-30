@@ -154,7 +154,7 @@ The handoff's pre-launch checklist, and where each item stands:
 ### To confirm with Jessy
 
 - **Portrait (optional):** upload it under *Pages → About Me → Portrait*, with a
-  short description. It replaces the painted scene on the About Me page, and is
+  short description. It appears at the top of the About Me page (which otherwise has no picture), and is
   converted to responsive AVIF/WebP/JPEG automatically.
 - **Domain name.**
 
@@ -204,11 +204,11 @@ For anyone editing the site later:
   drawn as SVG for this site, so they stay sharp and light. Scenes show parent and
   child play, picture cards, blocks, books, a kite and rolling hills. Large scenes
   are in `src/assets/illustrations/`; icons are in `src/_includes/partials/sprite.njk`.
-  The homepage and About Me show painted pictures of Jessy supplied by the client
-  (`src/assets/art/`): on the homepage playing with a child, on About Me at her desk.
-  They are whole rooms with their own colours, so they are framed (rounded corners, a
-  soft shadow and a tilted cream card behind) rather than blended into the page; the
-  build makes sized WebP copies.
+  The homepage shows a painted picture of Jessy playing with a child, supplied by the
+  client (`src/assets/art/`). It is a whole room with its own colours, so it is framed
+  (rounded corners, a soft shadow and a tilted cream card behind) rather than blended
+  into the page; the build makes sized WebP copies. About Me has no picture, at the
+  client's request, unless a portrait is uploaded in the CMS.
   Each Area of Expertise (and its subsections), How I Work principle and For Parents
   question picks its icon in the CMS, and each About Me section can show a small
   illustration beside its text. Longer passages have a faint layer of hand-drawn
