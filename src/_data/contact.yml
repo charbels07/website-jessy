@@ -8,5 +8,6 @@ details:
   title: "Get in Touch"
   email_label: "Email:"
   phone_label: "Phone / WhatsApp:"
+  location_label: "Location:"
   sessions_label: ""
   sessions: "Sessions are offered in Arabic, French, and English, both in person and online, depending on the child's and family's needs."

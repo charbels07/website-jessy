@@ -80,6 +80,15 @@ export default function (eleventyConfig) {
     if (url) person.url = url + "/";
     if (!isPlaceholder(settings.email)) person.email = settings.email;
     if (!isPlaceholder(settings.phone)) person.telephone = settings.phone;
+    if (settings.location) {
+      // "Hazmieh, Lebanon": town first, country last.
+      const parts = settings.location.split(",").map((part) => part.trim());
+      person.workLocation = {
+        "@type": "Place",
+        name: settings.location,
+        address: { "@type": "PostalAddress", addressLocality: parts[0], addressCountry: parts[parts.length - 1] },
+      };
+    }
     return JSON.stringify(person).replace(/</g, "\\u003c");
   });
 

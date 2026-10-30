@@ -2054,6 +2054,12 @@ a:focus-visible .mark {
   font-size: 0.9375rem;
 }
 
+.site-footer__location {
+  margin-top: 0.25rem;
+  font-size: 0.9375rem;
+  color: var(--clay-text);
+}
+
 .site-footer ul {
   display: grid;
   align-content: start;

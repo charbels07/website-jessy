@@ -29,7 +29,7 @@ straight to the files in `src/_data/`.
 
 | What | File |
 | --- | --- |
-| Contact details, name, search description | `src/_data/settings.yml` |
+| Contact details, location, name, search description | `src/_data/settings.yml` |
 | Homepage hero | `src/_data/home.yml` |
 | About Me (intro, sections, closing statement, portrait) | `src/_data/about.yml` |
 | Areas of Expertise | `src/_data/areas.yml` |

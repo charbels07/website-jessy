@@ -5,6 +5,9 @@
         <span class="brand__latin">{{ settings.name }}</span>
       </p>
       <p class="site-footer__role">{{ settings.role | amp | safe }}</p>
+      {%- if settings.location %}
+      <p class="site-footer__location">{{ settings.location }}</p>
+      {%- endif %}
     </div>
     <nav class="site-footer__nav" aria-label="Footer">
       <ul>

@@ -9,6 +9,8 @@ role: "Pediatric Speech & Language Therapist"
 email: "jessyelkhoury0@gmail.com"
 phone: ""
 whatsapp: true
+# Where Jessy practises: shown on the Contact page, in the footer and to search engines.
+location: "Hazmieh, Lebanon"
 description: "Helping children build meaningful skills through individualized support and everyday interactions with the people who know them best."
 # The site's public address, e.g. "https://www.example.com". Used for
 # canonical links, social previews and the sitemap. Can stay empty on

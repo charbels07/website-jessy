@@ -26,6 +26,12 @@
     </dd>
   </div>
   {%- endif %}
+  {%- if settings.location %}
+  <div class="contact-list__row">
+    <dt>{{ d.location_label }}</dt>
+    <dd>{{ settings.location }}</dd>
+  </div>
+  {%- endif %}
   {%- if d.sessions and d.sessions_label %}
   <div class="contact-list__row">
     <dt>{{ d.sessions_label }}</dt>

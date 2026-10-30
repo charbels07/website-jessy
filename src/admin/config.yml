@@ -47,6 +47,11 @@ collections:
             widget: boolean
             default: true
             hint: Adds a WhatsApp link next to the number.
+          - label: Location
+            name: location
+            widget: string
+            required: false
+            hint: "Town and country, e.g. Hazmieh, Lebanon. Shown on the Contact page, in the footer and to search engines. Leave empty to hide it."
           - label: Name
             name: name
             widget: string
@@ -182,5 +187,6 @@ collections:
               - { label: Title, name: title, widget: string }
               - { label: Email label, name: email_label, widget: string }
               - { label: Phone label, name: phone_label, widget: string }
+              - { label: Location label, name: location_label, widget: string }
               - { label: Sessions label (leave empty to show the sentence on its own), name: sessions_label, widget: string, required: false }
               - { label: Sessions, name: sessions, widget: text }
