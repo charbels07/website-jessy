@@ -1950,6 +1950,18 @@ a:focus-visible .mark {
   }
 }
 
+/* Netlify's free plan pins a "Powered by Netlify" badge (64px tall) to the bottom right
+   corner: when it is on the page, the button moves up to sit clear above it. */
+body:has(> #nl-badge-frame) .to-top {
+  bottom: calc(6.5rem + env(safe-area-inset-bottom));
+}
+
+@media (min-width: 64em) {
+  body:has(> #nl-badge-frame) .to-top {
+    bottom: 6.5rem;
+  }
+}
+
 /* Hidden (and out of the Tab order) until the top of the page has scrolled away. */
 .js .to-top:not(.is-visible) {
   opacity: 0;
