@@ -81,15 +81,28 @@ commit.
 
 ## Deploying (Netlify)
 
-`netlify.toml` already holds the build settings.
+`netlify.toml` already holds the build settings. The live site is built from the
+`main` branch; the GitHub Pages preview follows the development branch.
 
-1. Push this repository to GitHub, with the site on the `main` branch.
-2. In Netlify: **Add new site → Import an existing project → GitHub**, pick the
-   repository. The build command (`npm run build`) and publish folder (`_site`) are
-   detected from `netlify.toml`.
-3. Add Jessy's domain under **Domain management**. HTTPS is set up automatically.
-   Netlify passes the address to the build, so canonical links, the sitemap and
-   social previews use it without further setup.
+1. In Netlify: **Add new site → Import an existing project → GitHub**, pick
+   `charbels07/website-jessy` and the **`main`** branch. The build command
+   (`npm run build`) and publish folder (`_site`) are read from `netlify.toml`.
+   Netlify gives the site a temporary `*.netlify.app` address; while the site only
+   has that address it is kept out of search engines.
+2. Add Jessy's domain under **Domain management → Add a domain** (choose external
+   DNS when asked). Her domain is registered at Cloudflare, so in her Cloudflare
+   dashboard, under **DNS → Records**, delete any existing `@` and `www` records and
+   add these two, both set to **DNS only** (grey cloud, not proxied):
+
+   | Type  | Name  | Target                          |
+   |-------|-------|---------------------------------|
+   | CNAME | `@`   | `apex-loadbalancer.netlify.com` |
+   | CNAME | `www` | `<site-name>.netlify.app`       |
+
+   Netlify then issues the HTTPS certificate automatically.
+3. Once the domain shows as the primary domain, run **Deploys → Trigger deploy →
+   Deploy site** once, so canonical links, the sitemap and social previews use the
+   domain and the site becomes visible to search engines.
 
 Any other static host works too (Cloudflare Pages, Vercel, GitHub Pages): build with
 `npm run build` and serve `_site/`. In that case, enter the address under **Website

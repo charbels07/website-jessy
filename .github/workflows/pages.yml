@@ -1,11 +1,12 @@
 # Publishes a preview of the site to GitHub Pages
-# (https://charbels07.github.io/website-jessy/) on every push.
+# (https://charbels07.github.io/website-jessy/) on every push to the development branch.
+# The live site is built by Netlify from `main` (where Jessy's CMS edits are saved too).
 # One-time setup: repository Settings → Pages → Source: "GitHub Actions".
 name: Deploy preview to GitHub Pages
 
 on:
   push:
-    branches: [main, claude/peaceful-newton-o3rvmu]
+    branches: [claude/peaceful-newton-o3rvmu]
   workflow_dispatch:
 
 permissions:
